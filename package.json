@@ -1,0 +1,14 @@
+{
+  "name": "app-webpack-bundler",
+  "version": "1.0.0",
+  "description": "multi-page website bundler",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["webpack", "html", "css", "scss", "javascript"],
+  "author": "Yauheni Basalai",
+  "license": "MIT",
+  "packageManager": "pnpm@10.5.2"
+}

@@ -1,0 +1,18 @@
+<header class="common-header">
+  <div class="common-header__container common-container">
+    <a class="common-header__logo" href="/" target="_blank">
+      <img src="@img/logo.png" alt="logo" />
+    </a>
+    <nav class="common-header__nav-menu nav-menu">
+      <ul class="nav-menu__list">
+        {% for link in links %}
+        <li class="nav-menu__item">
+          <a class="nav-menu__link" href="{{link.route}}" target="_blank">
+            {{link.label}}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

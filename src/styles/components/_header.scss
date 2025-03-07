@@ -1,0 +1,29 @@
+@use '../global/variables' as vars;
+
+.common-header {
+  &__container {
+    block-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: block;
+    inline-size: 66px;
+
+    img {
+      inline-size: 100%;
+    }
+
+    @media screen and (min-width: vars.$mobile) {
+      inline-size: 93px;
+    }
+  }
+
+  .nav-menu {
+    &__list {
+      display: flex;
+    }
+  }
+}

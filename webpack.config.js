@@ -13,12 +13,30 @@ export default {
         {
           import: 'src/pages/home.html', // template file
           filename: 'index.html', // => dist/index.html
-          data: { title: 'Home page' }, // pass variables into template
+          data: {
+            title: 'Home page',
+            links: [
+              { label: 'home', route: 'home' },
+              { label: 'shop', route: 'shop' },
+              { label: 'blog', route: 'blog' },
+              { label: 'sale', route: 'sale' },
+              { label: 'contact us', route: 'contact' },
+            ],
+          }, // pass variables into template
         },
         {
           import: 'src/pages/about.html', // template file
           filename: 'about.html', // => dist/about.html
-          data: { title: 'About page' }, // pass variables into template
+          data: {
+            title: 'About page',
+            links: [
+              { label: 'home', route: 'home' },
+              { label: 'shop', route: 'shop' },
+              { label: 'blog', route: 'blog' },
+              { label: 'sale', route: 'sale' },
+              { label: 'contact us', route: 'contact' },
+            ],
+          }, // pass variables into template
         },
       ],
 
@@ -34,7 +52,7 @@ export default {
       preprocessor: 'nunjucks',
       preprocessorOptions: {
         // an array of relative or absolute templates paths, defaults the current working directory
-        views: ['src/pages/chunks', 'src/pages/templates'],
+        views: ['src/pages/templates', 'src/pages/chunks'],
         async: false, // defaults 'false'
         jinjaCompatibility: false, // installs support for Jinja compatibility, defaults 'false'
         // here are original Nunjucks options

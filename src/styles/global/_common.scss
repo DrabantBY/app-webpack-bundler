@@ -1,0 +1,43 @@
+@use 'variables' as vars;
+
+:root {
+  --clr-black: #000000;
+  --clr-white: #ffffff;
+
+  --mobile-device: 321px;
+  --desktop-device: 1921px;
+
+  --common-py: 14px;
+  --header-height: 50px;
+
+  @media screen and (min-width: vars.$mobile) {
+    --common-py: 21px;
+    --header-height: 115px;
+  }
+}
+
+.common {
+  &-root {
+    position: relative;
+    min-block-size: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-container {
+    max-inline-size: 1880px;
+    margin-inline: auto;
+    padding-inline: var(--common-py);
+  }
+
+  &-header {
+    block-size: var(--header-height);
+    color: var(--clr-white);
+    background-color: var(--clr-black);
+  }
+
+  &-main {
+    position: relative;
+    flex-grow: 1;
+  }
+}

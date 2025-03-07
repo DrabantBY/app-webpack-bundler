@@ -1,29 +1,156 @@
-@use '../global/variables' as vars;
+@use '@styles/global/variables' as vars;
 
 .common-header {
+  display: flex;
+  align-items: center;
+  font-family: 'Oswald Semibold', sans-serif;
+  font-size: 14px;
+  color: var(--clr-white);
+  text-transform: uppercase;
+
   &__container {
-    block-size: 100%;
+    flex-grow: 1;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    column-gap: 30px;
+    row-gap: 8px;
+    flex-wrap: wrap;
   }
 
   &__logo {
     display: block;
     inline-size: 66px;
-
-    img {
-      inline-size: 100%;
-    }
+    align-self: center;
 
     @media screen and (min-width: vars.$mobile) {
       inline-size: 93px;
     }
   }
 
-  .nav-menu {
-    &__list {
-      display: flex;
+  &__body {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    padding-inline: 15px;
+
+    &--active::after {
+      content: '';
+      position: absolute;
+      inset-inline-start: 0;
+      inset-block-end: -10px;
+      inline-size: 100%;
+      block-size: 2px;
+      background-color: var(--clr-red);
+    }
+  }
+
+  &__search {
+    inline-size: 320px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--clr-white);
+    padding-block: 5px;
+    padding-inline: 5px;
+
+    &:has(input[type='hidden']) {
+      inline-size: initial;
+      border: initial;
+      padding-block: 0;
+      padding-inline: 0;
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  &__input {
+    flex-grow: 1;
+
+    &::placeholder {
+      color: var(--clr-light-gray);
+      text-transform: capitalize;
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    svg {
+      align-self: end;
+    }
+  }
+
+  &__account {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__goods {
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__favorites {
+    svg {
+      vertical-align: bottom;
+    }
+  }
+
+  &__cart {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 11px;
+    svg {
+      grid-row: 1/3;
+      align-self: center;
+    }
+  }
+
+  &__amount {
+    font-family: 'Roboto Medium', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: lowercase;
+    justify-self: start;
+  }
+
+  &__price {
+    font-family: 'Roboto Bold', sans-serif;
+    font-weight: 700;
+    grid-column: 2/3;
+  }
+
+  &__link,
+  &__login,
+  &__create,
+  &__cart,
+  &__control,
+  &__favorites {
+    white-space: nowrap;
+    &:hover {
+      color: var(--clr-hover);
     }
   }
 }

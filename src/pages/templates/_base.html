@@ -1,11 +1,19 @@
 <!doctype html>
 <html lang="en">
   {% include 'src/pages/chunks/_head.html' %}
-  <!-- block for specific page styles -->
+  <!--block for specific page styles -->
   {% block styles %}{% endblock %}
+  <!--block for specific page scripts -->
+  {% block scripts %}{% endblock %}
   <body>
     <div class="common-root">
+      <div id="overlay" class="common-overlay"></div>
+      <!--add header-->
       {% include 'src/pages/chunks/_header.html' %}
+      <!--add login popup-->
+      {% include 'src/pages/chunks/_login.html' %}
+      <!--add cart popup-->
+      {% include 'src/pages/chunks/_cart.html' %}
       <h1>Hello Home</h1>
     </div>
   </body>

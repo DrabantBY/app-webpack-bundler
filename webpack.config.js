@@ -16,7 +16,7 @@ export default {
           data: {
             title: 'Home page',
             links: [
-              { label: 'home', route: 'home' },
+              { label: 'home', route: 'home', active: true },
               { label: 'shop', route: 'shop' },
               { label: 'blog', route: 'blog' },
               { label: 'sale', route: 'sale' },
@@ -25,13 +25,13 @@ export default {
           }, // pass variables into template
         },
         {
-          import: 'src/pages/about.html', // template file
-          filename: 'about.html', // => dist/about.html
+          import: 'src/pages/shop.html', // template file
+          filename: 'shop.html', // => dist/about.html
           data: {
-            title: 'About page',
+            title: 'Shop page',
             links: [
               { label: 'home', route: 'home' },
-              { label: 'shop', route: 'shop' },
+              { label: 'shop', route: 'shop', active: true },
               { label: 'blog', route: 'blog' },
               { label: 'sale', route: 'sale' },
               { label: 'contact us', route: 'contact' },

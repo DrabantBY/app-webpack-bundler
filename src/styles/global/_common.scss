@@ -3,9 +3,14 @@
 :root {
   --clr-black: #000000;
   --clr-white: #ffffff;
-
-  --mobile-device: 321px;
-  --desktop-device: 1921px;
+  --clr-red: #eb5757;
+  --clr-dark-blue: #63a6dc;
+  --clr-blue: #d0e4f2;
+  --clr-light-blue: #e6f1fa;
+  --clr-hover: #f0f2f2;
+  --clr-light-gray: #c4c4c4;
+  --clr-gray: #bdbdbd;
+  --clr-dark-gray: #828282;
 
   --common-py: 14px;
   --header-height: 50px;
@@ -16,12 +21,29 @@
   }
 }
 
+body.static {
+  overflow-y: hidden;
+}
+
 .common {
   &-root {
     position: relative;
     min-block-size: 100vh;
     display: flex;
     flex-direction: column;
+  }
+
+  &-overlay {
+    display: none;
+    position: fixed;
+    block-size: 100%;
+    inline-size: 100%;
+    z-index: 1;
+    backdrop-filter: blur(2px);
+
+    &.visible {
+      display: block;
+    }
   }
 
   &-container {
@@ -31,7 +53,7 @@
   }
 
   &-header {
-    block-size: var(--header-height);
+    min-block-size: var(--header-height);
     color: var(--clr-white);
     background-color: var(--clr-black);
   }

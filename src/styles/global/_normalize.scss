@@ -4,7 +4,9 @@
   scroll-behavior: smooth;
 }
 
-* {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
   padding-block: 0;
   padding-inline: 0;
@@ -25,9 +27,33 @@ a {
 
 img {
   display: block;
+  inline-size: 100%;
 }
 
 ul,
 ol {
   list-style: none;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  text-transform: inherit;
+  color: currentColor;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+input {
+  font-family: 'Roboto Regular', sans-serif;
+  font-size: 14px;
+  color: currentColor;
+  background-color: transparent;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
 }

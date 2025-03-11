@@ -1,47 +1,23 @@
 @font-face {
-  font-family: 'Roboto Bold';
+  font-family: 'CeraProBlack';
   font-style: normal;
-  src: url('@fonts/roboto/Roboto-Bold.ttf');
+  src: url('@fonts/CeraPro-Black.woff2');
 }
 
 @font-face {
-  font-family: 'Roboto Regular';
+  font-family: 'CeraProBold';
   font-style: normal;
-  src: url('@fonts/roboto/Roboto-Regular.ttf');
+  src: url('@fonts/CeraPro-Bold.woff2');
 }
 
 @font-face {
-  font-family: 'Roboto Medium';
+  font-family: 'CeraProMedium';
   font-style: normal;
-  src: url('@fonts/roboto/Roboto-Medium.ttf');
+  src: url('@fonts/CeraPro-Medium.woff2');
 }
 
 @font-face {
-  font-family: 'Roboto Light';
+  font-family: 'CeraProRegular';
   font-style: normal;
-  src: url('@fonts/roboto/Roboto-Light.ttf');
-}
-
-@font-face {
-  font-family: 'Oswald Semibold';
-  font-style: normal;
-  src: url('@fonts/oswald/Oswald-SemiBold.ttf');
-}
-
-@font-face {
-  font-family: 'Oswald Regular';
-  font-style: normal;
-  src: url('@fonts/oswald/Oswald-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'Oswald Medium';
-  font-style: normal;
-  src: url('@fonts/oswald/Oswald-Medium.ttf');
-}
-
-@font-face {
-  font-family: 'Oswald Light';
-  font-style: normal;
-  src: url('@fonts/oswald/Oswald-Light.ttf');
+  src: url('@fonts/CeraPro-Regular.woff2');
 }

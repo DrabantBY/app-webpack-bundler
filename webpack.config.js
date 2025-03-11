@@ -16,11 +16,10 @@ export default {
           data: {
             title: 'Home page',
             links: [
-              { label: 'home', route: 'home', active: true },
-              { label: 'shop', route: 'shop' },
-              { label: 'blog', route: 'blog' },
-              { label: 'sale', route: 'sale' },
-              { label: 'contact us', route: 'contact' },
+              { label: 'home', href: '/', active: true },
+              { label: 'shop', href: 'shop.html' },
+              { label: 'blog', href: 'blog.html' },
+              { label: 'about', href: 'about.html' },
             ],
           }, // pass variables into template
         },
@@ -30,11 +29,10 @@ export default {
           data: {
             title: 'Shop page',
             links: [
-              { label: 'home', route: 'home' },
-              { label: 'shop', route: 'shop', active: true },
-              { label: 'blog', route: 'blog' },
-              { label: 'sale', route: 'sale' },
-              { label: 'contact us', route: 'contact' },
+              { label: 'home', href: '/' },
+              { label: 'shop', href: 'shop.html', active: true },
+              { label: 'blog', href: 'blog.html' },
+              { label: 'about', href: 'about.html' },
             ],
           }, // pass variables into template
         },

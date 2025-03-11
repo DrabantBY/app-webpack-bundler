@@ -1,0 +1,17 @@
+@use 'variables' as vars;
+
+@mixin set-props-color(
+  $color: vars.$green,
+  $opacity: 0.9,
+  $property: background-color
+) {
+  $rgba: rgba($color, $opacity);
+  #{$property}: $rgba;
+}
+
+@mixin set-flex($gap: 0, $justify: flex-start) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify;
+  gap: $gap;
+}

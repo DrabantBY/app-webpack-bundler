@@ -1,65 +1,96 @@
 @use 'variables' as vars;
+@use 'mixins' as mixins;
 
 :root {
-  --clr-black: #000000;
-  --clr-white: #ffffff;
-  --clr-red: #eb5757;
-  --clr-dark-blue: #63a6dc;
-  --clr-blue: #d0e4f2;
-  --clr-light-blue: #e6f1fa;
-  --clr-hover: #f0f2f2;
+  //color css variables
+  --clr-black: #3d3d3d;
+  --clr-yellow: #ffc107;
+  --clr-green: #46a358;
+
+  --clr-gray: #acacac;
+  --clr-dark-gray: #727272;
   --clr-light-gray: #c4c4c4;
-  --clr-gray: #bdbdbd;
-  --clr-dark-gray: #828282;
 
-  --common-py: 14px;
-  --header-height: 50px;
+  --clr-white: #ffffff;
+  --clr-dark-white: #f3f3f3;
 
-  @media screen and (min-width: vars.$mobile) {
-    --common-py: 21px;
-    --header-height: 115px;
-  }
-}
+  //shell css variables
+  --shell-px: 8px;
+  //--header-h: 50px;
 
-body.static {
-  overflow-y: hidden;
-}
+  @media screen and (min-width: vars.$xs + 1) {
+    --shell-px: 16px;
+    //--header-h: 70px;
 
-.common {
-  &-root {
-    position: relative;
-    min-block-size: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+    @media screen and (min-width: vars.$sm + 1) {
+      --shell-px: 24px;
+      //--header-h: 70px;
 
-  &-overlay {
-    display: none;
-    position: fixed;
-    block-size: 100%;
-    inline-size: 100%;
-    z-index: 1;
-    backdrop-filter: blur(2px);
-
-    &.visible {
-      display: block;
+      @media screen and (min-width: vars.$lg + 1) {
+        --shell-px: 40px;
+        //--header-h: 70px;
+      }
     }
   }
+}
 
-  &-container {
-    max-inline-size: 1880px;
-    margin-inline: auto;
-    padding-inline: var(--common-py);
+body {
+  font-family: 'CeraProRegular', serif;
+
+  &.static {
+    overflow-y: hidden;
+  }
+}
+
+#root {
+  position: relative;
+  min-block-size: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  block-size: 100%;
+  inline-size: 100%;
+  z-index: 1;
+  backdrop-filter: blur(2px);
+
+  &.visible {
+    display: block;
+  }
+}
+
+#main {
+  position: relative;
+  flex-grow: 1;
+}
+
+.shell {
+  max-inline-size: vars.$xl;
+  margin-inline: auto;
+  padding-inline: var(--shell-px);
+}
+
+.button {
+  @include mixins.set-flex(0, center);
+  font-family: 'CeraProBold', serif;
+  block-size: 40px;
+  color: var(--clr-white);
+  background-color: var(--clr-green);
+  border-radius: 6px;
+
+  &-text {
+    padding-inline: 12px;
+    gap: 4px;
   }
 
-  &-header {
-    min-block-size: var(--header-height);
-    color: var(--clr-white);
-    background-color: var(--clr-black);
+  &-icon {
+    inline-size: 40px;
   }
 
-  &-main {
-    position: relative;
-    flex-grow: 1;
+  &:hover {
+    @include mixins.set-props-color();
   }
 }

@@ -1,6 +1,6 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11.76659044" cy="11.76659044" r="8.9885584"/>
-        <line x1="18.0183067" y1="18.4851259" x2="21.5423342" y2="22.0000001"/>
-    </g>
+        <path d="M4.25 12.2743L19.25 12.2743"/>
+        <path d="M10.3003 18.2988C10.3003 18.2988 4.25029 15.0378 4.25029 12.2758C4.25029 9.51176 10.3003 6.24976 10.3003 6.24976"/>
+    </g>>
 </svg>

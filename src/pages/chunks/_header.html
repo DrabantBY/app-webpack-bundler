@@ -1,16 +1,18 @@
-<header class="common-header">
-  <div class="common-header__container common-container">
-    <a class="common-header__logo" href="/" target="_blank">
-      <img src="@img/logo.png" alt="logo" />
-    </a>
-    <div class="common-header__body">
-      <nav class="common-header__nav-menu">
-        <ul class="common-header__list">
+<header id="header" class="header">
+  <div class="header__container shell">
+    <div class="header__content">
+      <a class="header__logo" href="/" target="_blank">
+        {% include "src/assets/svg/logo/label.svg" %} {% include
+        "src/assets/svg/logo/name.svg" %}
+      </a>
+
+      <nav class="header__nav nav">
+        <ul class="header__menu nav__menu">
           {% for link in links %}
-          <li class="common-header__item">
+          <li class="header__menu-item nav__menu-item">
             <a
-              class="common-header__link{{ ' common-header__link--active' if link.active }}"
-              href="{{link.route}}"
+              class="header__menu-link header__menu-link{{'--active' if link.active }} nav__menu-link{{'--active' if link.active }} "
+              href="{{link.href}}"
               target="_blank">
               {{link.label}}
             </a>
@@ -18,40 +20,18 @@
           {% endfor %}
         </ul>
       </nav>
-      <div class="common-header__search">
-        <input
-          id="header-search-input"
-          class="common-header__input"
-          type="hidden"
-          aria-label="search"
-          placeholder="search"
-          maxlength="30" />
-        <button
-          id="header-search-control"
-          class="common-header__control"
-          type="button">
-          {% include 'src/assets/svg/search.svg' %} search
-        </button>
-      </div>
-    </div>
-    <div class="common-header__account">
-      <button id="login-open" class="common-header__login" type="button">
-        sign in
+
+      {% include "src/pages/chunks/_search.html" %}
+      <a class="header__cart" href="#" target="_blank" data-count="99">
+        {% include 'src/assets/svg/cart.svg' %}
+      </a>
+      <button class="header__login button button-text" type="button">
+        {% include 'src/assets/svg/login.svg' %}
+        <span>Login</span>
       </button>
 
-      <a class="common-header__create" href="create_account" target="_blank">
-        create an account
-      </a>
-    </div>
-
-    <div class="common-header__goods">
-      <a class="common-header__favorites" href="favorites" target="_blank">
-        {% include 'src/assets/svg/favorite.svg' %}
-      </a>
-      <button id="cart-open" class="common-header__cart" type="button">
-        {% include 'src/assets/svg/cart.svg' %}
-        <span class="common-header__amount"> 2 item(s)</span>
-        <span class="common-header__price"> 258,00 eur</span>
+      <button class="header__burger-btn button button-icon" type="button">
+        {% include 'src/assets/svg/menu.svg' %}
       </button>
     </div>
   </div>

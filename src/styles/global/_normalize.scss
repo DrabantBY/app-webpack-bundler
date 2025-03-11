@@ -2,6 +2,7 @@
   box-sizing: border-box;
   user-select: none;
   scroll-behavior: smooth;
+  color: var(--clr-black);
 }
 
 *,
@@ -47,13 +48,15 @@ button {
 }
 
 input {
-  font-family: 'Roboto Regular', sans-serif;
-  font-size: 14px;
-  color: currentColor;
-  background-color: transparent;
+  font-family: inherit;
   border: none;
+  background-color: transparent;
 
   &:focus {
     outline: none;
+  }
+
+  &::placeholder {
+    color: currentColor;
   }
 }

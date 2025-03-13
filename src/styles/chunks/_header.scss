@@ -1,4 +1,5 @@
 @use 'search';
+@use 'burger';
 @use '../global/mixins' as mixins;
 @use '../global/variables' as vars;
 
@@ -10,13 +11,11 @@
     column-gap: 8px;
     row-gap: 8px;
     padding-block: 8px;
-    @include mixins.set-props-color(vars.$green, 0.5, border-bottom-color);
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+    @include mixins.set-divider();
   }
 
   &__logo {
-    @include mixins.set-flex(6px);
+    @include mixins.set-flex(initial, 6px);
     color: var(--clr-green);
   }
 
@@ -24,8 +23,8 @@
     display: none;
   }
 
-  &__menu {
-    @include mixins.set-flex(50px);
+  &__nav-menu {
+    @include mixins.set-flex(initial, 50px);
     text-transform: capitalize;
   }
 
@@ -53,21 +52,11 @@
     }
   }
 
-  &__cart {
-    @include mixins.set-flex(0, center);
-    block-size: 40px;
-    inline-size: 40px;
-    justify-self: end;
+  &__cart-link {
     position: relative;
+    justify-self: end;
     font-family: 'CeraProMedium', serif;
     font-size: 10px;
-    color: var(--clr-black);
-    background-color: var(--clr-dark-white);
-    border-radius: 6px;
-
-    &:hover {
-      color: var(--clr-dark-gray);
-    }
 
     &::before {
       content: '';
@@ -75,33 +64,33 @@
       block-size: 18px;
       inline-size: 18px;
       inset-inline-end: 10px;
-      inset-block-start: 2px;
+      inset-block-start: 1px;
       background-color: var(--clr-white);
       border-radius: 50%;
       transform: translateX(50%);
     }
 
     &::after {
-      @include mixins.set-flex(0, center);
+      @include mixins.set-flex(center);
       content: attr(data-count);
       position: absolute;
       block-size: 14px;
       inline-size: 14px;
       inset-inline-end: 10px;
-      inset-block-start: 4px;
+      inset-block-start: 3px;
       color: var(--clr-white);
       background-color: var(--clr-green);
       border-radius: 50%;
       transform: translateX(50%);
     }
+
+    &[data-count='0']::before,
+    &[data-count='0']::after {
+      display: none;
+    }
   }
 
-  &__burger-btn {
-    display: flex;
-  }
-
-  &__login {
-    inline-size: 40px;
+  &__login-button {
     padding-inline: 0;
     span {
       display: none;
@@ -113,11 +102,7 @@
       padding-block: 16px;
     }
 
-    &__burger-btn {
-      display: none;
-    }
-
-    &__login {
+    &__login-button {
       inline-size: auto;
       padding-inline: 12px;
       span {
@@ -139,7 +124,7 @@
       }
 
       &__menu-link--active::after {
-        inset-block-end: -35px;
+        inset-block-end: -32px;
       }
 
       &__content {

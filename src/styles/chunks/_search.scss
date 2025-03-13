@@ -2,15 +2,15 @@
 @use '../global/variables' as vars;
 
 .header__search {
-  @include mixins.set-flex(0, center);
+  @include mixins.set-flex(center);
   position: relative;
   grid-row: 2/3;
   grid-column: 1/5;
 
   &-input {
-    block-size: 40px;
+    block-size: 36px;
     inline-size: 100%;
-    padding-inline-start: 40px;
+    padding-inline-start: 36px;
     border-radius: 6px;
     background-color: var(--clr-dark-white);
     transition: inline-size 0.3s linear;
@@ -20,15 +20,15 @@
     }
   }
 
-  &-flag {
+  &-checkbox {
     display: none;
   }
 
   &-label {
-    @include mixins.set-flex(0, center);
+    @include mixins.set-flex(center);
     position: absolute;
     inset-block-start: 50%;
-    inset-inline-start: 8px;
+    inset-inline-start: 6px;
     transform: translateY(-50%);
     cursor: pointer;
 
@@ -46,7 +46,7 @@
         inline-size: 0;
       }
 
-      &-flag:checked + &-input {
+      &-checkbox:checked + &-input {
         inline-size: 200px;
         padding-inline-start: 40px;
       }

@@ -9,9 +9,15 @@
   #{$property}: $rgba;
 }
 
-@mixin set-flex($gap: 0, $justify: flex-start) {
+@mixin set-flex($justify: initial, $gap: 0) {
   display: flex;
   align-items: center;
   justify-content: $justify;
   gap: $gap;
+}
+
+@mixin set-divider() {
+  @include set-props-color(vars.$green, 0.5, border-bottom-color);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }

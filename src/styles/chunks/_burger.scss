@@ -1,0 +1,65 @@
+@use '../global/variables' as vars;
+@use '../global/mixins' as mixins;
+
+.header {
+  &__burger-button {
+    display: flex;
+  }
+
+  &__burger-nav {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    transform: translateX(100%);
+    z-index: 2;
+    text-align: right;
+    inline-size: 50%;
+    block-size: 100%;
+    padding-inline: 16px;
+    padding-block: 16px;
+    background-color: var(--clr-white);
+    box-shadow: 0 0 8px 0 var(--clr-black);
+    transition: transform 0.2s linear;
+
+    &.display {
+      transform: translateX(0);
+    }
+
+    &-close {
+      margin-block-end: 16px;
+      margin-inline-start: auto;
+    }
+  }
+
+  &__burger-menu {
+    &-item {
+      padding-block: 6px;
+      @include mixins.set-divider();
+    }
+
+    &-link {
+      @include mixins.set-flex(space-between);
+      padding-inline: 6px;
+      padding-block: 4px;
+      border-radius: 4px;
+      text-transform: capitalize;
+
+      &:not(&--active):hover {
+        color: var(--clr-dark-gray);
+        background-color: var(--clr-dark-white);
+      }
+
+      &--active {
+        color: var(--clr-white);
+        background-color: var(--clr-green);
+      }
+    }
+  }
+
+  @media screen and (min-width: vars.$sm + 1) {
+    &__burger-button,
+    &__burger-nav {
+      display: none;
+    }
+  }
+}

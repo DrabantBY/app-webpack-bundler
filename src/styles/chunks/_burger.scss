@@ -13,7 +13,7 @@
     transform: translateX(100%);
     z-index: 2;
     text-align: right;
-    inline-size: 50%;
+    inline-size: 100%;
     block-size: 100%;
     padding-inline: 16px;
     padding-block: 16px;
@@ -34,7 +34,9 @@
   &__burger-menu {
     &-item {
       padding-block: 6px;
-      @include mixins.set-divider();
+      @include mixins.set-props-color(vars.$green, 0.5, border-bottom-color);
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
     }
 
     &-link {
@@ -56,10 +58,16 @@
     }
   }
 
-  @media screen and (min-width: vars.$sm + 1) {
-    &__burger-button,
+  @media screen and (min-width: vars.$xs + 1) {
     &__burger-nav {
-      display: none;
+      inline-size: 50%;
+    }
+
+    @media screen and (min-width: vars.$sm + 1) {
+      &__burger-button,
+      &__burger-nav {
+        display: none;
+      }
     }
   }
 }

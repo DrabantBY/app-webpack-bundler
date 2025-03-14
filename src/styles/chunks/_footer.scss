@@ -1,0 +1,69 @@
+@use '../global/variables' as vars;
+@use '../global/mixins' as mixins;
+
+.footer {
+  &__copyright-container {
+    padding-block: 16px;
+    @include mixins.set-flex(center);
+  }
+
+  &__contacts-container {
+    min-block-size: 80px;
+    padding-block: 8px;
+    @include mixins.set-flex(space-between, 16px);
+    flex-wrap: wrap;
+    row-gap: 8px;
+    @include mixins.set-props-color(vars.$green, 0.1);
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    @include mixins.set-props-color(vars.$green, 0.2, border-top-color);
+    @include mixins.set-props-color(vars.$green, 0.2, border-bottom-color);
+  }
+
+  &__contacts-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, auto);
+    align-items: center;
+    column-gap: 16px;
+    row-gap: 8px;
+  }
+
+  &__contacts-link {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 4px;
+
+    svg {
+      color: var(--clr-green);
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  @media screen and (min-width: vars.$xs + 1) {
+    &__contacts-list {
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(2, auto);
+    }
+
+    &__contacts-item:has(&__contacts-link--location) {
+      grid-column: 1 / -1;
+      grid-row: -2 / -1;
+    }
+
+    @media screen and (min-width: vars.$lg + 1) {
+      &__contacts-list {
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: initial;
+      }
+
+      &__contacts-item:has(&__contacts-link--location) {
+        grid-column: initial;
+        grid-row: initial;
+      }
+    }
+  }
+}

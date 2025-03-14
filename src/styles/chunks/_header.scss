@@ -8,15 +8,11 @@
     display: grid;
     grid-template-columns: auto 1fr repeat(2, auto);
     align-items: center;
-    column-gap: 8px;
-    row-gap: 8px;
+    gap: 8px;
     padding-block: 8px;
-    @include mixins.set-divider();
-  }
-
-  &__logo {
-    @include mixins.set-flex(initial, 6px);
-    color: var(--clr-green);
+    @include mixins.set-props-color(vars.$green, 0.5, border-bottom-color);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
   }
 
   &__nav {

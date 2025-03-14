@@ -15,9 +15,3 @@
   justify-content: $justify;
   gap: $gap;
 }
-
-@mixin set-divider() {
-  @include set-props-color(vars.$green, 0.5, border-bottom-color);
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-}

@@ -2,18 +2,6 @@
 @use 'mixins' as mixins;
 
 :root {
-  //color css variables
-  --clr-black: #3d3d3d;
-  --clr-yellow: #ffc107;
-  --clr-green: #46a358;
-
-  --clr-gray: #acacac;
-  --clr-dark-gray: #727272;
-  --clr-light-gray: #c4c4c4;
-
-  --clr-white: #ffffff;
-  --clr-dark-white: #f3f3f3;
-
   //shell css variables
   --shell-px: 8px;
   //--header-h: 50px;
@@ -80,34 +68,51 @@ body {
 
 .logo {
   @include mixins.set-flex(initial, 6px);
-  color: var(--clr-green);
+  color: vars.$green;
+
+  &:hover {
+    color: vars.$hover-green;
+  }
 }
 
 .button {
   @include mixins.set-flex(center);
-
   font-family: 'CeraProBold', serif;
   block-size: 36px;
-  inline-size: 36px;
+  min-inline-size: 36px;
   border-radius: 6px;
+
+  &[type='submit'] {
+    color: vars.$white;
+    background-color: vars.$green;
+
+    &:hover {
+      background-color: vars.$hover-green;
+    }
+
+    input + & {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
 
   &-text,
   &-icon {
-    color: var(--clr-green);
+    color: vars.$green;
     border: 1px solid currentColor;
 
     &:hover {
-      color: var(--clr-white);
-      background-color: var(--clr-green);
+      color: vars.$white;
+      background-color: vars.$green;
     }
   }
 
   &-link {
-    color: var(--clr-black);
-    background-color: var(--clr-dark-white);
+    color: vars.$black;
+    background-color: vars.$bg-gray;
 
     &:hover {
-      color: var(--clr-dark-gray);
+      color: vars.$hover-gray;
     }
   }
 

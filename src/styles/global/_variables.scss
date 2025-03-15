@@ -1,5 +1,21 @@
+@use 'functions' as func;
+
 $xs: 414px;
 $sm: 576px;
+$md: 768px;
 $lg: 1024px;
 $xl: 1280px;
+
+$white: #ffffff;
 $green: #46a358;
+$black: #3d3d3d;
+$gray: #727272;
+
+$bg-white: #fbfbfb;
+$bg-gray: #eaeaea;
+
+$bg-green: func.add-opacity(#46a358, 0.5);
+$bg-light-green: func.add-opacity(#46a358, 0.1);
+
+$hover-gray: #a5a5a5;
+$hover-green: func.add-opacity(#46a358, 0.9);

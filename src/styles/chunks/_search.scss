@@ -1,5 +1,5 @@
-@use '../global/mixins' as mixins;
 @use '../global/variables' as vars;
+@use '../global/mixins' as mixins;
 
 .header__search {
   @include mixins.set-flex(center);
@@ -12,12 +12,8 @@
     inline-size: 100%;
     padding-inline-start: 36px;
     border-radius: 6px;
-    background-color: var(--clr-dark-white);
+    background-color: vars.$bg-gray;
     transition: inline-size 0.3s linear;
-
-    &::placeholder {
-      color: var(--clr-gray);
-    }
   }
 
   &-checkbox {
@@ -33,7 +29,7 @@
     cursor: pointer;
 
     &:hover {
-      color: var(--clr-dark-gray);
+      color: vars.$hover-gray;
     }
   }
 

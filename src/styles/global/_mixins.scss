@@ -1,17 +1,15 @@
 @use 'variables' as vars;
 
-@mixin set-props-color(
-  $color: vars.$green,
-  $opacity: 0.9,
-  $property: background-color
-) {
-  $rgba: rgba($color, $opacity);
-  #{$property}: $rgba;
-}
-
-@mixin set-flex($justify: initial, $gap: 0) {
+@mixin set-flex($justify: initial, $gap: null, $direction: null) {
   display: flex;
   align-items: center;
   justify-content: $justify;
-  gap: $gap;
+
+  @if $direction {
+    flex-direction: $direction;
+  }
+
+  @if $gap {
+    gap: $gap;
+  }
 }

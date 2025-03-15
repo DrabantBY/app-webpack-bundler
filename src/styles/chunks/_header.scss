@@ -1,7 +1,7 @@
 @use 'search';
 @use 'burger';
-@use '../global/mixins' as mixins;
 @use '../global/variables' as vars;
+@use '../global/mixins' as mixins;
 
 .header {
   &__content {
@@ -10,9 +10,7 @@
     align-items: center;
     gap: 8px;
     padding-block: 8px;
-    @include mixins.set-props-color(vars.$green, 0.5, border-bottom-color);
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+    border-bottom: 1px solid vars.$bg-green;
   }
 
   &__nav {
@@ -34,7 +32,7 @@
 
     &--active {
       font-weight: 700;
-      color: var(--clr-green);
+      color: vars.$green;
 
       &::after {
         content: '';
@@ -43,7 +41,7 @@
         inset-block-end: -16px;
         inline-size: 100%;
         block-size: 3px;
-        background-color: var(--clr-green);
+        background-color: vars.$green;
       }
     }
   }
@@ -61,7 +59,7 @@
       inline-size: 18px;
       inset-inline-end: 10px;
       inset-block-start: 1px;
-      background-color: var(--clr-white);
+      background-color: vars.$white;
       border-radius: 50%;
       transform: translateX(50%);
     }
@@ -74,8 +72,8 @@
       inline-size: 14px;
       inset-inline-end: 10px;
       inset-block-start: 3px;
-      color: var(--clr-white);
-      background-color: var(--clr-green);
+      color: vars.$white;
+      background-color: vars.$green;
       border-radius: 50%;
       transform: translateX(50%);
     }

@@ -17,8 +17,8 @@
     block-size: 100%;
     padding-inline: 16px;
     padding-block: 16px;
-    background-color: var(--clr-white);
-    box-shadow: 0 0 8px 0 var(--clr-black);
+    background-color: vars.$white;
+    box-shadow: 0 0 8px 0 vars.$black;
     transition: transform 0.2s linear;
 
     &.display {
@@ -34,9 +34,7 @@
   &__burger-menu {
     &-item {
       padding-block: 6px;
-      @include mixins.set-props-color(vars.$green, 0.5, border-bottom-color);
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
+      border-bottom: 1px solid vars.$bg-green;
     }
 
     &-link {
@@ -47,13 +45,13 @@
       text-transform: capitalize;
 
       &:not(&--active):hover {
-        color: var(--clr-dark-gray);
-        background-color: var(--clr-dark-white);
+        color: vars.$hover-gray;
+        background-color: vars.$bg-gray;
       }
 
       &--active {
-        color: var(--clr-white);
-        background-color: var(--clr-green);
+        color: vars.$white;
+        background-color: vars.$green;
       }
     }
   }

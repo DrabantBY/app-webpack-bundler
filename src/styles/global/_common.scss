@@ -29,6 +29,7 @@ body {
 a.button-text {
   color: vars.$white;
   background-color: vars.$green;
+  border: none;
 
   &:hover {
     background-color: vars.$hover-green;
@@ -91,6 +92,7 @@ a.button-text {
   &[type='submit'] {
     color: vars.$white;
     background-color: vars.$green;
+    border: none;
 
     &:hover {
       background-color: vars.$hover-green;

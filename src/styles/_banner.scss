@@ -1,0 +1,123 @@
+@use 'global/variables' as vars;
+@use 'global/mixins' as mixins;
+
+.banner-section {
+  swiper-container {
+    &::part(bullet-active),
+    &::part(bullet) {
+      background-color: vars.$green;
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    @include mixins.set-flex();
+    flex-direction: column;
+    padding-block-start: 12px;
+    padding-block-end: 32px;
+    text-align: center;
+    text-transform: uppercase;
+    text-wrap: balance;
+    background-color: vars.$bg-white;
+    cursor: grab;
+  }
+
+  &__title {
+    font-family: 'CeraProMedium', serif;
+    font-size: 10px;
+  }
+
+  &__subtitle {
+    font-family: 'CeraProBold', serif;
+
+    span {
+      color: vars.$green;
+    }
+  }
+
+  &__description {
+    font-family: 'CeraProMedium', serif;
+    font-size: 14px;
+    color: vars.$gray;
+    text-transform: lowercase;
+  }
+
+  &__link {
+    inline-size: fit-content;
+    margin-block-start: 8px;
+  }
+
+  &__image {
+    inline-size: 50%;
+  }
+
+  @media screen and (min-width: vars.$xs) {
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 4px;
+      align-items: start;
+    }
+
+    &__link {
+      margin-block-start: 16px;
+      justify-self: center;
+    }
+
+    &__image {
+      inline-size: 80%;
+      justify-self: center;
+      align-self: center;
+      grid-column: -2 / -1;
+      grid-row: 1 / 5;
+    }
+
+    @media screen and (min-width: vars.$sm) {
+      &__title {
+        font-size: 14px;
+      }
+
+      &__subtitle {
+        font-size: 32px;
+        line-height: 1;
+      }
+
+      &__description {
+        line-height: 1.8;
+      }
+
+      &__link {
+        margin-block-start: 16px;
+      }
+
+      &__image {
+        inline-size: auto;
+        justify-self: end;
+      }
+
+      @media screen and (min-width: vars.$md) {
+        &__content {
+          padding-inline: 40px;
+          text-align: left;
+        }
+
+        &__link {
+          justify-self: initial;
+        }
+
+        @media screen and (min-width: vars.$lg) {
+          &__content {
+            grid-template-columns: fit-content(530px) 1fr;
+            padding-block: 60px;
+            row-gap: 8px;
+          }
+
+          &__subtitle {
+            font-size: 70px;
+          }
+        }
+      }
+    }
+  }
+}

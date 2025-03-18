@@ -1,9 +1,12 @@
 @use 'variables' as vars;
 
-@mixin set-flex($justify: initial, $gap: null, $direction: null) {
+@mixin set-flex($justify: null, $gap: null, $direction: null) {
   display: flex;
   align-items: center;
-  justify-content: $justify;
+
+  @if $justify {
+    justify-content: $justify;
+  }
 
   @if $direction {
     flex-direction: $direction;

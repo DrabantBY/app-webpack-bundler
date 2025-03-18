@@ -1,5 +1,5 @@
-@use 'global/variables' as vars;
-@use 'global/mixins' as mixins;
+@use 'tools/variables' as vars;
+@use 'tools/mixins' as mixins;
 
 .banner-section {
   swiper-container {
@@ -52,7 +52,7 @@
     inline-size: 50%;
   }
 
-  @media screen and (min-width: vars.$xs) {
+  @media screen and (min-width: vars.$xs + 1) {
     &__content {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -66,14 +66,14 @@
     }
 
     &__image {
-      inline-size: 80%;
+      inline-size: 100%;
       justify-self: center;
       align-self: center;
       grid-column: -2 / -1;
       grid-row: 1 / 5;
     }
 
-    @media screen and (min-width: vars.$sm) {
+    @media screen and (min-width: vars.$sm + 1) {
       &__title {
         font-size: 14px;
       }
@@ -92,11 +92,11 @@
       }
 
       &__image {
-        inline-size: auto;
+        inline-size: 300px;
         justify-self: end;
       }
 
-      @media screen and (min-width: vars.$md) {
+      @media screen and (min-width: vars.$md + 1) {
         &__content {
           padding-inline: 40px;
           text-align: left;
@@ -106,7 +106,7 @@
           justify-self: initial;
         }
 
-        @media screen and (min-width: vars.$lg) {
+        @media screen and (min-width: vars.$lg + 1) {
           &__content {
             grid-template-columns: fit-content(530px) 1fr;
             padding-block: 60px;

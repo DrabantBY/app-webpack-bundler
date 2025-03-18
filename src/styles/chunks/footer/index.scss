@@ -3,8 +3,8 @@
 @forward 'newsletter';
 @forward 'social';
 
-@use '../../global/variables' as vars;
-@use '../../global/mixins' as mixins;
+@use '../../tools/variables' as vars;
+@use '../../tools/mixins' as mixins;
 
 .footer {
   &__copyright-container {

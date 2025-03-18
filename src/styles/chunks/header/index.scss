@@ -2,13 +2,13 @@
 @forward 'search';
 @forward 'burger';
 
-@use '../../global/variables' as vars;
-@use '../../global/mixins' as mixins;
+@use '../../tools/variables' as vars;
+@use '../../tools/mixins' as mixins;
 
 .header {
   hr {
     height: 1px;
-    background-color: vars.$bg-green !important;
+    background-color: vars.$bg-green;
   }
 
   &__content {

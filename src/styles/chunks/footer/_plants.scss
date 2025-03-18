@@ -2,7 +2,7 @@
 @use '../../global/mixins' as mixins;
 
 .footer {
-  &__plants-list hr {
+  &__plants-divider {
     block-size: 1px;
     margin-block: 8px;
     background-color: vars.$bg-light-green;
@@ -13,8 +13,11 @@
     grid-template-columns: 90px 1fr;
     column-gap: 12px;
     row-gap: 8px;
+    transition: padding-block-start 0.1s linear;
 
     &:hover {
+      padding-block-start: 4px;
+      border-top: 1px solid vars.$bg-green;
       background-color: vars.$bg-light-green;
     }
   }
@@ -40,13 +43,14 @@
       align-items: initial;
       text-wrap: balance;
       text-align: center;
+    }
 
-      hr {
-        margin-inline: 4px;
-        inline-size: 0;
-        block-size: 100%;
-        border-left: 1px solid vars.$bg-light-green;
-      }
+    &__plants-divider {
+      block-size: 200px;
+      inline-size: 1px;
+      margin-block: 0;
+      margin-inline: 4px;
+      align-self: center;
     }
 
     &__plants-link {
@@ -66,10 +70,10 @@
     @media screen and (min-width: vars.$lg + 1) {
       &__plants-list {
         text-align: initial;
+      }
 
-        hr {
-          margin-inline: 24px;
-        }
+      &__plants-divider {
+        margin-inline: 24px;
       }
 
       &__plants-link {
@@ -78,10 +82,8 @@
       }
 
       @media screen and (min-width: vars.$xl + 1) {
-        &__plants-list {
-          hr {
-            margin-inline: 32px;
-          }
+        &__plants-divider {
+          margin-inline: 32px;
         }
       }
     }

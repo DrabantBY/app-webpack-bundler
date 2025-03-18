@@ -26,6 +26,15 @@ body {
   font-family: 'CeraProRegular', serif;
 }
 
+a.button-text {
+  color: vars.$white;
+  background-color: vars.$green;
+
+  &:hover {
+    background-color: vars.$hover-green;
+  }
+}
+
 #root {
   position: relative;
   min-block-size: 100vh;
@@ -54,6 +63,7 @@ body {
 #main {
   position: relative;
   flex-grow: 1;
+  padding-block: 12px;
 }
 
 .container {

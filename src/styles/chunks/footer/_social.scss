@@ -1,0 +1,17 @@
+@use '../../global/variables' as vars;
+@use '../../global/mixins' as mixins;
+
+.footer {
+  &__social-list {
+    @include mixins.set-flex(center, 8px);
+
+    @media screen and (min-width: vars.$xs + 1) {
+      gap: 24px;
+
+      @media screen and (min-width: vars.$md + 1) {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  }
+}

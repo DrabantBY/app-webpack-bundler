@@ -1,62 +1,35 @@
 @forward 'contacts';
 @forward 'plants';
 @forward 'newsletter';
+@forward 'social';
 
 @use '../../global/variables' as vars;
 @use '../../global/mixins' as mixins;
 
 .footer {
   &__copyright-container {
-    padding-block: 16px;
     @include mixins.set-flex(center);
+    padding-block: 16px;
     border-top: 1px solid vars.$bg-green;
   }
 
   &__body-container {
+    @include mixins.set-flex(initial, 16px);
+    flex-direction: column;
     padding-block: 16px;
-    display: grid;
-    gap: 16px;
     background-color: vars.$bg-white;
-  }
 
-  &__social-list {
-    @include mixins.set-flex(center, 8px);
-  }
+    @media screen and (min-width: vars.$md + 1) {
+      display: grid;
+      grid-template-columns: 1fr 300px auto;
+      align-items: center;
+      gap: 12px;
 
-  @media screen and (min-width: vars.$xs + 1) {
-    &__social-list {
-      flex-direction: column;
-      gap: 4px;
-    }
+      @media screen and (min-width: vars.$lg + 1) {
+        gap: 16px;
 
-    @media screen and (min-width: vars.$sm + 1) {
-      &__social-list {
-        flex-direction: row;
-        gap: 4px;
-        align-items: end;
-      }
-
-      @media screen and (min-width: vars.$md + 1) {
-        &__body-container {
-          grid-template-columns: 1fr 300px auto;
-          gap: 12px;
-        }
-
-        &__social-list {
-          flex-direction: column;
-          gap: 8px;
-        }
-
-        @media screen and (min-width: vars.$lg + 1) {
-          &__body-container {
-            gap: 16px;
-          }
-
-          @media screen and (min-width: vars.$xl + 1) {
-            &__body-container {
-              gap: 24px;
-            }
-          }
+        @media screen and (min-width: vars.$xl + 1) {
+          gap: 24px;
         }
       }
     }

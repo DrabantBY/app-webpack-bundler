@@ -1,0 +1,57 @@
+@use '../../global/variables' as vars;
+@use '../../global/mixins' as mixins;
+
+.header {
+  &__nav {
+    display: none;
+  }
+
+  &__nav-menu {
+    @include mixins.set-flex(initial, 50px);
+    text-transform: capitalize;
+
+    &-link {
+      display: block;
+      position: relative;
+
+      &:hover {
+        font-weight: 700;
+      }
+
+      &--active {
+        font-weight: 700;
+        color: vars.$green;
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset-inline-start: 0;
+          inset-block-end: -16px;
+          inline-size: 100%;
+          block-size: 3px;
+          background-color: vars.$green;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: vars.$sm + 1) {
+    &__nav {
+      display: block;
+      justify-self: center;
+      grid-row: 2 / 3;
+      grid-column: 1 / -1;
+    }
+
+    @media screen and (min-width: vars.$lg + 1) {
+      &__nav {
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+
+        &-menu-link--active::after {
+          inset-block-end: -32px;
+        }
+      }
+    }
+  }
+}

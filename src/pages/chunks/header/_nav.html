@@ -1,0 +1,20 @@
+<nav class="header__nav">
+  <ul class="header__nav-menu">
+    {% for link in links %}
+    <li class="header__nav-menu-item">
+      {% if link.active %}
+      <a
+        class="header__nav-menu-link header__nav-menu-link--active"
+        href="{{link.href}}"
+        target="_blank">
+        {{link.label}}
+      </a>
+      {% else %}
+      <a class="header__nav-menu-link" href="{{link.href}}" target="_blank">
+        {{link.label}}
+      </a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</nav>

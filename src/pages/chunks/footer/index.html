@@ -1,0 +1,61 @@
+<footer id="footer" class="footer">
+  <div class="footer__contacts-container container">
+    <a class="footer__logo logo" href="/" target="_blank">
+      {% include "src/assets/svg/logo/label.svg" %} {% include
+      "src/assets/svg/logo/name.svg" %}
+    </a>
+
+    {% include "src/pages/chunks/footer/_contacts.html" %}
+  </div>
+
+  <div class="footer__body-container container">
+    {% include 'src/pages/chunks/footer/_plants.html' %} {% include
+    'src/pages/chunks/footer/_newsletter.html' %}
+
+    <ul class="footer__social-list">
+      <li class="footer__social-item">
+        <a
+          class="footer__social-link button button-icon"
+          href="#"
+          target="_blank">
+          {% include "src/assets/svg/facebook.svg" %}
+        </a>
+      </li>
+      <li class="footer__social-item">
+        <a
+          class="footer__social-link button button-icon"
+          href="#"
+          target="_blank">
+          {% include "src/assets/svg/instagram.svg" %}
+        </a>
+      </li>
+      <li class="footer__social-item">
+        <a
+          class="footer__social-link button button-icon"
+          href="#"
+          target="_blank">
+          {% include "src/assets/svg/twitter-x.svg" %}
+        </a>
+      </li>
+      <li class="footer__social-item">
+        <a
+          class="footer__social-link button button-icon"
+          href="#"
+          target="_blank">
+          {% include "src/assets/svg/linkedin.svg" %}
+        </a>
+      </li>
+      <li class="footer__social-item">
+        <a
+          class="footer__social-link button button-icon"
+          href="#"
+          target="_blank">
+          {% include "src/assets/svg/youtube.svg" %}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="footer__copyright-container container">
+    &#169; 2025 GreenShop. All Rights Reserved.
+  </div>
+</footer>

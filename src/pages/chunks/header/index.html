@@ -5,23 +5,8 @@
         {% include "src/assets/svg/logo/label.svg" %} {% include
         "src/assets/svg/logo/name.svg" %}
       </a>
-
-      <nav class="header__nav nav">
-        <ul class="header__nav-menu nav-menu">
-          {% for link in links %}
-          <li class="header__menu-item nav-menu__menu-item menu-item">
-            <a
-              class="header__menu-link{{' header__menu-link--active' if link.active }} nav-menu__menu-link{{' nav-menu__menu-link--active' if link.active }} menu-link{{' menu-link--active' if link.active }}"
-              href="{{link.href}}"
-              target="_blank">
-              {{link.label}}
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-      </nav>
-
-      {% include "src/pages/chunks/_search.html" %}
+      {% include "src/pages/chunks/header/_nav.html" %} {% include
+      "src/pages/chunks/header/_search.html" %}
       <a
         class="header__cart-link cart-link button button-link"
         href="#"
@@ -35,7 +20,8 @@
         {% include 'src/assets/svg/login.svg' %}
         <span>Login</span>
       </button>
-      {% include "src/pages/chunks/_burger.html" %}
+      {% include "src/pages/chunks/header/_burger.html" %}
     </div>
+    <hr />
   </div>
 </header>

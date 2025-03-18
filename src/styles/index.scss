@@ -1,5 +1,5 @@
-@use 'global/normalize';
-@use 'global/common';
-@use 'global/fonts';
-@use 'chunks/header';
-@use 'chunks/footer';
+@forward 'global/normalize';
+@forward 'global/common';
+@forward 'global/fonts';
+@forward 'chunks/header';
+@forward 'chunks/footer';

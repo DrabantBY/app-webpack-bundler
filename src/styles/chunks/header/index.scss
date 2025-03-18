@@ -1,49 +1,22 @@
-@use 'search';
-@use 'burger';
-@use '../global/variables' as vars;
-@use '../global/mixins' as mixins;
+@forward 'nav';
+@forward 'search';
+@forward 'burger';
+
+@use '../../global/variables' as vars;
+@use '../../global/mixins' as mixins;
 
 .header {
+  hr {
+    height: 1px;
+    background-color: vars.$bg-green !important;
+  }
+
   &__content {
     display: grid;
     grid-template-columns: auto 1fr repeat(2, auto);
     align-items: center;
     gap: 8px;
     padding-block: 8px;
-    border-bottom: 1px solid vars.$bg-green;
-  }
-
-  &__nav {
-    display: none;
-  }
-
-  &__nav-menu {
-    @include mixins.set-flex(initial, 50px);
-    text-transform: capitalize;
-  }
-
-  &__menu-link {
-    display: block;
-    position: relative;
-
-    &:hover {
-      font-weight: 700;
-    }
-
-    &--active {
-      font-weight: 700;
-      color: vars.$green;
-
-      &::after {
-        content: '';
-        position: absolute;
-        inset-inline-start: 0;
-        inset-block-end: -16px;
-        inline-size: 100%;
-        block-size: 3px;
-        background-color: vars.$green;
-      }
-    }
   }
 
   &__cart-link {
@@ -99,28 +72,13 @@
     &__login-button {
       inline-size: auto;
       padding-inline: 12px;
+
       span {
         display: inline;
       }
     }
 
-    &__nav {
-      display: block;
-      justify-self: center;
-      grid-row: 2/3;
-      grid-column: 1/5;
-    }
-
     @media screen and (min-width: vars.$lg + 1) {
-      &__nav {
-        grid-row: 1/2;
-        grid-column: 2/3;
-      }
-
-      &__menu-link--active::after {
-        inset-block-end: -32px;
-      }
-
       &__content {
         grid-template-columns: auto 1fr repeat(3, auto);
         padding-block: 24px;

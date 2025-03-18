@@ -1,11 +1,11 @@
-@use '../global/variables' as vars;
-@use '../global/mixins' as mixins;
+@use '../../global/variables' as vars;
+@use '../../global/mixins' as mixins;
 
 .header__search {
   @include mixins.set-flex(center);
   position: relative;
-  grid-row: 2/3;
-  grid-column: 1/5;
+  grid-row: 2 / 3;
+  grid-column: 1 / -1;
 
   &-input {
     block-size: 36px;
@@ -36,8 +36,11 @@
   @media screen and (min-width: vars.$sm + 1) {
     grid-row: auto;
     grid-column: auto;
+    margin-inline: 24px;
 
     @media screen and (min-width: vars.$lg + 1) {
+      margin-inline: 0;
+
       &-input {
         inline-size: 0;
       }

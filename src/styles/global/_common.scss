@@ -36,6 +36,49 @@ a.button-text {
   }
 }
 
+input[type='checkbox'] {
+  appearance: none;
+  block-size: 12px;
+  inline-size: 12px;
+  color: currentColor;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+
+  &:checked {
+    background-color: vars.$green;
+  }
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    block-size: 18px;
+    inline-size: 18px;
+    margin-block-start: -7px;
+    border: 3px solid vars.$white;
+    border-radius: 50%;
+    background-color: vars.$green;
+  }
+
+  &::-webkit-slider-runnable-track {
+    block-size: 4px;
+    background-image: linear-gradient(
+      to right,
+      vars.$green 0%,
+      vars.$green var(--price-value),
+      vars.$bg-light-green var(--price-value),
+      vars.$bg-light-green 100%
+    );
+    border-radius: 4px;
+  }
+}
+
 #root {
   position: relative;
   min-block-size: 100vh;
@@ -64,6 +107,9 @@ a.button-text {
 #main {
   position: relative;
   flex-grow: 1;
+  @include mixins.set-flex(null, 24px);
+  align-items: initial;
+  flex-direction: column;
   padding-block: 12px;
 }
 

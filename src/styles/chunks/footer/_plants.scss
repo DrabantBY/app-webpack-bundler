@@ -9,6 +9,8 @@
   }
 
   &__plants-link {
+    padding-block-end: 4px;
+    padding-inline: 4px;
     display: grid;
     grid-template-columns: 90px 1fr;
     column-gap: 12px;

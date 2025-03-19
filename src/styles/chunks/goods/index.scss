@@ -1,0 +1,16 @@
+@forward 'filter';
+
+@use '../../tools/variables' as vars;
+@use '../../tools/mixins' as mixins;
+
+.goods-section {
+  &__container {
+    display: grid;
+    grid-template-columns: 310px 1fr;
+  }
+  &__aside {
+    padding-block: 14px;
+    padding-inline: 14px;
+    background-color: vars.$bg-white;
+  }
+}

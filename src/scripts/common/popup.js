@@ -3,13 +3,13 @@ export function togglePopup(
   popupOpenSelector,
   popupCloseSelector
 ) {
-  var overlay = document.getElementById('overlay');
+  const overlay = document.getElementById('overlay');
 
-  var popup = document.body.querySelector(popupSelector);
-  var openSelector = document.body.querySelector(popupOpenSelector);
-  var closeSelector = document.body.querySelector(popupCloseSelector);
+  const popup = document.body.querySelector(popupSelector);
+  const openSelector = document.body.querySelector(popupOpenSelector);
+  const closeSelector = document.body.querySelector(popupCloseSelector);
 
-  var onClick = () => {
+  const onClick = () => {
     overlay.classList.toggle('display');
     popup.classList.toggle('display');
   };

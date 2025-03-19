@@ -1,0 +1,43 @@
+@use '../../tools/variables' as vars;
+@use '../../tools/mixins' as mixins;
+
+.goods-section {
+  &__form {
+    text-transform: capitalize;
+
+    &-field {
+      @include mixins.set-flex(null, 12px);
+      align-items: initial;
+      flex-direction: column;
+      margin-block-end: 24px;
+    }
+
+    &-title {
+      font-family: CeraProBold, serif;
+      font-size: 18px;
+      margin-block-end: 16px;
+    }
+
+    &-label {
+      font-family: CeraProMedium, serif;
+      @include mixins.set-flex(null, 4px);
+      cursor: pointer;
+
+      &:has(input:checked) {
+        color: vars.$green;
+      }
+
+      &:hover {
+        color: vars.$hover-gray;
+      }
+
+      &--name {
+        flex-grow: 1;
+      }
+    }
+
+    &-checkbox {
+      //background-color: vars.$bg-green;
+    }
+  }
+}

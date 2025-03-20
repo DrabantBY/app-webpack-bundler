@@ -22,11 +22,9 @@ export default {
               { label: 'about', href: 'about.html' },
             ],
             categories: [
-              { label: 'house plants', value: 33 },
-              { label: 'potter plants', value: 12 },
+              { label: 'house', value: 33 },
+              { label: 'potter', value: 12 },
               { label: 'seeds', value: 65 },
-              { label: 'small plants', value: 39 },
-              { label: 'big plants', value: 23 },
               { label: 'succulents', value: 17 },
               { label: 'terrariums', value: 19 },
               { label: 'gardening', value: 13 },
@@ -34,9 +32,9 @@ export default {
             ],
 
             sizes: [
-              { label: 'small', value: 119 },
-              { label: 'medium plants', value: 86 },
-              { label: 'large', value: 78 },
+              { label: 'small', value: 39 },
+              { label: 'medium', value: 86 },
+              { label: 'large ', value: 23 },
             ],
           }, // pass variables into template
         },

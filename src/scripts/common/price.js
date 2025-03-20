@@ -1,14 +1,28 @@
 export function changePrice() {
-  const priceRange = document.getElementById('price-range');
-  const priceOutput = document.getElementById('price-output');
+  const [firstPrice, lastPrice, outputPrice] = Array.from(
+    document.getElementById('price-range').children
+  );
 
-  const onInput = ({ currentTarget }) => {
-    const priceValue = (currentTarget.value / currentTarget.max) * 100 + '%';
+  const onInput = () => {
+    const minPrice = Math.min(
+      Number(firstPrice.value),
+      Number(lastPrice.value)
+    );
 
-    currentTarget.style.setProperty('--price-value', priceValue);
+    const maxPrice = Math.max(
+      Number(firstPrice.value),
+      Number(lastPrice.value)
+    );
 
-    priceOutput.value = '$' + currentTarget.value;
+    outputPrice.value = `$${minPrice} - $${maxPrice}`;
+
+    const minRange = `${(minPrice / firstPrice.max) * 100}%`;
+    const maxRange = `${(maxPrice / firstPrice.max) * 100}%`;
+
+    firstPrice.style.setProperty('--price-min', minRange);
+    firstPrice.style.setProperty('--price-max', maxRange);
   };
 
-  priceRange.addEventListener('input', onInput);
+  firstPrice.addEventListener('input', onInput);
+  lastPrice.addEventListener('input', onInput);
 }

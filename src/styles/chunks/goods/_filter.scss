@@ -36,8 +36,62 @@
       }
     }
 
-    &-checkbox {
-      //background-color: vars.$bg-green;
+    &-price {
+      position: relative;
+      @include mixins.set-flex(space-between, 16px);
+      flex-direction: column;
+      align-items: initial;
+    }
+
+    &-range {
+      inline-size: 75%;
+      &:first-of-type,
+      &:last-of-type {
+        &::-webkit-slider-thumb {
+          block-size: 18px;
+          inline-size: 18px;
+          margin-block-start: -7px;
+          border: 3px solid vars.$white;
+          border-radius: 50%;
+          background-color: vars.$green;
+        }
+      }
+
+      &:first-of-type {
+        &::-webkit-slider-thumb {
+          position: relative;
+          &:hover {
+            z-index: 1;
+          }
+        }
+
+        &::-webkit-slider-runnable-track {
+          block-size: 4px;
+          border-radius: 4px;
+          background-image: linear-gradient(
+            to right,
+            vars.$bg-light-green 0%,
+            vars.$bg-light-green var(--price-min, 0%),
+            vars.$green var(--price-min, 0%),
+            vars.$green var(--price-max, 66%),
+            vars.$bg-light-green var(--price-max, 66%),
+            vars.$bg-light-green 100%
+          );
+        }
+      }
+
+      &:last-of-type {
+        position: absolute;
+        inset-block-start: 0;
+        &::-webkit-slider-runnable-track {
+          block-size: 4px;
+        }
+      }
+    }
+
+    &-output {
+      font-family: CeraProBold, serif;
+      color: vars.$green;
     }
   }
 }

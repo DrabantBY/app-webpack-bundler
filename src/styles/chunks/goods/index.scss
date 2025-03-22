@@ -1,16 +1,54 @@
 @forward 'filter';
+@forward 'plants';
 
 @use '../../tools/variables' as vars;
 @use '../../tools/mixins' as mixins;
 
 .goods-section {
   &__container {
-    display: grid;
-    grid-template-columns: 310px 1fr;
+    @include mixins.set-flex(null, 24px);
+    align-items: initial;
   }
+
   &__aside {
-    padding-block: 14px;
-    padding-inline: 14px;
-    background-color: vars.$bg-white;
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    inline-size: 100%;
+    z-index: 2;
+    block-size: 100%;
+    padding-block: 16px;
+    padding-inline: 16px;
+    transform: translateX(100%);
+    background-color: vars.$white;
+    transition: transform 0.2s linear;
+
+    &.display {
+      transform: none;
+    }
+  }
+
+  @media screen and (min-width: vars.$xs + 1) {
+    &__aside {
+      inline-size: 50%;
+      box-shadow: 0 0 8px 0 vars.$black;
+    }
+
+    @media screen and (min-width: vars.$sm + 1) {
+      &__aside {
+        position: initial;
+        flex-basis: 300px;
+        background-color: vars.$bg-white;
+        box-shadow: none;
+        transition: none;
+        transform: none;
+      }
+
+      @media screen and (min-width: vars.$md + 1) {
+        &__container {
+          gap: 50px;
+        }
+      }
+    }
   }
 }

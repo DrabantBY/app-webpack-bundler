@@ -1,0 +1,41 @@
+<div class="goods-section__plants">
+  <div class="goods-section__plants-actions">
+    <div class="goods-section__plants-tabs">
+      {% for tab in tabs %} {% if tab.active %}
+      <a
+        class="goods-section__plants-tab goods-section__plants-tab--active"
+        href="#"
+        target="_blank">
+        {{ tab.name }}
+      </a>
+      {% else %}
+      <a class="goods-section__plants-tab" href="#" target="_blank">
+        {{ tab.name }}
+      </a>
+      {% endif %} {% endfor %}
+    </div>
+    <div class="goods-section__plants-sort">
+      <label for="sorting-goods">sort by:</label>
+      <select id="sorting-goods" name="">
+        <option>default sorting</option>
+        <option>asc price</option>
+        <option>desc price</option>
+        <option>asc name</option>
+        <option>desc name</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="goods-section__plants-list">
+    {% for plant in plants %}
+    <figure>
+      <img src="@img/goods/plant-{{loop.index}}.png" alt="plant picture" />
+      <figcaption>
+        {{ plant.name }}
+        <span>${{plant.price}}</span>
+      </figcaption>
+    </figure>
+
+    {% endfor %}
+  </div>
+</div>

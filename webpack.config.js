@@ -30,11 +30,25 @@ export default {
               { label: 'gardening', value: 13 },
               { label: 'accessories', value: 18 },
             ],
-
             sizes: [
               { label: 'small', value: 39 },
               { label: 'medium', value: 86 },
               { label: 'large ', value: 23 },
+            ],
+            tabs: [
+              { name: 'all plants', active: true },
+              { name: 'new arrivals', active: false },
+              { name: 'sale', active: false },
+            ],
+            plants: [
+              { name: 'barberton daisy', price: 119, discount: null },
+              { name: 'angel wing begonia', price: 169, discount: null },
+              { name: 'african violet', price: 199, discount: 13 },
+              { name: 'blushing bromeliad', price: 139, discount: null },
+              { name: 'aluminum plant', price: 179, discount: null },
+              { name: "bird's nest fern", price: 199, discount: null },
+              { name: 'broadleaf lady palm', price: 59, discount: null },
+              { name: 'chinese evergreen', price: 39, discount: null },
             ],
           }, // pass variables into template
         },

@@ -11,3 +11,9 @@ togglePopup(
   '[class*="burger-button"]',
   '[class*="burger-nav-close"]'
 );
+
+togglePopup(
+  '[class*="goods-section__aside"]',
+  '[class*="filter-open"]',
+  '[class*="filter-close"]'
+);

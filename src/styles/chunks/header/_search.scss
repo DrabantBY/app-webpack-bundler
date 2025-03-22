@@ -5,7 +5,7 @@
   @include mixins.set-flex(center);
   position: relative;
   grid-row: 2 / 3;
-  grid-column: 1 / -1;
+  grid-column: 1 / -2;
 
   &-input {
     block-size: 36px;

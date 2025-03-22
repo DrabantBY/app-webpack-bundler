@@ -2,25 +2,31 @@
 @use '../../tools/mixins' as mixins;
 
 .goods-section {
-  &__form {
+  &__filter {
+    font-size: 14px;
     text-transform: capitalize;
 
+    &-close {
+      margin-inline-start: auto;
+      margin-block-end: 16px;
+    }
+
     &-field {
-      @include mixins.set-flex(null, 12px);
+      @include mixins.set-flex(null, 8px);
       align-items: initial;
       flex-direction: column;
-      margin-block-end: 24px;
+      margin-block-end: 16px;
     }
 
     &-title {
       font-family: CeraProBold, serif;
-      font-size: 18px;
-      margin-block-end: 16px;
+      font-size: 16px;
+      margin-block-end: 12px;
     }
 
     &-label {
       font-family: CeraProMedium, serif;
-      @include mixins.set-flex(null, 4px);
+      @include mixins.set-flex();
       cursor: pointer;
 
       &:has(input:checked) {
@@ -33,6 +39,8 @@
 
       &--name {
         flex-grow: 1;
+        padding-inline-start: 4px;
+        padding-inline-end: 12px;
       }
     }
 
@@ -45,6 +53,7 @@
 
     &-range {
       inline-size: 75%;
+
       &:first-of-type,
       &:last-of-type {
         &::-webkit-slider-thumb {
@@ -60,9 +69,7 @@
       &:first-of-type {
         &::-webkit-slider-thumb {
           position: relative;
-          &:hover {
-            z-index: 1;
-          }
+          z-index: 1;
         }
 
         &::-webkit-slider-runnable-track {
@@ -92,6 +99,29 @@
     &-output {
       font-family: CeraProBold, serif;
       color: vars.$green;
+    }
+
+    &-submit,
+    &-reset {
+      display: inline-flex;
+    }
+
+    @media screen and (min-width: vars.$sm + 1) {
+      font-size: 16px;
+
+      &-close {
+        display: none;
+      }
+
+      &-field {
+        gap: 12px;
+        margin-block-end: 24px;
+      }
+
+      &-title {
+        font-size: 18px;
+        margin-block-end: 16px;
+      }
     }
   }
 }

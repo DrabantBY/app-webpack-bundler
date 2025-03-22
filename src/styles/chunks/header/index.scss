@@ -78,6 +78,10 @@
       }
     }
 
+    &__filter-open {
+      display: none;
+    }
+
     @media screen and (min-width: vars.$lg + 1) {
       &__content {
         grid-template-columns: auto 1fr repeat(3, auto);

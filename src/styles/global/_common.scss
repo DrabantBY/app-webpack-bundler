@@ -140,6 +140,7 @@ input[type='range'] {
     &:hover {
       color: vars.$white;
       background-color: vars.$green;
+      border-color: vars.$green;
     }
   }
 

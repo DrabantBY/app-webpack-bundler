@@ -18,11 +18,10 @@
     padding-inline: 16px;
     padding-block: 16px;
     background-color: vars.$white;
-    box-shadow: 0 0 8px 0 vars.$black;
     transition: transform 0.2s linear;
 
     &.display {
-      transform: translateX(0);
+      transform: none;
     }
 
     &-close {
@@ -59,6 +58,7 @@
   @media screen and (min-width: vars.$xs + 1) {
     &__burger-nav {
       inline-size: 50%;
+      box-shadow: 0 0 8px 0 vars.$black;
     }
 
     @media screen and (min-width: vars.$sm + 1) {

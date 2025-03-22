@@ -1,18 +1,10 @@
 export function changePrice() {
-  const [firstPrice, lastPrice, outputPrice] = Array.from(
-    document.getElementById('price-range').children
-  );
+  const [firstPrice, lastPrice, outputPrice] =
+    document.getElementById('price-range').children;
 
   const onInput = () => {
-    const minPrice = Math.min(
-      Number(firstPrice.value),
-      Number(lastPrice.value)
-    );
-
-    const maxPrice = Math.max(
-      Number(firstPrice.value),
-      Number(lastPrice.value)
-    );
+    const minPrice = Math.min(+firstPrice.value, +lastPrice.value);
+    const maxPrice = Math.max(+firstPrice.value, +lastPrice.value);
 
     outputPrice.value = `$${minPrice} - $${maxPrice}`;
 

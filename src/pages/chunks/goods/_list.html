@@ -1,0 +1,101 @@
+<div class="goods-section__plants">
+  <div class="goods-section__plants-actions">
+    <div class="goods-section__plants-tabs">
+      {% for tab in tabs %} {% if tab.active %}
+      <a
+        class="goods-section__plants-tab goods-section__plants-tab--active"
+        href="#"
+        target="_blank">
+        {{ tab.name }}
+      </a>
+      {% else %}
+      <a class="goods-section__plants-tab" href="#" target="_blank">
+        {{ tab.name }}
+      </a>
+      {% endif %} {% endfor %}
+    </div>
+    <div class="goods-section__plants-sort">
+      <label for="sorting-goods">sort by:</label>
+      <select id="sorting-goods" name="">
+        <option>default sorting</option>
+        <option>asc price</option>
+        <option>desc price</option>
+        <option>asc name</option>
+        <option>desc name</option>
+      </select>
+    </div>
+  </div>
+
+  <ul class="goods-section__plants-list">
+    {% for plant in plants %}
+    <li class="goods-section__plants-item">
+      <div class="goods-section__plants-controls">
+        <button
+          class="goods-section__plants-control button button-link"
+          type="button">
+          {% include 'src/assets/svg/heart.svg' %}
+        </button>
+
+        <button
+          class="goods-section__plants-control button button-link"
+          type="button">
+          {% include 'src/assets/svg/bag.svg' %}
+        </button>
+      </div>
+
+      {% if plant.discount %}
+      <span class="goods-section__plants-discount">
+        {{plant.discount}}% off
+      </span>
+      {% endif %}
+      <a class="goods-section__plants-link" href="#" target="_blank">
+        <img
+          class="goods-section__plants-image"
+          src="@img/goods/plant-{{loop.index}}.png"
+          alt="plant picture" />
+        <hr />
+        <span class="goods-section__plants-title"> {{ plant.name }} </span>
+        <span class="goods-section__plants-price">
+          {% if plant.discount %}
+          <span class="goods-section__plants-price--sale">
+            ${{ (plant.price * (1 - plant.discount / 100)) | round(2) }}
+          </span>
+          {% endif %}
+          <span class="goods-section__plants-price--regular">
+            ${{ plant.price }}
+          </span>
+        </span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <div class="goods-section__plants-pagination">
+    <button class="goods-section__plants-page--prev button button-link">
+      {% include 'src/assets/svg/short-arrow-left.svg' %}
+    </button>
+    <button
+      class="goods-section__plants-page--number button button-icon"
+      type="button">
+      1
+    </button>
+    <button
+      class="goods-section__plants-page--number button button-icon"
+      type="button">
+      2
+    </button>
+    <button
+      class="goods-section__plants-page--number button button-icon"
+      type="button">
+      3
+    </button>
+    <button
+      class="goods-section__plants-page--number button button-icon"
+      type="button">
+      4
+    </button>
+    <button class="goods-section__plants-page--next button button-link">
+      {% include 'src/assets/svg/short-arrow-right.svg' %}
+    </button>
+  </div>
+</div>

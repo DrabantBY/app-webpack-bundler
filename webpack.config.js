@@ -41,10 +41,10 @@ export default {
               { name: 'sale', active: false },
             ],
             plants: [
-              { name: 'barberton daisy', price: 119, discount: null },
+              { name: 'barberton daisy', price: 119, discount: 25 },
               { name: 'angel wing begonia', price: 169, discount: null },
-              { name: 'african violet', price: 199, discount: 13 },
-              { name: 'blushing bromeliad', price: 139, discount: null },
+              { name: 'african violet', price: 199, discount: null },
+              { name: 'blushing bromeliad', price: 139, discount: 13 },
               { name: 'aluminum plant', price: 179, discount: null },
               { name: "bird's nest fern", price: 199, discount: null },
               { name: 'broadleaf lady palm', price: 59, discount: null },

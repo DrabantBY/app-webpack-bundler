@@ -1,51 +1,43 @@
 <aside class="goods-section__aside">
-  <button class="goods-section__filter-close button button-link" type="button">
+  <button class="goods-section__close button button-link" type="button">
     {% include 'src/assets/svg/close.svg' %}
   </button>
   <form class="goods-section__filter">
-    <fieldset class="goods-section__filter-field">
-      <legend class="goods-section__filter-title">categories</legend>
+    <fieldset class="goods-section__field">
+      <legend class="goods-section__legend">categories</legend>
 
       {% for category in categories %}
-      <label class="goods-section__filter-label">
+      <label class="goods-section__label">
         <input
-          class="goods-section__filter-checkbox"
+          class="goods-section__checkbox"
           type="checkbox"
           name="{{category.label}}" />
-        <span class="goods-section__filter-label--name">
-          {{ category.label }}
-        </span>
-        <span class="goods-section__filter-label--amount">
-          ({{category.value}})
-        </span>
+        <span class="goods-section__name"> {{ category.label }} </span>
+        <span class="goods-section__amount"> ({{category.value}}) </span>
       </label>
       {% endfor %}
     </fieldset>
 
-    <fieldset class="goods-section__filter-field">
-      <legend class="goods-section__filter-title">size</legend>
+    <fieldset class="goods-section__field">
+      <legend class="goods-section__legend">size</legend>
 
       {% for size in sizes %}
-      <label class="goods-section__filter-label">
+      <label class="goods-section__label">
         <input
-          class="goods-section__filter-checkbox"
+          class="goods-section__checkbox"
           type="checkbox"
           name="{{size.label}}" />
-        <span class="goods-section__filter-label--name">
-          {{ size.label }}
-        </span>
-        <span class="goods-section__filter-label--amount">
-          ({{size.value}})
-        </span>
+        <span class="goods-section__name"> {{ size.label }} </span>
+        <span class="goods-section__amount"> ({{size.value}}) </span>
       </label>
       {% endfor %}
     </fieldset>
 
-    <fieldset class="goods-section__filter-field">
-      <legend class="goods-section__filter-title">price</legend>
-      <div id="price-range" class="goods-section__filter-price">
+    <fieldset class="goods-section__field">
+      <legend class="goods-section__legend">price</legend>
+      <div id="price-range" class="goods-section__slider">
         <input
-          class="goods-section__filter-range"
+          class="goods-section__range"
           aria-label="price range"
           type="range"
           name="price"
@@ -53,8 +45,9 @@
           max="1500"
           step="10"
           value="0" />
+
         <input
-          class="goods-section__filter-range"
+          class="goods-section__range"
           aria-label="price range"
           type="range"
           name="price"
@@ -63,21 +56,16 @@
           step="10"
           value="1000" />
 
-        <output
-          id="price-output"
-          class="goods-section__filter-output"
-          role="status">
+        <output id="price-output" class="goods-section__output" role="status">
           $0 - $1000
         </output>
       </div>
     </fieldset>
 
-    <button
-      class="goods-section__filter-submit button button-text"
-      type="submit">
+    <button class="goods-section__submit button button-text" type="submit">
       filter
     </button>
-    <button class="goods-section__filter-reset button button-text" type="reset">
+    <button class="goods-section__reset button button-text" type="reset">
       reset
     </button>
   </form>

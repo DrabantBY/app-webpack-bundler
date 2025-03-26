@@ -1,8 +1,8 @@
 @use '../../tools/variables' as vars;
 @use '../../tools/mixins' as mixins;
 
-.footer {
-  &__contacts-container {
+.footer-contacts {
+  &__container {
     @include mixins.set-flex(space-between, 50px);
     min-block-size: 80px;
     padding-block: 8px;
@@ -14,11 +14,11 @@
     border-top: 1px solid vars.$bg-green;
   }
 
-  &__contacts-item + &__contacts-item {
+  &__item + &__item {
     margin-block-start: 8px;
   }
 
-  &__contacts-link {
+  &__link {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
@@ -36,28 +36,28 @@
   }
 
   @media screen and (min-width: vars.$xs + 1) {
-    &__contacts-list {
+    &__list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 8px;
     }
 
-    &__contacts-item + &__contacts-item {
+    &__item + &__item {
       margin-block-start: 0;
     }
 
-    &__contacts-item:has(&__contacts-link--location) {
+    &__item:has(&__link--location) {
       grid-column: 1 / -1;
       grid-row: 2 / 3;
     }
 
     @media screen and (min-width: vars.$sm + 1) {
-      &__contacts-list {
+      &__list {
         @include mixins.set-flex(initial, 12px);
       }
 
       @media screen and (min-width: vars.$md + 1) {
-        &__contacts-container {
+        &__container {
           flex-wrap: nowrap;
         }
       }

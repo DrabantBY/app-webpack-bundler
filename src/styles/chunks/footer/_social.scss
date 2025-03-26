@@ -1,7 +1,7 @@
 @use '../../tools/variables' as vars;
 @use '../../tools/mixins' as mixins;
 
-.footer {
+.footer-body {
   &__social-list {
     @include mixins.set-flex(center, 8px);
 

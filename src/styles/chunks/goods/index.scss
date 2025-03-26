@@ -23,6 +23,7 @@
     transform: translateX(100%);
     background-color: vars.$white;
     transition: transform 0.2s linear;
+    overflow-y: scroll;
 
     &.display {
       transform: none;
@@ -43,6 +44,7 @@
         box-shadow: none;
         transition: none;
         transform: none;
+        overflow-y: initial;
       }
 
       @media screen and (min-width: vars.$md + 1) {

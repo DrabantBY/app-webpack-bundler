@@ -7,144 +7,188 @@
     flex-direction: column;
     align-items: initial;
     font-size: 14px;
+  }
 
-    &-actions {
-      @include mixins.set-flex(space-between, 8px);
+  &__actions {
+    @include mixins.set-flex(null, 8px);
+    flex-direction: column;
+  }
+
+  &__tabs {
+    @include mixins.set-flex(null, 32px);
+  }
+
+  &__tab {
+    padding-block: 4px;
+
+    &:hover {
+      font-weight: 700;
     }
 
-    &-tabs {
-      @include mixins.set-flex(null, 32px);
+    &--active {
+      font-weight: 700;
+      color: vars.$green;
+      border-bottom: 2px solid currentColor;
     }
+  }
 
-    &-tab {
-      padding-block: 4px;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
 
-      &:hover {
-        font-weight: 700;
-      }
+  &__item {
+    position: relative;
+    padding-inline: 6px;
+    padding-block-end: 6px;
+    box-shadow: 0 0 10px 0 vars.$bg-gray;
+    border-radius: 4px;
 
-      &--active {
-        font-weight: 700;
-        color: vars.$green;
-        border-bottom: 2px solid currentColor;
-      }
-    }
-
-    &-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    &-item {
-      position: relative;
-      padding-inline: 6px;
-      padding-block-end: 6px;
-      box-shadow: 0 0 10px 0 vars.$bg-gray;
-      border-radius: 4px;
-
-      &:hover {
-        box-shadow: 0 0 10px 0 vars.$bg-green;
-
-        hr {
-          background-color: vars.$bg-green;
-        }
-      }
+    &:hover {
+      box-shadow: 0 0 10px 0 vars.$bg-green;
 
       hr {
-        height: 1px;
-        margin-block: 4px;
-        background-color: vars.$bg-gray;
+        background-color: vars.$bg-green;
       }
     }
 
-    &-controls {
-      position: absolute;
-      inset-block-start: 3px;
-      inset-inline-end: 3px;
-      @include mixins.set-flex(null, 4px);
+    hr {
+      height: 1px;
+      margin-block: 4px;
+      background-color: vars.$bg-gray;
     }
+  }
 
-    &-control {
-      min-inline-size: 24px;
-      block-size: 24px;
-      border-radius: 2px;
+  &__controls {
+    position: absolute;
+    inset-block-start: 3px;
+    inset-inline-end: 3px;
+    @include mixins.set-flex(null, 4px);
+  }
 
-      svg {
-        width: 18px;
-        height: 18px;
-      }
+  &__control {
+    min-inline-size: 24px;
+    block-size: 24px;
+    border-radius: 2px;
+
+    svg {
+      width: 18px;
+      height: 18px;
     }
+  }
 
-    &-discount {
-      position: absolute;
-      inset-block-start: 4px;
-      inset-inline-start: 0;
-      padding-block: 2px;
-      padding-inline: 6px;
-      font-family: CeraProMedium, serif;
-      font-size: 12px;
-      line-height: 1.2;
-      text-transform: uppercase;
+  &__discount {
+    position: absolute;
+    inset-block-start: 4px;
+    inset-inline-start: 0;
+    padding-block: 2px;
+    padding-inline: 6px;
+    font-family: CeraProMedium, serif;
+    font-size: 12px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: vars.$white;
+    background-color: vars.$green;
+  }
+
+  &__image {
+    margin-block-start: 24px;
+    inline-size: 100%;
+    object-fit: contain;
+  }
+
+  &__price {
+    display: block;
+    font-family: CeraProBold, serif;
+    font-size: 16px;
+    color: vars.$green;
+  }
+  &__sale + &__regular {
+    font-family: CeraProRegular, serif;
+    color: vars.$hover-gray;
+    text-decoration: line-through;
+    margin-inline-start: 8px;
+  }
+
+  &__pagination {
+    @include mixins.set-flex(center, 8px);
+
+    font-size: 16px;
+  }
+
+  &__prev,
+  &__page,
+  &__next {
+    min-inline-size: 32px;
+    block-size: 32px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__page {
+    &--active {
       color: vars.$white;
       background-color: vars.$green;
+      border: none;
     }
+  }
 
-    &-image {
-      margin-block-start: 24px;
-      inline-size: 100%;
-      object-fit: contain;
-    }
-
-    &-price {
-      display: block;
-      font-family: CeraProBold, serif;
-      font-size: 16px;
-      color: vars.$green;
-
-      &--sale + &--regular {
-        font-family: CeraProRegular, serif;
-        color: vars.$hover-gray;
-        text-decoration: line-through;
-        margin-inline-start: 8px;
-      }
-    }
-
-    &-pagination {
+  @media screen and (min-width: vars.$xs + 1) {
+    &__actions {
       @include mixins.set-flex(null, 8px);
-      align-self: flex-end;
-      font-size: 16px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  @media screen and (min-width: vars.$md + 1) {
+    &__list {
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    @media screen and (min-width: vars.$md + 1) {
-      &-list {
-        grid-template-columns: repeat(3, 1fr);
+    &__pagination {
+      align-self: flex-end;
+    }
+
+    &__prev,
+    &__page,
+    &__next {
+      min-inline-size: 36px;
+      block-size: 36px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    @media screen and (min-width: vars.$lg + 1) {
+      &__discount {
+        padding-block: 4px;
+        padding-inline: 8px;
+        font-size: 14px;
       }
 
-      @media screen and (min-width: vars.$lg + 1) {
-        &-discount {
-          padding-block: 4px;
-          padding-inline: 8px;
-          font-size: 14px;
-        }
+      &__list {
+        gap: 24px;
+      }
 
-        &-list {
-          gap: 24px;
-        }
+      &__price {
+        font-size: 18px;
+      }
 
-        &-price {
-          font-size: 18px;
-        }
+      &__control {
+        min-inline-size: 28px;
+        block-size: 28px;
+        border-radius: 4px;
 
-        &-control {
-          min-inline-size: 28px;
-          block-size: 28px;
-          border-radius: 4px;
-
-          svg {
-            width: 24px;
-            height: 24px;
-          }
+        svg {
+          width: 24px;
+          height: 24px;
         }
       }
     }

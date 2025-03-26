@@ -9,7 +9,7 @@
     }
   }
 
-  &__content {
+  &__slide {
     position: relative;
 
     @include mixins.set-flex();
@@ -53,7 +53,7 @@
   }
 
   @media screen and (min-width: vars.$xs + 1) {
-    &__content {
+    &__slide {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       row-gap: 4px;
@@ -97,7 +97,7 @@
       }
 
       @media screen and (min-width: vars.$md + 1) {
-        &__content {
+        &__slide {
           padding-inline: 40px;
           text-align: left;
         }
@@ -107,7 +107,7 @@
         }
 
         @media screen and (min-width: vars.$lg + 1) {
-          &__content {
+          &__slide {
             grid-template-columns: fit-content(530px) 1fr;
             padding-block: 60px;
             row-gap: 8px;

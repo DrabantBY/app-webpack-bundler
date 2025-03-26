@@ -1,16 +1,16 @@
 <nav class="header__nav">
-  <ul class="header__nav-menu">
+  <ul class="header__list">
     {% for link in links %}
-    <li class="header__nav-menu-item">
+    <li class="header__item">
       {% if link.active %}
       <a
-        class="header__nav-menu-link header__nav-menu-link--active"
+        class="header__link header__link--active"
         href="{{link.href}}"
         target="_blank">
         {{link.label}}
       </a>
       {% else %}
-      <a class="header__nav-menu-link" href="{{link.href}}" target="_blank">
+      <a class="header__link" href="{{link.href}}" target="_blank">
         {{link.label}}
       </a>
       {% endif %}

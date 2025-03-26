@@ -4,123 +4,125 @@
 .goods-section {
   &__filter {
     font-size: 14px;
+  }
 
-    &-close {
-      margin-inline-start: auto;
-      margin-block-end: 16px;
-    }
+  &__close {
+    margin-inline-start: auto;
+    margin-block-end: 16px;
+  }
 
-    &-field {
-      @include mixins.set-flex(null, 8px);
-      align-items: initial;
-      flex-direction: column;
-      margin-block-end: 16px;
-    }
+  &__field {
+    @include mixins.set-flex(null, 8px);
+    align-items: initial;
+    flex-direction: column;
+    margin-block-end: 16px;
+  }
 
-    &-title {
-      font-family: CeraProBold, serif;
-      font-size: 16px;
-      margin-block-end: 12px;
-    }
+  &__legend {
+    font-family: CeraProBold, serif;
+    font-size: 16px;
+    margin-block-end: 12px;
+  }
 
-    &-label {
-      font-family: CeraProMedium, serif;
-      @include mixins.set-flex();
-      cursor: pointer;
+  &__label {
+    font-family: CeraProMedium, serif;
+    @include mixins.set-flex();
+    cursor: pointer;
 
-      &:has(input:checked) {
-        color: vars.$green;
-      }
-
-      &:hover {
-        color: vars.$hover-gray;
-      }
-
-      &--name {
-        flex-grow: 1;
-        padding-inline-start: 4px;
-        padding-inline-end: 12px;
-      }
-    }
-
-    &-price {
-      position: relative;
-      @include mixins.set-flex(space-between, 16px);
-      flex-direction: column;
-      align-items: initial;
-    }
-
-    &-range {
-      inline-size: 75%;
-
-      &:first-of-type,
-      &:last-of-type {
-        &::-webkit-slider-thumb {
-          block-size: 18px;
-          inline-size: 18px;
-          margin-block-start: -7px;
-          border: 3px solid vars.$white;
-          border-radius: 50%;
-          background-color: vars.$green;
-        }
-      }
-
-      &:first-of-type {
-        &::-webkit-slider-thumb {
-          position: relative;
-          z-index: 1;
-        }
-
-        &::-webkit-slider-runnable-track {
-          block-size: 4px;
-          border-radius: 4px;
-          background-image: linear-gradient(
-            to right,
-            vars.$bg-light-green 0%,
-            vars.$bg-light-green var(--price-min, 0%),
-            vars.$green var(--price-min, 0%),
-            vars.$green var(--price-max, 66%),
-            vars.$bg-light-green var(--price-max, 66%),
-            vars.$bg-light-green 100%
-          );
-        }
-      }
-
-      &:last-of-type {
-        position: absolute;
-        inset-block-start: 0;
-        &::-webkit-slider-runnable-track {
-          block-size: 4px;
-        }
-      }
-    }
-
-    &-output {
-      font-family: CeraProBold, serif;
+    &:has(input:checked) {
       color: vars.$green;
     }
 
-    &-submit,
-    &-reset {
-      display: inline-flex;
+    &:hover {
+      color: vars.$hover-gray;
+    }
+  }
+
+  &__name {
+    flex-grow: 1;
+    padding-inline-start: 4px;
+    padding-inline-end: 12px;
+  }
+
+  &__slider {
+    position: relative;
+    @include mixins.set-flex(space-between, 16px);
+    flex-direction: column;
+    align-items: initial;
+  }
+
+  &__range {
+    inline-size: 75%;
+
+    &:first-of-type,
+    &:last-of-type {
+      &::-webkit-slider-thumb {
+        block-size: 18px;
+        inline-size: 18px;
+        margin-block-start: -7px;
+        border: 3px solid vars.$white;
+        border-radius: 50%;
+        background-color: vars.$green;
+      }
     }
 
-    @media screen and (min-width: vars.$sm + 1) {
+    &:first-of-type {
+      &::-webkit-slider-thumb {
+        position: relative;
+        z-index: 1;
+      }
+
+      &::-webkit-slider-runnable-track {
+        block-size: 4px;
+        border-radius: 4px;
+        background-image: linear-gradient(
+          to right,
+          vars.$bg-light-green 0%,
+          vars.$bg-light-green var(--price-min, 0%),
+          vars.$green var(--price-min, 0%),
+          vars.$green var(--price-max, 66%),
+          vars.$bg-light-green var(--price-max, 66%),
+          vars.$bg-light-green 100%
+        );
+      }
+    }
+
+    &:last-of-type {
+      position: absolute;
+      inset-block-start: 0;
+      &::-webkit-slider-runnable-track {
+        block-size: 4px;
+      }
+    }
+  }
+
+  &__output {
+    font-family: CeraProBold, serif;
+    color: vars.$green;
+  }
+
+  &__submit,
+  &__reset {
+    display: inline-flex;
+  }
+
+  @media screen and (min-width: vars.$sm + 1) {
+    &__filter {
       font-size: 16px;
+    }
 
-      &-close {
-        display: none;
-      }
+    &__close {
+      display: none;
+    }
 
-      &-field {
-        gap: 12px;
-        margin-block-end: 24px;
-      }
+    &__field {
+      gap: 12px;
+      margin-block-end: 24px;
+    }
 
-      &-title {
-        font-size: 18px;
-        margin-block-end: 16px;
-      }
+    &__legend {
+      font-size: 18px;
+      margin-block-end: 16px;
     }
   }
 }

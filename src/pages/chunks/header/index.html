@@ -1,22 +1,20 @@
 <header id="header" class="header">
-  <div class="header__container container">
+  <div class="header__container">
     <div class="header__content">
-      <a class="header__logo logo" href="/" target="_blank">
+      <a class="header__logo" href="/" target="_blank">
         {% include "src/assets/svg/logo/label.svg" %} {% include
         "src/assets/svg/logo/name.svg" %}
       </a>
       {% include "src/pages/chunks/header/_nav.html" %} {% include
       "src/pages/chunks/header/_search.html" %}
       <a
-        class="header__cart-link cart-link button button-link"
+        class="header__cart button button-link"
         href="#"
         target="_blank"
         data-count="99">
         {% include 'src/assets/svg/cart.svg' %}
       </a>
-      <button
-        class="header__login-button login-button button button-text"
-        type="button">
+      <button class="header__login button button-text" type="button">
         {% include 'src/assets/svg/login.svg' %}
         <span>Login</span>
       </button>

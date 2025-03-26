@@ -7,13 +7,13 @@ register();
 changePrice();
 
 togglePopup(
-  '[class*="burger-nav"]',
-  '[class*="burger-button"]',
-  '[class*="burger-nav-close"]'
+  '[class*="menu-nav"]',
+  '[class*="menu-open"]',
+  '[class*="menu-close"]'
 );
 
 togglePopup(
   '[class*="goods-section__aside"]',
   '[class*="filter-open"]',
-  '[class*="filter-close"]'
+  '[class*="__close"]'
 );

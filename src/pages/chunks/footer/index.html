@@ -1,19 +1,26 @@
 <footer id="footer" class="footer">
-  <div class="footer__contacts-container container">
-    <a class="footer__logo logo" href="/" target="_blank">
-      {% include "src/assets/svg/logo/label.svg" %} {% include
-      "src/assets/svg/logo/name.svg" %}
-    </a>
+  <div class="footer-contacts">
+    <div class="footer-contacts__container">
+      <a class="footer__logo" href="/" target="_blank">
+        {% include "src/assets/svg/logo/label.svg" %} {% include
+        "src/assets/svg/logo/name.svg" %}
+      </a>
 
-    {% include "src/pages/chunks/footer/_contacts.html" %}
+      {% include "src/pages/chunks/footer/_contacts.html" %}
+    </div>
   </div>
 
-  <div class="footer__body-container container">
-    {% include 'src/pages/chunks/footer/_plants.html' %} {% include
-    'src/pages/chunks/footer/_newsletter.html' %} {% include
-    'src/pages/chunks/footer/_social.html' %}
+  <div class="footer-body">
+    <div class="footer-body__container">
+      {% include 'src/pages/chunks/footer/_plants.html' %} {% include
+      'src/pages/chunks/footer/_newsletter.html' %} {% include
+      'src/pages/chunks/footer/_social.html' %}
+    </div>
   </div>
-  <div class="footer__copyright-container container">
-    &#169; 2025 GreenShop. All Rights Reserved.
+
+  <div class="footer-copyright">
+    <div class="footer-copyright__container">
+      &#169; 2025 GreenShop. All Rights Reserved.
+    </div>
   </div>
 </footer>

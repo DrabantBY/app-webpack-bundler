@@ -1,7 +1,7 @@
 @use '../../tools/variables' as vars;
 @use '../../tools/mixins' as mixins;
 
-.footer {
+.footer-body {
   &__plants-divider {
     block-size: 1px;
     margin-block: 8px;

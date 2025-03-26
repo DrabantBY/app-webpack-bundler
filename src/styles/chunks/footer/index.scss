@@ -7,29 +7,33 @@
 @use '../../tools/mixins' as mixins;
 
 .footer {
-  &__copyright-container {
-    @include mixins.set-flex(center);
-    padding-block: 16px;
-    border-top: 1px solid vars.$bg-green;
+  &-copyright {
+    &__container {
+      @include mixins.set-flex(center);
+      padding-block: 16px;
+      border-top: 1px solid vars.$bg-green;
+    }
   }
 
-  &__body-container {
-    @include mixins.set-flex(initial, 16px);
-    flex-direction: column;
-    padding-block: 16px;
-    background-color: vars.$bg-white;
+  &-body {
+    &__container {
+      @include mixins.set-flex(initial, 16px);
+      flex-direction: column;
+      padding-block: 16px;
+      background-color: vars.$bg-white;
 
-    @media screen and (min-width: vars.$md + 1) {
-      display: grid;
-      grid-template-columns: 1fr 300px auto;
-      align-items: center;
-      gap: 12px;
+      @media screen and (min-width: vars.$md + 1) {
+        display: grid;
+        grid-template-columns: 1fr 300px auto;
+        align-items: center;
+        gap: 12px;
 
-      @media screen and (min-width: vars.$lg + 1) {
-        gap: 16px;
+        @media screen and (min-width: vars.$lg + 1) {
+          gap: 16px;
 
-        @media screen and (min-width: vars.$xl + 1) {
-          gap: 24px;
+          @media screen and (min-width: vars.$xl + 1) {
+            gap: 24px;
+          }
         }
       }
     }

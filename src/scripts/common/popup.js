@@ -12,6 +12,7 @@ export function togglePopup(
   const onClick = () => {
     overlay.classList.toggle('display');
     popup.classList.toggle('display');
+    document.body.classList.toggle('disabled');
   };
 
   openSelector.addEventListener('click', onClick);

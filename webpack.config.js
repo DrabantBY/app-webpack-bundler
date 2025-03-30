@@ -33,7 +33,7 @@ export default {
             sizes: [
               { label: 'small', value: 39 },
               { label: 'medium', value: 86 },
-              { label: 'large ', value: 23 },
+              { label: 'large', value: 23 },
             ],
             tabs: [
               { name: 'all plants', active: true },
@@ -143,8 +143,13 @@ export default {
       '@img': join(import.meta.dirname, 'src/assets/img'),
       '@svg': join(import.meta.dirname, 'src/assets/svg'),
       '@fonts': join(import.meta.dirname, 'src/assets/fonts'),
-      '@scripts': join(import.meta.dirname, 'src/scripts'),
       '@styles': join(import.meta.dirname, 'src/styles'),
+      '@scripts': join(import.meta.dirname, 'src/scripts'),
+      '@common': join(import.meta.dirname, 'src/scripts/common'),
+      '@tools': join(import.meta.dirname, 'src/scripts/common/tools'),
+      '@const': join(import.meta.dirname, 'src/scripts/common/const'),
+      '@handlers': join(import.meta.dirname, 'src/scripts/common/handlers'),
+      '@filters': join(import.meta.dirname, 'src/scripts/filters'),
     },
   },
 

@@ -1,19 +1,23 @@
 import { register } from 'swiper/element/bundle';
-import { togglePopup } from '@scripts/common/popup';
-import { changePrice } from '@scripts/common/price';
+import { togglePopup } from '@common';
+import { initPriceChange, initSearchChange, initFormSubmit } from '@filters';
 
 register();
 
-changePrice();
+initPriceChange();
+
+initSearchChange();
+
+initFormSubmit();
 
 togglePopup(
-  '[class*="menu-nav"]',
-  '[class*="menu-open"]',
-  '[class*="menu-close"]'
+  'nav[class*="menu-nav"]',
+  'button[class*="menu-open"]',
+  'button[class*="menu-close"]'
 );
 
 togglePopup(
-  '[class*="goods-section__aside"]',
-  '[class*="filter-open"]',
-  '[class*="__close"]'
+  'aside[class*="goods-section__aside"]',
+  'button[class*="filter-open"]',
+  'button[class*="__close"]'
 );

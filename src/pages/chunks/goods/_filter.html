@@ -2,8 +2,8 @@
   <button class="goods-section__close button button-link" type="button">
     {% include 'src/assets/svg/close.svg' %}
   </button>
-  <form class="goods-section__filter">
-    <fieldset class="goods-section__field">
+  <form class="goods-section__filter" name="filter">
+    <fieldset class="goods-section__field" name="category">
       <legend class="goods-section__legend">categories</legend>
 
       {% for category in categories %}
@@ -11,14 +11,14 @@
         <input
           class="goods-section__checkbox"
           type="checkbox"
-          name="{{category.label}}" />
+          value="{{category.label}}" />
         <span class="goods-section__name"> {{ category.label }} </span>
         <span class="goods-section__amount"> ({{category.value}}) </span>
       </label>
       {% endfor %}
     </fieldset>
 
-    <fieldset class="goods-section__field">
+    <fieldset class="goods-section__field" name="size">
       <legend class="goods-section__legend">size</legend>
 
       {% for size in sizes %}
@@ -26,21 +26,20 @@
         <input
           class="goods-section__checkbox"
           type="checkbox"
-          name="{{size.label}}" />
+          value="{{size.label}}" />
         <span class="goods-section__name"> {{ size.label }} </span>
         <span class="goods-section__amount"> ({{size.value}}) </span>
       </label>
       {% endfor %}
     </fieldset>
 
-    <fieldset class="goods-section__field">
+    <fieldset class="goods-section__field" name="price">
       <legend class="goods-section__legend">price</legend>
       <div id="price-range" class="goods-section__slider">
         <input
           class="goods-section__range"
           aria-label="price range"
           type="range"
-          name="price"
           min="0"
           max="1500"
           step="10"
@@ -50,7 +49,6 @@
           class="goods-section__range"
           aria-label="price range"
           type="range"
-          name="price"
           min="0"
           max="1500"
           step="10"

@@ -1,4 +1,4 @@
-export function changePrice() {
+export function initPriceChange() {
   const [firstPrice, lastPrice, outputPrice] =
     document.getElementById('price-range').children;
 

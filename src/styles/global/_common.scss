@@ -53,6 +53,21 @@ input[type='checkbox'] {
   }
 }
 
+input[type='search'] {
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    block-size: 20px;
+    inline-size: 20px;
+    background-image: url('@svg/close.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    margin-inline-start: 2px;
+    margin-inline-end: 6px;
+  }
+}
+
 input[type='range'] {
   -webkit-appearance: none;
   appearance: none;
@@ -144,7 +159,7 @@ input[type='range'] {
     &:hover {
       color: vars.$white;
       background-color: vars.$green;
-      border: none;
+      border-color: vars.$green;
     }
   }
 

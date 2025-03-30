@@ -1,14 +1,14 @@
 import { register } from 'swiper/element/bundle';
 import { togglePopup } from '@common';
-import { initPriceChange, initSearchChange, initFormSubmit } from '@filters';
+import { initPriceRange, initSearchField, initFilterForm } from '@filters';
 
 register();
 
-initPriceChange();
+initSearchField();
 
-initSearchChange();
+initPriceRange();
 
-initFormSubmit();
+initFilterForm();
 
 togglePopup(
   'nav[class*="menu-nav"]',

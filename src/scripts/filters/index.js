@@ -1,3 +1,3 @@
-export * from './initSearchChange.js';
-export * from './initPriceChange.js';
-export * from './initFormSubmit.js';
+export * from './initSearchField.js';
+export * from './initPriceRange.js';
+export * from './initFilterForm.js';

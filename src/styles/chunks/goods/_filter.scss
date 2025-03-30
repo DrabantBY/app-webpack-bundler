@@ -25,8 +25,8 @@
   }
 
   &__label {
-    font-family: CeraProMedium, serif;
     @include mixins.set-flex();
+    font-family: CeraProMedium, serif;
     cursor: pointer;
 
     &:has(input:checked) {

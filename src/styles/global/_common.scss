@@ -98,6 +98,12 @@ input[type='range'] {
   &.display {
     display: block;
   }
+
+  @media screen and (min-width: vars.$sm + 1) {
+    &.display {
+      display: none;
+    }
+  }
 }
 
 #header,

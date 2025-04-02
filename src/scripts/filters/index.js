@@ -1,3 +1,2 @@
-export * from './initSearchField.js';
-export * from './initPriceRange.js';
-export * from './initFilterForm.js';
+export * from './SearchField.js';
+export * from './FilterForm.js';

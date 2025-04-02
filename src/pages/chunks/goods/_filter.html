@@ -35,10 +35,11 @@
 
     <fieldset class="goods-section__field" name="price">
       <legend class="goods-section__legend">price</legend>
-      <div id="price-range" class="goods-section__slider">
+      <div class="goods-section__slider">
         <input
           class="goods-section__range"
-          aria-label="price range"
+          aria-label="first price"
+          name="first-price"
           type="range"
           min="0"
           max="1500"
@@ -46,16 +47,14 @@
 
         <input
           class="goods-section__range"
-          aria-label="price range"
+          aria-label="last price"
+          name="last-price"
           type="range"
           min="0"
           max="1500"
           step="10" />
 
-        <output
-          id="price-output"
-          class="goods-section__output"
-          role="status"></output>
+        <output class="goods-section__output" role="status"></output>
       </div>
     </fieldset>
 

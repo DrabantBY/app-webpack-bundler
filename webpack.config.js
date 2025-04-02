@@ -150,6 +150,7 @@ export default {
       '@const': join(import.meta.dirname, 'src/scripts/common/const'),
       '@handlers': join(import.meta.dirname, 'src/scripts/common/handlers'),
       '@filters': join(import.meta.dirname, 'src/scripts/filters'),
+      '@api': join(import.meta.dirname, 'src/scripts/api'),
     },
   },
 

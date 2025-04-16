@@ -4,7 +4,7 @@
   {% block scripts %}{% endblock %}
   <body>
     <div id="root">
-      <div id="overlay"></div>
+      <div id="overlay" hidden></div>
       {% include 'src/pages/chunks/header/index.html' %}
       <main id="main">{% block main %}{% endblock %}</main>
       {% include 'src/pages/chunks/footer/index.html' %}

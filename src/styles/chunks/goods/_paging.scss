@@ -1,0 +1,35 @@
+@use '../../tools/variables' as vars;
+@use '../../tools/mixins' as mixins;
+
+.goods-section {
+  &__pagination {
+    font-size: 16px;
+    @include mixins.set-flex(center, 8px);
+  }
+
+  &__prev,
+  &__page,
+  &__next {
+    min-inline-size: 32px;
+    block-size: 32px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__page.active {
+    color: vars.$white;
+    background-color: vars.$green;
+    border: none;
+  }
+
+  &__page.active + &__next,
+  &__prev:has(+ &__page.active) {
+    color: vars.$hover-gray;
+    border: 1px solid currentColor;
+    background-color: transparent;
+    pointer-events: none;
+  }
+}

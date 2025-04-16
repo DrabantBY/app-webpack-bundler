@@ -1,12 +1,16 @@
 import { register } from 'swiper/element/bundle';
-import { togglePopup } from '@common';
-import { SearchField, FilterForm } from '@filters';
+import { changePage, togglePopup } from '@common';
+import { SearchForm, FilterForm, SelectForm } from '@filters';
 
 register();
 
-new SearchField('search');
+new SearchForm('search');
 
 new FilterForm('filter');
+
+new SelectForm('select');
+
+changePage();
 
 togglePopup(
   'nav[class*="menu-nav"]',

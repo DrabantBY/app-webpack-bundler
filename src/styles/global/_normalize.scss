@@ -3,7 +3,7 @@
 :root {
   box-sizing: border-box;
   user-select: none;
-  scroll-behavior: smooth;
+  //scroll-behavior: smooth;
   color: vars.$black;
 }
 
@@ -70,14 +70,22 @@ input {
   font-family: inherit;
   border: none;
   background-color: transparent;
-
-  &:focus {
-    outline: none;
-  }
+  outline: none;
 
   &::placeholder {
     color: vars.$gray;
   }
+}
+
+select {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  appearance: none;
+  border: none;
+  outline: none;
+
+  //width: 100%;
 }
 
 fieldset {

@@ -4,9 +4,6 @@ export class GoodsApi {
   static getGoodsList = async (searchParams) => {
     const url = `${this.#baseUrl}?${searchParams}`;
     const response = await fetch(url);
-
-    const data = await response.json();
-
-    alert('\nresponseData:\n' + JSON.stringify(data) + '\nrequestUrl:\n' + url);
+    return await response.json();
   };
 }

@@ -88,19 +88,14 @@ input[type='range'] {
 }
 
 #overlay {
-  display: none;
   position: fixed;
   block-size: 100%;
   inline-size: 100%;
   z-index: 2;
   backdrop-filter: blur(2px);
 
-  &.display {
-    display: block;
-  }
-
   @media screen and (min-width: vars.$sm + 1) {
-    &.display {
+    &:not([hidden]) {
       display: none;
     }
   }
@@ -146,7 +141,7 @@ input[type='range'] {
     color: vars.$hover-gray;
     border-color: currentColor;
     background-color: transparent;
-    cursor: not-allowed;
+    pointer-events: none;
   }
 
   &[type='submit'] {
@@ -161,7 +156,7 @@ input[type='range'] {
       color: vars.$hover-gray;
       border-color: currentColor;
       background-color: transparent;
-      cursor: not-allowed;
+      pointer-events: none;
     }
 
     input + & {

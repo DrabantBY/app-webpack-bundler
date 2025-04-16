@@ -26,13 +26,10 @@ export class DoubleRangeInput {
     if (searchParams.has(fieldName)) {
       const values = searchParams.get(fieldName).split(',');
       this.#changeRangeValues(values);
-    } else {
-      this.resetRangeValues();
-    }
+    } else this.resetRangeValues();
 
-    for (const range of this.#ranges) {
+    for (const range of this.#ranges)
       range.addEventListener('input', this.#onRangeInput);
-    }
   };
 
   #onRangeInput = () => {
@@ -45,9 +42,7 @@ export class DoubleRangeInput {
   };
 
   #changeRangeValues = (values) => {
-    for (let i = 0; i < values.length; i++) {
-      this.#ranges[i].value = values[i];
-    }
+    for (let i = 0; i < values.length; i++) this.#ranges[i].value = values[i];
 
     this.#changeRangeStyles(values);
   };

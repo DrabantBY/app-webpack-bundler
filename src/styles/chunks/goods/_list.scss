@@ -2,40 +2,11 @@
 @use '../../tools/mixins' as mixins;
 
 .goods-section {
-  &__plants {
-    @include mixins.set-flex(null, 24px);
-    flex-direction: column;
-    align-items: initial;
-    font-size: 14px;
-  }
-
-  &__actions {
-    @include mixins.set-flex(null, 8px);
-    flex-direction: column;
-  }
-
-  &__tabs {
-    @include mixins.set-flex(null, 32px);
-  }
-
-  &__tab {
-    padding-block: 4px;
-
-    &:hover {
-      font-weight: 700;
-    }
-
-    &--active {
-      font-weight: 700;
-      color: vars.$green;
-      border-bottom: 2px solid currentColor;
-    }
-  }
-
   &__list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
+    scroll-margin-block-start: 64px;
   }
 
   &__item {
@@ -78,7 +49,7 @@
     }
   }
 
-  &__discount {
+  &__sale {
     position: absolute;
     inset-block-start: 4px;
     inset-inline-start: 0;
@@ -90,6 +61,9 @@
     text-transform: uppercase;
     color: vars.$white;
     background-color: vars.$green;
+    &:empty {
+      display: none;
+    }
   }
 
   &__image {
@@ -103,12 +77,13 @@
     font-family: CeraProBold, serif;
     font-size: 16px;
     color: vars.$green;
-  }
-  &__sale + &__regular {
-    font-family: CeraProRegular, serif;
-    color: vars.$hover-gray;
-    text-decoration: line-through;
-    margin-inline-start: 8px;
+
+    &-current + &-previous {
+      font-family: CeraProRegular, serif;
+      color: vars.$hover-gray;
+      text-decoration: line-through;
+      margin-inline-start: 8px;
+    }
   }
 
   &__pagination {
@@ -130,11 +105,19 @@
   }
 
   &__page {
-    &--active {
+    &.active {
       color: vars.$white;
       background-color: vars.$green;
       border: none;
     }
+  }
+
+  &__page.active + &__next,
+  &__prev:has(+ &__page.active) {
+    color: vars.$hover-gray;
+    border: 1px solid currentColor;
+    background-color: transparent;
+    pointer-events: none;
   }
 
   @media screen and (min-width: vars.$xs + 1) {
@@ -167,7 +150,7 @@
     }
 
     @media screen and (min-width: vars.$lg + 1) {
-      &__discount {
+      &__sale {
         padding-block: 4px;
         padding-inline: 8px;
         font-size: 14px;

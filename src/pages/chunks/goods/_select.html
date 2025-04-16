@@ -1,0 +1,25 @@
+<form class="goods-section__select" name="select">
+  <div class="goods-section__tabs">
+    {% for tab in tabs %}
+    <label class="goods-section__tab">
+      {{ tab.name }}
+      <input type="radio" name="select" value="{{ tab.value }}" />
+    </label>
+    {% endfor %}
+  </div>
+
+  <div class="goods-section__sort">
+    <label class="goods-section__sort-label" for="select-sort">
+      sort by:
+    </label>
+    <div class="goods-section__sort-options">
+      <select id="select-sort" name="sort">
+        {% for option in options %}
+        <option value="{{option}}">{{option}}</option>
+        {% endfor %}
+      </select>
+
+      {% include 'src/assets/svg/short-arrow-down.svg' %}
+    </div>
+  </div>
+</form>

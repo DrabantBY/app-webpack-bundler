@@ -1,5 +1,7 @@
 @forward 'filter';
+@forward 'select';
 @forward 'list';
+@forward 'paging';
 
 @use '../../tools/variables' as vars;
 @use '../../tools/mixins' as mixins;
@@ -8,7 +10,6 @@
   &__container {
     @include mixins.set-flex(null, 24px);
     align-items: initial;
-    text-transform: capitalize;
   }
 
   &__aside {
@@ -24,10 +25,18 @@
     background-color: vars.$white;
     transition: transform 0.2s linear;
     overflow-y: scroll;
+    text-transform: capitalize;
 
     &.display {
       transform: none;
     }
+  }
+
+  &__plants {
+    @include mixins.set-flex(null, 24px);
+    flex-direction: column;
+    align-items: initial;
+    font-size: 14px;
   }
 
   @media screen and (min-width: vars.$xs + 1) {

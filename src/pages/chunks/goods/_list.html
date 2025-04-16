@@ -1,87 +1,34 @@
-<div class="goods-section__plants">
-  <div class="goods-section__actions">
-    <div class="goods-section__tabs">
-      {% for tab in tabs %} {% if tab.active %}
-      <a
-        class="goods-section__tab goods-section__tab--active"
-        href="#"
-        target="_blank">
-        {{ tab.name }}
-      </a>
-      {% else %}
-      <a class="goods-section__tab" href="#" target="_blank">
-        {{ tab.name }}
-      </a>
-      {% endif %} {% endfor %}
+<ul id="goods" class="goods-section__list">
+  {% for plant in plants %}
+  <li class="goods-section__item">
+    <div class="goods-section__controls">
+      <button class="goods-section__control button button-link" type="button">
+        {% include 'src/assets/svg/heart.svg' %}
+      </button>
+
+      <button class="goods-section__control button button-link" type="button">
+        {% include 'src/assets/svg/bag.svg' %}
+      </button>
     </div>
-    <div class="goods-section__sort">
-      <label for="sorting-goods">sort by:</label>
-      <select id="sorting-goods" name="">
-        <option>default sorting</option>
-        <option>asc price</option>
-        <option>desc price</option>
-        <option>asc name</option>
-        <option>desc name</option>
-      </select>
-    </div>
-  </div>
-
-  <ul class="goods-section__list">
-    {% for plant in plants %}
-    <li class="goods-section__item">
-      <div class="goods-section__controls">
-        <button class="goods-section__control button button-link" type="button">
-          {% include 'src/assets/svg/heart.svg' %}
-        </button>
-
-        <button class="goods-section__control button button-link" type="button">
-          {% include 'src/assets/svg/bag.svg' %}
-        </button>
-      </div>
-
-      {% if plant.discount %}
-      <span class="goods-section__discount"> {{plant.discount}}% off </span>
-      {% endif %}
-      <a class="goods-section__link" href="#" target="_blank">
-        <img
-          class="goods-section__image"
-          src="@img/goods/plant-{{loop.index}}.png"
-          alt="plant picture" />
-        <hr />
-        <span class="goods-section__title"> {{ plant.name }} </span>
-        <span class="goods-section__price">
-          {% if plant.discount %}
-          <span class="goods-section__sale">
-            ${{ (plant.price * (1 - plant.discount / 100)) | round(2) }}
-          </span>
-          {% endif %}
-          <span class="goods-section__regular"> ${{ plant.price }} </span>
+    {% if plant.discount %}
+    <span class="goods-section__sale">{{plant.discount}}%</span>
+    {% endif %}
+    <a class="goods-section__link" href="#">
+      <img
+        class="goods-section__image"
+        src="@img/goods/plant-{{loop.index}}.png"
+        alt="plant picture" />
+      <hr />
+      <span class="goods-section__title"> {{ plant.name }} </span>
+      <span class="goods-section__price">
+        {% if plant.discount %}
+        <span class="goods-section__price-current">
+          ${{ (plant.price * (1 - plant.discount / 100)) | round(2) }}
         </span>
-      </a>
-    </li>
-    {% endfor %}
-  </ul>
-
-  <div class="goods-section__pagination">
-    <button class="goods-section__prev button button-link">
-      {% include 'src/assets/svg/short-arrow-left.svg' %}
-    </button>
-    <button
-      class="goods-section__page goods-section__page--active button button-icon"
-      type="button">
-      1
-    </button>
-    <button class="goods-section__page button button-icon" type="button">
-      2
-    </button>
-    <button class="goods-section__page button button-icon" type="button">
-      3
-    </button>
-    <button class="goods-section__page button button-icon" type="button">
-      4
-    </button>
-    <button class="goods-section__next button button-link">
-      {% include 'src/assets/svg/short-arrow-right.svg' %}
-    </button>
-  </div>
-</div>
+        {% endif %}
+        <span class="goods-section__price-previous"> ${{ plant.price }} </span>
+      </span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>

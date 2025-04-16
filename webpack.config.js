@@ -36,9 +36,9 @@ export default {
               { label: 'large', value: 23 },
             ],
             tabs: [
-              { name: 'all plants', active: true },
-              { name: 'new arrivals', active: false },
-              { name: 'sale', active: false },
+              { name: 'all plants', value: 'all' },
+              { name: 'new arrivals', value: 'new' },
+              { name: 'sale', value: 'sale' },
             ],
             plants: [
               { name: 'barberton daisy', price: 119, discount: 25 },
@@ -49,6 +49,16 @@ export default {
               { name: "bird's nest fern", price: 199, discount: null },
               { name: 'broadleaf lady palm', price: 59, discount: null },
               { name: 'chinese evergreen', price: 39, discount: null },
+            ],
+            options: [
+              'desc popular',
+              'desc price',
+              'desc name',
+              'desc sale',
+              'asc popular',
+              'asc price',
+              'asc name',
+              'asc sale',
             ],
           }, // pass variables into template
         },
@@ -151,6 +161,7 @@ export default {
       '@handlers': join(import.meta.dirname, 'src/scripts/common/handlers'),
       '@filters': join(import.meta.dirname, 'src/scripts/filters'),
       '@api': join(import.meta.dirname, 'src/scripts/api'),
+      '@states': join(import.meta.dirname, 'src/scripts/states'),
     },
   },
 

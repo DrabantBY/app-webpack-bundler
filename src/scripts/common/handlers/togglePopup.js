@@ -10,7 +10,7 @@ export function togglePopup(
   const closeSelector = document.body.querySelector(popupCloseSelector);
 
   const onClick = () => {
-    overlay.classList.toggle('display');
+    overlay.hidden = !overlay.hidden;
     popup.classList.toggle('display');
     document.body.classList.toggle('disabled');
   };

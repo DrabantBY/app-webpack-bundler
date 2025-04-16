@@ -1,13 +1,15 @@
 @use '../../tools/variables' as vars;
 @use '../../tools/mixins' as mixins;
 
-.header__search {
-  @include mixins.set-flex(center);
-  position: relative;
-  grid-row: 2 / 3;
-  grid-column: 1 / -2;
+.header {
+  &__form {
+    @include mixins.set-flex(center);
+    position: relative;
+    grid-row: 2 / 3;
+    grid-column: 1 / -2;
+  }
 
-  &-input {
+  &__input {
     block-size: 36px;
     inline-size: 100%;
     padding-inline-start: 36px;
@@ -16,11 +18,11 @@
     transition: inline-size 0.3s linear;
   }
 
-  &-checkbox {
+  &__checkbox {
     display: none;
   }
 
-  &-label {
+  &__label {
     @include mixins.set-flex(center);
     position: absolute;
     inset-block-start: 50%;
@@ -34,18 +36,22 @@
   }
 
   @media screen and (min-width: vars.$sm + 1) {
-    grid-row: auto;
-    grid-column: auto;
-    margin-inline: 24px;
+    &__form {
+      grid-row: auto;
+      grid-column: auto;
+      margin-inline: 24px;
+    }
 
     @media screen and (min-width: vars.$lg + 1) {
-      margin-inline: 0;
+      &__form {
+        margin-inline: 0;
+      }
 
-      &-input {
+      &__input {
         inline-size: 0;
       }
 
-      &-checkbox:checked + &-input {
+      &__label:has(&__checkbox:checked) + &__input {
         inline-size: 200px;
         padding-inline-start: 40px;
       }

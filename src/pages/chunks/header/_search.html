@@ -1,13 +1,13 @@
-<div class="header__search">
-  <label class="header__search-label" for="search-checkbox">
+<form class="header__form" name="search">
+  <label class="header__label">
     {% include 'src/assets/svg/search.svg' %}
+    <input class="header__checkbox" type="checkbox" />
   </label>
-  <input id="search-checkbox" class="header__search-checkbox" type="checkbox" />
+
   <input
-    id="search"
-    name="search"
-    class="header__search-input"
+    class="header__input"
     type="search"
+    name="search"
     aria-label="search"
     placeholder="Find your plants" />
-</div>
+</form>

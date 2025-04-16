@@ -1,6 +1,10 @@
-<div id="goods" class="goods-section">
+<div class="goods-section">
   <div class="goods-section__container">
-    {% include 'src/pages/chunks/goods/_filter.html' %} {% include
-    'src/pages/chunks/goods/_list.html' %}
+    {% include 'src/pages/chunks/goods/_filter.html' %}
+    <div class="goods-section__plants">
+      {% include 'src/pages/chunks/goods/_select.html' %} {% include
+      'src/pages/chunks/goods/_list.html' %} {% include
+      'src/pages/chunks/goods/_paging.html' %}
+    </div>
   </div>
 </div>

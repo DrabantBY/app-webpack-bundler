@@ -1,0 +1,69 @@
+@use '../../tools/variables' as vars;
+@use '../../tools/mixins' as mixins;
+
+.goods-section {
+  &__select {
+    @include mixins.set-flex(null, 32px);
+    text-transform: capitalize;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__tabs {
+    @include mixins.set-flex(null, 32px);
+    align-items: initial;
+  }
+
+  &__tab {
+    font-size: 16px;
+    padding-block: 4px;
+    cursor: pointer;
+
+    input[type='radio'] {
+      display: none;
+    }
+
+    &:hover {
+      font-weight: 700;
+    }
+
+    &:has(input[type='radio']:checked) {
+      font-weight: 700;
+      color: vars.$green;
+      border-bottom: 2px solid currentColor;
+    }
+  }
+
+  &__sort {
+    @include mixins.set-flex(null, 4px);
+
+    &-options {
+      position: relative;
+      padding-inline-end: 20px;
+      cursor: pointer;
+
+      select {
+        padding-inline-start: 4px;
+        padding-inline-end: 20px;
+        margin-inline-end: -20px;
+
+        &:hover {
+          background-color: vars.$bg-white;
+        }
+      }
+
+      svg {
+        position: absolute;
+        inset-inline-end: 0;
+        inset-block-start: 2px;
+        width: 16px;
+        height: 16px;
+        transition: transform 0.1s linear;
+      }
+
+      select:focus + svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

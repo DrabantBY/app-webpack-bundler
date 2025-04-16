@@ -1,5 +1,4 @@
 import { DoubleRangeInput } from '@filters/DoubleRangeInput';
-import { GoodsApi } from '@api';
 
 export class FilterForm {
   #form;
@@ -22,9 +21,8 @@ export class FilterForm {
     for (const { elements, name } of this.#formFields) {
       if (searchParams.has(name)) {
         for (const element of elements) {
-          if (element.type === 'checkbox') {
+          if (element.type === 'checkbox')
             element.checked = searchParams.get(name).includes(element.value);
-          }
         }
       }
     }
@@ -37,27 +35,23 @@ export class FilterForm {
   };
 
   #changeFormActions = () => {
-    const hasUncheckedBoxes = this.#getCheckedBoxes().length === 0;
-    const hasClearForm =
-      hasUncheckedBoxes && this.#formPrice.checkValuesIsMax();
-
-    for (const action of this.#formActions) {
-      action.disabled = hasClearForm;
-    }
+    for (const action of this.#formActions)
+      action.disabled =
+        this.#getCheckedBoxes().length === 0 &&
+        this.#formPrice.checkValuesIsMax();
   };
 
-  #onFormSubmit = (event) => {
+  #onFormSubmit = async (event) => {
     event.preventDefault();
 
-    const searchParams = new URLSearchParams();
+    const searchParams = new URLSearchParams(window.location.search);
 
     for (const { elements, name } of this.#formFields) {
       const searchValues = [];
 
       for (const { type, checked, value } of elements) {
-        if ((type === 'checkbox' && checked) || type === 'range') {
+        if ((type === 'checkbox' && checked) || type === 'range')
           searchValues.push(value);
-        }
       }
 
       if (searchValues.length > 0) {
@@ -66,11 +60,11 @@ export class FilterForm {
       }
     }
 
-    this.#updateUrl(searchParams);
-    GoodsApi.getGoodsList(searchParams);
+    window.location.hash = 'goods';
+    window.location.search = searchParams;
   };
 
-  #onFormReset = (event) => {
+  #onFormReset = async (event) => {
     event.preventDefault();
 
     const searchParams = new URLSearchParams(window.location.search);
@@ -79,31 +73,19 @@ export class FilterForm {
 
     const checkedBoxes = this.#getCheckedBoxes();
 
-    for (const checkedBox of checkedBoxes) {
+    for (const checkedBox of checkedBoxes)
       checkedBox.checked = !checkedBox.checked;
-    }
 
-    for (const action of this.#formActions) {
-      action.disabled = !action.disabled;
-    }
+    for (const action of this.#formActions) action.disabled = !action.disabled;
 
-    for (const { name } of this.#formFields) {
-      if (searchParams.has(name)) {
-        searchParams.delete(name);
+    if (searchParams.size !== 0) {
+      for (const { name } of this.#formFields) {
+        if (searchParams.has(name)) searchParams.delete(name);
       }
+
+      window.location.search = searchParams;
     }
-
-    this.#updateUrl(searchParams);
-    GoodsApi.getGoodsList(searchParams);
   };
-
-  #updateUrl(searchParams) {
-    window.history.pushState(
-      null,
-      '',
-      searchParams.size === 0 ? '/' : `?${searchParams}`
-    );
-  }
 
   #getCheckedBoxes = () =>
     this.#form.querySelectorAll('input[type="checkbox"]:checked');

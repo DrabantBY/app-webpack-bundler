@@ -20,7 +20,7 @@ function onClick({ target }) {
   }
 }
 
-export function changePage() {
+export function initPagination() {
   const pagination = document.querySelector('[class$="__pagination"]');
 
   const searchParams = new URLSearchParams(window.location.search);

@@ -3,7 +3,7 @@
 :root {
   box-sizing: border-box;
   user-select: none;
-  //scroll-behavior: smooth;
+  scroll-behavior: smooth;
   color: vars.$black;
 }
 
@@ -84,8 +84,6 @@ select {
   appearance: none;
   border: none;
   outline: none;
-
-  //width: 100%;
 }
 
 fieldset {

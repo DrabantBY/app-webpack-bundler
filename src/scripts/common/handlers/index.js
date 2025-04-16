@@ -1,2 +1,2 @@
 export * from './togglePopup.js';
-export * from './changePage.js';
+export * from './initPagination.js';

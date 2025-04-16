@@ -1,5 +1,5 @@
 import { register } from 'swiper/element/bundle';
-import { changePage, togglePopup } from '@common';
+import { initPagination, togglePopup } from '@common';
 import { SearchForm, FilterForm, SelectForm } from '@filters';
 
 register();
@@ -10,7 +10,7 @@ new FilterForm('filter');
 
 new SelectForm('select');
 
-changePage();
+initPagination();
 
 togglePopup(
   'nav[class*="menu-nav"]',

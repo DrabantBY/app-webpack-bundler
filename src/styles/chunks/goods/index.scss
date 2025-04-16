@@ -1,7 +1,7 @@
 @forward 'filter';
 @forward 'select';
 @forward 'list';
-@forward 'paging';
+@forward 'pagination';
 
 @use '../../tools/variables' as vars;
 @use '../../tools/mixins' as mixins;

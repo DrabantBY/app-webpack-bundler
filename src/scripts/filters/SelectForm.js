@@ -3,10 +3,10 @@ export class SelectForm {
 
   constructor(formName) {
     this.#form = document.forms[formName];
-    this.#initFormValues();
+    this.#init();
   }
 
-  #initFormValues = () => {
+  #init = () => {
     const searchParams = new URLSearchParams(window.location.search);
 
     for (const element of this.#form.elements) {
@@ -14,15 +14,14 @@ export class SelectForm {
         if (element.type === 'radio')
           element.checked = searchParams.get(element.name) === element.value;
         else element.value = searchParams.get(element.name);
-      } else {
-        if (element.type === 'radio') element.checked = element.value === 'all';
-      }
+      } else if (element.type === 'radio')
+        element.checked = element.value === 'all';
     }
 
-    this.#form.addEventListener('change', this.#onFormChange);
+    this.#form.addEventListener('change', this.#onChange);
   };
 
-  #onFormChange = ({ target }) => {
+  #onChange = ({ target }) => {
     const searchParams = new URLSearchParams(window.location.search);
 
     searchParams.set(target.name, target.value);

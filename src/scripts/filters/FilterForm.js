@@ -1,89 +1,88 @@
-import { DoubleRangeInput } from '@filters/DoubleRangeInput';
+import { PriceRange } from '@filters/PriceRange.js';
 
 export class FilterForm {
   #form;
-  #formFields;
-  #formActions;
-  #formPrice;
+  #fields;
+  #actions;
+  #price;
 
   constructor(formName) {
     this.#form = document.forms[formName];
-    this.#formFields = this.#form.querySelectorAll('fieldset');
-    this.#formActions = this.#form.querySelectorAll('button');
-    this.#formPrice = new DoubleRangeInput(this.#form, 'price');
+    this.#fields = this.#form.querySelectorAll('fieldset');
+    this.#actions = this.#form.querySelectorAll('button');
+    this.#price = new PriceRange(this.#form, 'price');
 
-    this.#initFormValues();
+    this.#init();
   }
 
-  #initFormValues = () => {
-    const searchParams = new URLSearchParams(window.location.search);
+  #init = () => {
+    const params = new URLSearchParams(window.location.search);
 
-    for (const { elements, name } of this.#formFields) {
-      if (searchParams.has(name)) {
+    for (const { elements, name } of this.#fields) {
+      if (params.has(name)) {
         for (const element of elements) {
           if (element.type === 'checkbox')
-            element.checked = searchParams.get(name).includes(element.value);
+            element.checked = params.get(name).includes(element.value);
         }
       }
     }
 
-    this.#changeFormActions();
+    this.#disableActions();
 
-    this.#form.addEventListener('submit', this.#onFormSubmit);
-    this.#form.addEventListener('reset', this.#onFormReset);
-    this.#form.addEventListener('change', this.#changeFormActions);
+    this.#form.addEventListener('submit', this.#onSubmit);
+    this.#form.addEventListener('reset', this.#onReset);
+    this.#form.addEventListener('change', this.#disableActions);
   };
 
-  #changeFormActions = () => {
-    for (const action of this.#formActions)
+  #disableActions = () => {
+    for (const action of this.#actions)
       action.disabled =
-        this.#getCheckedBoxes().length === 0 &&
-        this.#formPrice.checkValuesIsMax();
+        this.#getCheckedBoxes().length === 0 && this.#price.checkValues();
   };
 
-  #onFormSubmit = async (event) => {
+  #onSubmit = (event) => {
     event.preventDefault();
 
-    const searchParams = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(window.location.search);
 
-    for (const { elements, name } of this.#formFields) {
-      const searchValues = [];
+    for (const { elements, name } of this.#fields) {
+      const values = [];
 
       for (const { type, checked, value } of elements) {
         if ((type === 'checkbox' && checked) || type === 'range')
-          searchValues.push(value);
+          values.push(value);
       }
 
-      if (searchValues.length > 0) {
-        searchValues.sort((a, b) => a - b);
-        searchParams.set(name, searchValues);
+      if (values.length > 0) {
+        values.sort((a, b) => a - b);
+        params.set(name, values);
       }
     }
 
     window.location.hash = 'goods';
-    window.location.search = searchParams;
+    window.location.search = params;
   };
 
-  #onFormReset = async (event) => {
+  #onReset = async (event) => {
     event.preventDefault();
 
-    const searchParams = new URLSearchParams(window.location.search);
-
-    this.#formPrice.resetRangeValues();
+    this.#price.reset();
 
     const checkedBoxes = this.#getCheckedBoxes();
 
     for (const checkedBox of checkedBoxes)
       checkedBox.checked = !checkedBox.checked;
 
-    for (const action of this.#formActions) action.disabled = !action.disabled;
+    for (const action of this.#actions) action.disabled = true;
 
-    if (searchParams.size !== 0) {
-      for (const { name } of this.#formFields) {
-        if (searchParams.has(name)) searchParams.delete(name);
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.size !== 0) {
+      for (const { name } of this.#fields) {
+        if (params.has(name)) params.delete(name);
       }
 
-      window.location.search = searchParams;
+      window.location.search = params;
     }
   };
 

@@ -50,16 +50,7 @@ export default {
               { name: 'broadleaf lady palm', price: 59, discount: null },
               { name: 'chinese evergreen', price: 39, discount: null },
             ],
-            options: [
-              'desc popular',
-              'desc price',
-              'desc name',
-              'desc sale',
-              'asc popular',
-              'asc price',
-              'asc name',
-              'asc sale',
-            ],
+            options: ['popular', 'price', 'name', 'sale'],
           }, // pass variables into template
         },
         {

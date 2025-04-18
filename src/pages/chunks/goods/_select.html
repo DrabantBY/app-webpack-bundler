@@ -15,11 +15,10 @@
     <div class="goods-section__sort-options">
       <select id="select-sort" name="sort">
         {% for option in options %}
-        <option value="{{option}}">{{option}}</option>
+        <option value="asc{{option}}">&#8657; {{option}}</option>
+        <option value="desc{{option}}">&#8659; {{option}}</option>
         {% endfor %}
       </select>
-
-      {% include 'src/assets/svg/short-arrow-down.svg' %}
     </div>
   </div>
 </form>

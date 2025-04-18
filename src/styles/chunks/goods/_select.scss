@@ -35,34 +35,16 @@
   }
 
   &__sort {
-    @include mixins.set-flex(null, 4px);
+    @include mixins.set-flex();
 
     &-options {
       position: relative;
-      padding-inline-end: 20px;
       cursor: pointer;
 
       select {
-        padding-inline-start: 4px;
-        padding-inline-end: 20px;
-        margin-inline-end: -20px;
-
-        &:hover {
-          background-color: vars.$bg-white;
-        }
-      }
-
-      svg {
-        position: absolute;
-        inset-inline-end: 0;
-        inset-block-start: 2px;
-        width: 16px;
-        height: 16px;
-        transition: transform 0.1s linear;
-      }
-
-      select:focus + svg {
-        transform: rotate(180deg);
+        padding-inline-start: 8px;
+        padding-inline-end: 12px;
+        text-transform: uppercase;
       }
     }
   }

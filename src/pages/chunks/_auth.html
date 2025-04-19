@@ -1,0 +1,113 @@
+<div id="auth" class="auth-section">
+  <div class="auth-section__container">
+    <div class="auth-section__tabs">
+      <label for="login" class="auth-section__tab"> login </label>
+      <input id="login" type="radio" name="auth" checked />
+      <span class="auth-section__divider"></span>
+      <label for="register" class="auth-section__tab"> register </label>
+      <input id="register" type="radio" name="auth" />
+    </div>
+
+    <form class="auth-section__form" name="auth">
+      <fieldset class="auth-section__field" name="login">
+        <legend class="auth-section__title">
+          enter your email and password to login.
+        </legend>
+        <input
+          class="auth-section__input"
+          type="email"
+          aria-label="email"
+          name="email"
+          placeholder="email"
+          required
+          pattern=".+@.+\..+" />
+
+        <label class="auth-section__label">
+          <input
+            class="auth-section__input"
+            type="password"
+            aria-label="password"
+            name="password"
+            placeholder="password"
+            required
+            pattern=".{8,}" />
+
+          <button class="auth-section__control" type="button">
+            {% include "src/assets/svg/hide.svg" %}
+          </button>
+        </label>
+
+        <a class="auth-section__forgot" href="#" target="_blank">
+          forgot password?
+        </a>
+
+        <button class="auth-section__submit button button-text" type="submit">
+          login
+        </button>
+      </fieldset>
+      <fieldset class="auth-section__field" name="register">
+        <legend class="auth-section__title">
+          enter your email and password to register.
+        </legend>
+
+        <input
+          class="auth-section__input"
+          type="email"
+          aria-label="email"
+          name="email"
+          placeholder="email"
+          required
+          pattern=".+@.+\..+" />
+
+        <label class="auth-section__label">
+          <input
+            class="auth-section__input"
+            type="password"
+            aria-label="password"
+            name="password"
+            placeholder="password"
+            required
+            pattern=".{8,}" />
+
+          <button class="auth-section__control" type="button">
+            {% include "src/assets/svg/hide.svg" %}
+          </button>
+        </label>
+
+        <label class="auth-section__label">
+          <input
+            class="auth-section__input"
+            type="password"
+            aria-label="confirm-password"
+            name="confirm-password"
+            placeholder="confirm password"
+            required
+            pattern=".{8,}" />
+
+          <button class="auth-section__control" type="button">
+            {% include "src/assets/svg/hide.svg" %}
+          </button>
+        </label>
+
+        <button class="auth-section__submit button button-text" type="submit">
+          register
+        </button>
+      </fieldset>
+    </form>
+
+    <div class="auth-section__links">
+      <div class="auth-section__header">
+        <hr />
+        or continue with
+        <hr />
+      </div>
+      <a class="auth-section__link button button-icon" href="#">
+        continue with {% include "src/assets/svg/google.svg" %}
+      </a>
+
+      <a class="auth-section__link button button-icon" href="#">
+        continue with {% include "src/assets/svg/facebook.svg" %}
+      </a>
+    </div>
+  </div>
+</div>

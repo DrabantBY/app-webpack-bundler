@@ -1,0 +1,141 @@
+@use '../tools/variables' as vars;
+@use '../tools/mixins' as mixins;
+
+.auth-section {
+  @include mixins.set-flex();
+  flex-grow: 1;
+
+  &__container {
+    @include mixins.set-flex(center, 36px);
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__tabs {
+    font-family: 'CeraProMedium', serif;
+    @include mixins.set-flex(null, 10px);
+    text-transform: capitalize;
+
+    &:has(#login:checked) ~ form > fieldset[name='login'] {
+      display: flex;
+    }
+
+    &:has(#register:checked) ~ form > fieldset[name='register'] {
+      display: flex;
+    }
+
+    input[type='radio'] {
+      display: none;
+    }
+  }
+
+  &__divider {
+    inline-size: 2px;
+    block-size: 16px;
+    background-color: vars.$bg-gray;
+  }
+
+  &__tab {
+    cursor: pointer;
+
+    &:has(+ input[type='radio']:checked) {
+      color: vars.$green;
+    }
+  }
+
+  &__label {
+    position: relative;
+    inline-size: 100%;
+  }
+
+  &__control {
+    @include mixins.set-flex(center);
+    color: vars.$gray;
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  &__input {
+    block-size: 40px;
+    inline-size: 100%;
+    padding-inline-start: 14px;
+    padding-inline-end: 36px;
+    border: 1px solid vars.$bg-gray;
+    border-radius: 6px;
+
+    &:user-invalid {
+      border-color: vars.$error;
+    }
+
+    &:focus {
+      border: 1px solid vars.$green;
+    }
+
+    &[type='password'] {
+      letter-spacing: 3px;
+
+      &::placeholder {
+        letter-spacing: initial;
+      }
+    }
+  }
+
+  &__form {
+    min-inline-size: 320px;
+  }
+
+  &__field {
+    @include mixins.set-flex(null, 14px);
+    align-items: initial;
+    flex-direction: column;
+    display: none;
+  }
+
+  &__title {
+    margin-block-end: 14px;
+  }
+
+  &__forgot {
+    font-size: 14px;
+    color: vars.$green;
+    align-self: flex-end;
+    text-transform: capitalize;
+  }
+
+  &__submit {
+    text-transform: capitalize;
+  }
+
+  &__links {
+    min-inline-size: 320px;
+    @include mixins.set-flex(null, 14px);
+    flex-direction: column;
+  }
+
+  &__header {
+    font-size: 14px;
+    @include mixins.set-flex(null, 10px);
+
+    margin-block-end: 22px;
+
+    hr {
+      block-size: 1px;
+      inline-size: 100px;
+      background-color: vars.$bg-green;
+      transform: translateY(200%);
+    }
+  }
+
+  &__link {
+    block-size: 40px;
+    inline-size: 100%;
+    font-family: 'CeraProMedium', serif;
+
+    &:nth-of-type(1) {
+      gap: 4px;
+    }
+  }
+}

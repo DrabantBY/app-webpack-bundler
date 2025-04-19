@@ -1,0 +1,10 @@
+{% extends 'src/pages/templates/_root.html' %}
+<!--styles-->
+{% block styles %}
+<link href="@styles/styles.scss" rel="stylesheet" />
+{% endblock %}
+<!--scripts-->
+{% block scripts %}
+<script src="@scripts" defer></script>
+{% endblock %} {% block main %} {% include 'src/pages/chunks/_auth.html' %} {%
+endblock %}

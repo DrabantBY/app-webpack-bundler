@@ -14,7 +14,7 @@ export default {
           import: 'src/pages/home.html', // template file
           filename: 'index.html', // => dist/index.html
           data: {
-            title: 'Home page',
+            title: 'Page | Home',
             links: [
               { label: 'home', href: '/', active: true },
               { label: 'shop', href: 'shop.html' },
@@ -57,13 +57,21 @@ export default {
           import: 'src/pages/shop.html', // template file
           filename: 'shop.html', // => dist/about.html
           data: {
-            title: 'Shop page',
+            title: 'Page | Shop',
             links: [
               { label: 'home', href: '/' },
               { label: 'shop', href: 'shop.html', active: true },
               { label: 'blog', href: 'blog.html' },
               { label: 'about', href: 'about.html' },
             ],
+          }, // pass variables into template
+        },
+
+        {
+          import: 'src/pages/login.html', // template file
+          filename: 'login.html', // => dist/about.html
+          data: {
+            title: 'Page | Login',
           }, // pass variables into template
         },
       ],

@@ -14,10 +14,13 @@
         data-count="99">
         {% include 'src/assets/svg/cart.svg' %}
       </a>
-      <button class="header__login button button-text" type="button">
+      <a
+        class="header__login button button-text"
+        href="login.html"
+        target="_blank">
         {% include 'src/assets/svg/login.svg' %}
         <span>Login</span>
-      </button>
+      </a>
       {% include "src/pages/chunks/header/_burger.html" %}
       <button class="header__filter-open button button-icon" type="button">
         {% include 'src/assets/svg/filter.svg' %}

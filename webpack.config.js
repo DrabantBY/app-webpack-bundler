@@ -14,7 +14,7 @@ export default {
           import: 'src/pages/home.html', // template file
           filename: 'index.html', // => dist/index.html
           data: {
-            title: 'Page | Home',
+            title: 'home',
             links: [
               { label: 'home', href: '/', active: true },
               { label: 'shop', href: 'shop.html' },
@@ -57,7 +57,7 @@ export default {
           import: 'src/pages/shop.html', // template file
           filename: 'shop.html', // => dist/about.html
           data: {
-            title: 'Page | Shop',
+            title: 'shop',
             links: [
               { label: 'home', href: '/' },
               { label: 'shop', href: 'shop.html', active: true },
@@ -71,18 +71,18 @@ export default {
           import: 'src/pages/login.html', // template file
           filename: 'login.html', // => dist/about.html
           data: {
-            title: 'Page | Login',
+            title: 'login',
           }, // pass variables into template
         },
       ],
 
       js: {
         // output filename of compiled JavaScript
-        filename: 'scripts/main.js', // => dist/scripts/main.js
+        filename: 'scripts/[name].js', // => dist/scripts/main.js
       },
       css: {
         // output filename of extracted CSS
-        filename: 'styles/main.css', // => dist/styles/main.css
+        filename: 'styles/[name].css', // => dist/styles/main.css
       },
       // preprocessor: 'nunjucks',
       preprocessor: 'nunjucks',

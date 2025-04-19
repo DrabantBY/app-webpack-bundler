@@ -1,5 +1,5 @@
-@use 'tools/variables' as vars;
-@use 'tools/mixins' as mixins;
+@use '../tools/variables' as vars;
+@use '../tools/mixins' as mixins;
 
 .banner-section {
   swiper-container {

@@ -42,9 +42,15 @@
       cursor: pointer;
 
       select {
+        color: vars.$green;
         padding-inline-start: 8px;
         padding-inline-end: 12px;
         text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      option {
+        color: vars.$black;
       }
     }
   }

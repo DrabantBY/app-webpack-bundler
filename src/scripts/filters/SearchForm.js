@@ -33,7 +33,7 @@ export class SearchForm {
 
   #onBlur = ({ target }) => {
     if (!target.value) {
-      const checkbox = target.querySelector('input[type="checkbox"]');
+      const checkbox = this.#form.querySelector('input[type="checkbox"]');
       checkbox.checked = !checkbox.checked;
     }
   };

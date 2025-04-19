@@ -27,9 +27,9 @@
 
   &__page.active + &__next,
   &__prev:has(+ &__page.active) {
-    color: vars.$hover-gray;
-    border: 1px solid currentColor;
-    background-color: transparent;
+    color: vars.$white;
+    border-color: vars.$hover-gray;
+    background-color: vars.$hover-gray;
     pointer-events: none;
   }
 }

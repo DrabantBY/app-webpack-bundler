@@ -2,25 +2,22 @@
 @use '../tools/mixins' as mixins;
 
 .auth-section {
-  @include mixins.set-flex();
+  @include mixins.flex(center);
   flex-grow: 1;
 
   &__container {
-    @include mixins.set-flex(center, 36px);
+    @include mixins.flex(center, center, 36px);
     flex-direction: column;
     flex-grow: 1;
   }
 
   &__tabs {
+    @include mixins.flex(center, null, 10px);
     font-family: 'CeraProMedium', serif;
-    @include mixins.set-flex(null, 10px);
     text-transform: capitalize;
 
-    &:has(#login:checked) ~ form > fieldset[name='login'] {
-      display: flex;
-    }
-
-    &:has(#register:checked) ~ form > fieldset[name='register'] {
+    &:has(#login:checked) ~ form[name='login'],
+    &:has(#register:checked) ~ form[name='register'] {
       display: flex;
     }
 
@@ -49,7 +46,7 @@
   }
 
   &__control {
-    @include mixins.set-flex(center);
+    @include mixins.flex(center, center);
     color: vars.$gray;
     position: absolute;
     inset-block-start: 50%;
@@ -85,12 +82,7 @@
 
   &__form {
     min-inline-size: 320px;
-  }
-
-  &__field {
-    @include mixins.set-flex(null, 14px);
-    align-items: initial;
-    flex-direction: column;
+    @include mixins.flex(null, null, 14px, column);
     display: none;
   }
 
@@ -111,14 +103,12 @@
 
   &__links {
     min-inline-size: 320px;
-    @include mixins.set-flex(null, 14px);
-    flex-direction: column;
+    @include mixins.flex(center, null, 14px, column);
   }
 
   &__header {
     font-size: 14px;
-    @include mixins.set-flex(null, 10px);
-
+    @include mixins.flex(center, null, 10px);
     margin-block-end: 22px;
 
     hr {

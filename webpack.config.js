@@ -120,6 +120,8 @@ export default {
         },
       },
 
+      { test: /\.svg$/i, type: 'asset/source' },
+
       {
         test: /\.(woff2?|eot|[ot]tf)$/i,
         type: 'asset/resource',

@@ -8,91 +8,87 @@
       <input id="register" type="radio" name="auth" />
     </div>
 
-    <form class="auth-section__form" name="auth">
-      <fieldset class="auth-section__field" name="login">
-        <legend class="auth-section__title">
-          enter your email and password to login.
-        </legend>
+    <form class="auth-section__form" name="login">
+      <span class="auth-section__title">
+        enter your email and password to login.
+      </span>
+      <input
+        class="auth-section__input"
+        type="email"
+        aria-label="email"
+        name="email"
+        placeholder="email"
+        required
+        pattern=".+@.+\..+" />
+
+      <label class="auth-section__label">
         <input
           class="auth-section__input"
-          type="email"
-          aria-label="email"
-          name="email"
-          placeholder="email"
+          type="password"
+          name="password"
+          placeholder="password"
           required
-          pattern=".+@.+\..+" />
+          pattern=".{8,}" />
 
-        <label class="auth-section__label">
-          <input
-            class="auth-section__input"
-            type="password"
-            aria-label="password"
-            name="password"
-            placeholder="password"
-            required
-            pattern=".{8,}" />
-
-          <button class="auth-section__control" type="button">
-            {% include "src/assets/svg/hide.svg" %}
-          </button>
-        </label>
-
-        <a class="auth-section__forgot" href="#" target="_blank">
-          forgot password?
-        </a>
-
-        <button class="auth-section__submit button button-text" type="submit">
-          login
+        <button class="auth-section__control" type="button">
+          {% include "src/assets/svg/hide.svg" %}
         </button>
-      </fieldset>
-      <fieldset class="auth-section__field" name="register">
-        <legend class="auth-section__title">
-          enter your email and password to register.
-        </legend>
+      </label>
 
+      <a class="auth-section__forgot" href="#" target="_blank">
+        forgot password?
+      </a>
+
+      <button class="auth-section__submit button button-text" type="submit">
+        login
+      </button>
+    </form>
+
+    <form class="auth-section__form" name="register">
+      <span class="auth-section__title">
+        enter your email and password to register.
+      </span>
+
+      <input
+        class="auth-section__input"
+        type="email"
+        aria-label="email"
+        name="email"
+        placeholder="email"
+        required
+        pattern=".+@.+\..+" />
+
+      <label class="auth-section__label">
         <input
           class="auth-section__input"
-          type="email"
-          aria-label="email"
-          name="email"
-          placeholder="email"
+          type="password"
+          name="password"
+          placeholder="password"
           required
-          pattern=".+@.+\..+" />
+          pattern=".{8,}" />
 
-        <label class="auth-section__label">
-          <input
-            class="auth-section__input"
-            type="password"
-            aria-label="password"
-            name="password"
-            placeholder="password"
-            required
-            pattern=".{8,}" />
-
-          <button class="auth-section__control" type="button">
-            {% include "src/assets/svg/hide.svg" %}
-          </button>
-        </label>
-
-        <label class="auth-section__label">
-          <input
-            class="auth-section__input"
-            type="password"
-            aria-label="confirm-password"
-            name="confirm-password"
-            placeholder="confirm password"
-            required
-            pattern=".{8,}" />
-
-          <button class="auth-section__control" type="button">
-            {% include "src/assets/svg/hide.svg" %}
-          </button>
-        </label>
-
-        <button class="auth-section__submit button button-text" type="submit">
-          register
+        <button class="auth-section__control" type="button">
+          {% include "src/assets/svg/hide.svg" %}
         </button>
-      </fieldset>
+      </label>
+
+      <label class="auth-section__label">
+        <input
+          class="auth-section__input"
+          type="password"
+          name="confirm"
+          placeholder="confirm password"
+          required
+          pattern=".{8,}" />
+
+        <button class="auth-section__control" type="button">
+          {% include "src/assets/svg/hide.svg" %}
+        </button>
+      </label>
+
+      <button class="auth-section__submit button button-text" type="submit">
+        register
+      </button>
     </form>
 
     <div class="auth-section__links">

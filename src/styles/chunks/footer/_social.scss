@@ -3,7 +3,7 @@
 
 .footer-body {
   &__social-list {
-    @include mixins.set-flex(center, 8px);
+    @include mixins.flex(center, center, 8px);
 
     @media screen and (min-width: vars.$xs + 1) {
       gap: 24px;

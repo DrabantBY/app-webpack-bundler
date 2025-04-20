@@ -3,15 +3,13 @@
 
 .goods-section {
   &__select {
-    @include mixins.set-flex(null, 32px);
+    @include mixins.flex(center, space-between, 32px);
     text-transform: capitalize;
-    justify-content: space-between;
     flex-wrap: wrap;
   }
 
   &__tabs {
-    @include mixins.set-flex(null, 32px);
-    align-items: initial;
+    @include mixins.flex(null, null, 32px);
   }
 
   &__tab {
@@ -35,7 +33,7 @@
   }
 
   &__sort {
-    @include mixins.set-flex();
+    @include mixins.flex(center);
 
     &-options {
       position: relative;

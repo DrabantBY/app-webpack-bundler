@@ -10,10 +10,8 @@
   }
 
   &__slide {
+    @include mixins.flex(center, null, null, column);
     position: relative;
-
-    @include mixins.set-flex();
-    flex-direction: column;
     padding-block-start: 12px;
     padding-block-end: 32px;
     text-align: center;

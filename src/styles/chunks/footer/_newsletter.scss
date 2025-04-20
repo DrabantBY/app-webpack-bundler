@@ -14,7 +14,7 @@
 
   &__form {
     inline-size: 300px;
-    @include mixins.set-flex();
+    @include mixins.flex();
     margin-block-end: 16px;
     margin-inline: auto;
     border-radius: 6px;

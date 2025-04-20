@@ -35,7 +35,7 @@
     position: absolute;
     inset-block-start: 3px;
     inset-inline-end: 3px;
-    @include mixins.set-flex(null, 4px);
+    @include mixins.flex(center, null, 4px);
   }
 
   &__control {
@@ -87,8 +87,7 @@
   }
 
   &__pagination {
-    @include mixins.set-flex(center, 8px);
-
+    @include mixins.flex(center, center, 8px);
     font-size: 16px;
   }
 
@@ -122,9 +121,7 @@
 
   @media screen and (min-width: vars.$xs + 1) {
     &__actions {
-      @include mixins.set-flex(null, 8px);
-      flex-direction: row;
-      justify-content: space-between;
+      @include mixins.flex(center, space-between, 8px);
     }
   }
 

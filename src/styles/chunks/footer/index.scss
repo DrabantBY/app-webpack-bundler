@@ -9,7 +9,7 @@
 .footer {
   &-copyright {
     &__container {
-      @include mixins.set-flex(center);
+      @include mixins.flex(center, center);
       padding-block: 16px;
       border-top: 1px solid vars.$bg-green;
     }
@@ -17,8 +17,7 @@
 
   &-body {
     &__container {
-      @include mixins.set-flex(initial, 16px);
-      flex-direction: column;
+      @include mixins.flex(center, null, 16px, column);
       padding-block: 16px;
       background-color: vars.$bg-white;
 

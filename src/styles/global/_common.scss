@@ -81,7 +81,7 @@ input[type='range'] {
   position: relative;
   min-block-size: 100vh;
   display: flex;
-  flex-direction: column;
+  @include mixins.flex(null, null, null, column);
 }
 
 #overlay {
@@ -106,9 +106,7 @@ input[type='range'] {
 #main {
   position: relative;
   flex-grow: 1;
-  @include mixins.set-flex(null, 24px);
-  align-items: initial;
-  flex-direction: column;
+  @include mixins.flex(null, null, 24px, column);
   padding-block: 12px;
 }
 
@@ -119,7 +117,7 @@ input[type='range'] {
 }
 
 [class$='__logo'] {
-  @include mixins.set-flex(initial, 6px);
+  @include mixins.flex(center, null, 6px);
   color: vars.$green;
 
   &:hover {
@@ -128,7 +126,7 @@ input[type='range'] {
 }
 
 .button {
-  @include mixins.set-flex(center);
+  @include mixins.flex(center, center);
   font-family: 'CeraProBold', serif;
   block-size: 36px;
   min-inline-size: 36px;

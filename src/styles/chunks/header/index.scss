@@ -38,7 +38,7 @@
     }
 
     &::after {
-      @include mixins.set-flex(center);
+      @include mixins.flex(center, center);
       content: attr(data-count);
       position: absolute;
       block-size: 14px;

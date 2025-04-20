@@ -7,7 +7,7 @@
   }
 
   &__list {
-    @include mixins.set-flex(initial, 50px);
+    @include mixins.flex(center, null, 50px);
     text-transform: capitalize;
   }
 

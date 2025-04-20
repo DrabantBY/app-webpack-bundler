@@ -4,7 +4,7 @@
 .goods-section {
   &__pagination {
     font-size: 16px;
-    @include mixins.set-flex(center, 8px);
+    @include mixins.flex(center, center, 8px);
   }
 
   &__prev,

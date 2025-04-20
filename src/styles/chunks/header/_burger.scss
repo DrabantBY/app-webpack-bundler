@@ -36,7 +36,7 @@
   }
 
   &__menu-link {
-    @include mixins.set-flex(space-between);
+    @include mixins.flex(center, space-between);
     padding-inline: 6px;
     padding-block: 4px;
     border-radius: 4px;

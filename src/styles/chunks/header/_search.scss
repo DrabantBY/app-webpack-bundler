@@ -3,7 +3,7 @@
 
 .header {
   &__form {
-    @include mixins.set-flex(center);
+    @include mixins.flex(center, center);
     position: relative;
     grid-row: 2 / 3;
     grid-column: 1 / -2;
@@ -23,7 +23,7 @@
   }
 
   &__label {
-    @include mixins.set-flex(center);
+    @include mixins.flex(center, center);
     position: absolute;
     inset-block-start: 50%;
     inset-inline-start: 6px;

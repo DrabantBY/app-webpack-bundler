@@ -1,4 +1,4 @@
-import { debounce, DEBOUNCE_TIME } from '@common';
+import { debounce } from '@common';
 
 export class SearchForm {
   #form;
@@ -29,7 +29,7 @@ export class SearchForm {
     else searchParams.delete(target.name);
 
     window.location.search = searchParams;
-  }, DEBOUNCE_TIME);
+  });
 
   #onBlur = ({ target }) => {
     if (!target.value) {

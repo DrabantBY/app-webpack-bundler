@@ -13,7 +13,7 @@
 
   &__tabs {
     @include mixins.flex(center, null, 10px);
-    font-family: 'CeraProMedium', serif;
+    font-family: 'CeraProMedium', sans-serif;
     text-transform: capitalize;
 
     &:has(#login:checked) ~ form[name='login'],
@@ -38,6 +38,16 @@
     &:has(+ input[type='radio']:checked) {
       color: vars.$green;
     }
+  }
+
+  &__form {
+    inline-size: 320px;
+    @include mixins.flex(null, null, 8px, column);
+    display: none;
+  }
+
+  &__title {
+    margin-block-end: 14px;
   }
 
   &__label {
@@ -80,14 +90,9 @@
     }
   }
 
-  &__form {
-    min-inline-size: 320px;
-    @include mixins.flex(null, null, 14px, column);
-    display: none;
-  }
-
-  &__title {
-    margin-block-end: 14px;
+  &__error {
+    font-size: 12px;
+    color: vars.$error;
   }
 
   &__forgot {
@@ -122,7 +127,7 @@
   &__link {
     block-size: 40px;
     inline-size: 100%;
-    font-family: 'CeraProMedium', serif;
+    font-family: 'CeraProMedium', sans-serif;
 
     &:nth-of-type(1) {
       gap: 4px;

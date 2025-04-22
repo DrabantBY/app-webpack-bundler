@@ -22,12 +22,12 @@
   }
 
   &__tag {
-    font-family: 'CeraProMedium', serif;
+    font-family: 'CeraProMedium', sans-serif;
     font-size: 10px;
   }
 
   &__title {
-    font-family: 'CeraProBold', serif;
+    font-family: 'CeraProBold', sans-serif;
 
     span {
       color: vars.$green;
@@ -35,7 +35,7 @@
   }
 
   &__description {
-    font-family: 'CeraProMedium', serif;
+    font-family: 'CeraProMedium', sans-serif;
     font-size: 14px;
     color: vars.$gray;
     text-transform: lowercase;

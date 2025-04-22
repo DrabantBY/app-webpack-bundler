@@ -23,7 +23,7 @@
 }
 
 body {
-  font-family: 'CeraProRegular', serif;
+  font-family: 'CeraProRegular', sans-serif;
 
   &.disabled {
     overflow: hidden;
@@ -127,7 +127,7 @@ input[type='range'] {
 
 .button {
   @include mixins.flex(center, center);
-  font-family: 'CeraProBold', serif;
+  font-family: 'CeraProBold', sans-serif;
   block-size: 36px;
   min-inline-size: 36px;
   border-radius: 6px;

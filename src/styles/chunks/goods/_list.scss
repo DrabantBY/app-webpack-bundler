@@ -55,7 +55,7 @@
     inset-inline-start: 0;
     padding-block: 2px;
     padding-inline: 6px;
-    font-family: CeraProMedium, serif;
+    font-family: CeraProMedium, sans-serif;
     font-size: 12px;
     line-height: 1.2;
     text-transform: uppercase;
@@ -74,12 +74,12 @@
 
   &__price {
     display: block;
-    font-family: CeraProBold, serif;
+    font-family: CeraProBold, sans-serif;
     font-size: 16px;
     color: vars.$green;
 
     &-current + &-previous {
-      font-family: CeraProRegular, serif;
+      font-family: CeraProRegular, sans-serif;
       color: vars.$hover-gray;
       text-decoration: line-through;
       margin-inline-start: 8px;

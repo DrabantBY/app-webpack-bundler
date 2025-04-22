@@ -17,14 +17,14 @@
   }
 
   &__legend {
-    font-family: CeraProBold, serif;
+    font-family: CeraProBold, sans-serif;
     font-size: 16px;
     margin-block-end: 12px;
   }
 
   &__label {
     @include mixins.flex(center);
-    font-family: CeraProMedium, serif;
+    font-family: CeraProMedium, sans-serif;
     cursor: pointer;
 
     &:has(input:checked) {
@@ -93,7 +93,7 @@
   }
 
   &__output {
-    font-family: CeraProBold, serif;
+    font-family: CeraProBold, sans-serif;
     color: vars.$green;
   }
 

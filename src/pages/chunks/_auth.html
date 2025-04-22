@@ -8,18 +8,22 @@
       <input id="register" type="radio" name="auth" />
     </div>
 
-    <form class="auth-section__form" name="login">
+    <form class="auth-section__form" name="login" novalidate>
       <span class="auth-section__title">
         enter your email and password to login.
       </span>
-      <input
-        class="auth-section__input"
-        type="email"
-        aria-label="email"
-        name="email"
-        placeholder="email"
-        required
-        pattern=".+@.+\..+" />
+      <label>
+        <input
+          class="auth-section__input"
+          type="email"
+          name="email"
+          placeholder="email"
+          autocomplete="email"
+          required
+          pattern=".+@.+\..+" />
+      </label>
+
+      <span class="auth-section__error" aria-live="polite" hidden></span>
 
       <label class="auth-section__label">
         <input
@@ -28,12 +32,19 @@
           name="password"
           placeholder="password"
           required
-          pattern=".{8,}" />
+          minlength="8"
+          autocomplete="current-password"
+          aria-label="login password" />
 
-        <button class="auth-section__control" type="button">
+        <button
+          class="auth-section__control"
+          type="button"
+          aria-label="show password">
           {% include "src/assets/svg/hide.svg" %}
         </button>
       </label>
+
+      <span class="auth-section__error" aria-live="polite" hidden></span>
 
       <a class="auth-section__forgot" href="#" target="_blank">
         forgot password?
@@ -44,19 +55,24 @@
       </button>
     </form>
 
-    <form class="auth-section__form" name="register">
+    <form class="auth-section__form" name="register" novalidate>
       <span class="auth-section__title">
         enter your email and password to register.
       </span>
 
-      <input
-        class="auth-section__input"
-        type="email"
-        aria-label="email"
-        name="email"
-        placeholder="email"
-        required
-        pattern=".+@.+\..+" />
+      <label>
+        <input
+          class="auth-section__input"
+          type="email"
+          aria-label="email"
+          name="email"
+          placeholder="email"
+          autocomplete="email"
+          required
+          pattern=".+@.+\..+" />
+      </label>
+
+      <span class="auth-section__error" aria-live="polite" hidden></span>
 
       <label class="auth-section__label">
         <input
@@ -65,12 +81,15 @@
           name="password"
           placeholder="password"
           required
-          pattern=".{8,}" />
+          minlength="8"
+          autocomplete="new-password" />
 
         <button class="auth-section__control" type="button">
           {% include "src/assets/svg/hide.svg" %}
         </button>
       </label>
+
+      <span class="auth-section__error" aria-live="polite" hidden></span>
 
       <label class="auth-section__label">
         <input
@@ -79,12 +98,14 @@
           name="confirm"
           placeholder="confirm password"
           required
-          pattern=".{8,}" />
+          autocomplete="new-password" />
 
         <button class="auth-section__control" type="button">
           {% include "src/assets/svg/hide.svg" %}
         </button>
       </label>
+
+      <span class="auth-section__error" aria-live="polite" hidden></span>
 
       <button class="auth-section__submit button button-text" type="submit">
         register

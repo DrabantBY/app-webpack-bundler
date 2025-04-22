@@ -10,7 +10,7 @@ new FilterForm('filter');
 
 new SelectForm('select');
 
-initPagination();
+initPagination('[class$="__pagination"]');
 
 togglePopup(
   'nav[class*="menu-nav"]',

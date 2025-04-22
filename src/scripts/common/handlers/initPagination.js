@@ -1,27 +1,25 @@
-function onClick({ target }) {
-  if (target.tagName === 'BUTTON' || target.tagName === 'svg') {
-    const searchParams = new URLSearchParams(window.location.search);
+function onClick({ currentTarget, target }) {
+  if (target === currentTarget) return;
 
-    const currentPage = searchParams.get('page') ?? '1';
-    const value = target.dataset.page ?? target.parentElement.dataset.page;
+  const searchParams = new URLSearchParams(window.location.search);
 
-    if (currentPage === value) return;
+  const currentPage = searchParams.get('page') ?? '1';
+  const value = target.dataset.page ?? target.parentElement.dataset.page;
 
-    if (value.startsWith('+') || value.startsWith('-')) {
-      searchParams.set('page', Number(currentPage) + Number(value));
-      window.location.hash = 'goods';
-      window.location.search = searchParams;
-      return;
-    }
+  if (currentPage === value) return;
 
-    searchParams.set('page', value);
-    window.location.hash = 'goods';
-    window.location.search = searchParams;
-  }
+  const nextValue =
+    value.startsWith('+') || value.startsWith('-')
+      ? Number(currentPage) + Number(value)
+      : value;
+
+  searchParams.set('page', nextValue);
+  window.location.hash = 'goods';
+  window.location.search = searchParams;
 }
 
-export function initPagination() {
-  const pagination = document.body.querySelector('[class$="__pagination"]');
+export function initPagination(selector) {
+  const pagination = document.body.querySelector(selector);
 
   const searchParams = new URLSearchParams(window.location.search);
 

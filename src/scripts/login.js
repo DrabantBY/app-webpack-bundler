@@ -28,9 +28,16 @@ export class AuthForm {
 
     const formData = new FormData(event.target);
 
-    const data = await AuthApi.login(formData);
-
-    alert(JSON.stringify(data));
+    try {
+      await AuthApi.login(formData);
+      window.location.pathname = '/';
+    } catch ({ message }) {
+      const errorElement = event.target.querySelector(
+        'button[type="submit"]'
+      ).previousElementSibling;
+      errorElement.textContent = message;
+      errorElement.hidden = false;
+    }
   }
 
   #onClick({ currentTarget }) {

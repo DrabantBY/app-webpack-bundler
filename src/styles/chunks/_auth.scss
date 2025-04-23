@@ -41,7 +41,7 @@
   }
 
   &__form {
-    inline-size: 320px;
+    inline-size: 100%;
     @include mixins.flex(null, null, 8px, column);
     display: none;
   }
@@ -107,18 +107,19 @@
   }
 
   &__links {
-    min-inline-size: 320px;
+    inline-size: 100%;
     @include mixins.flex(center, null, 14px, column);
   }
 
   &__header {
+    inline-size: 100%;
     font-size: 14px;
     @include mixins.flex(center, null, 10px);
     margin-block-end: 22px;
 
     hr {
+      flex-grow: 1;
       block-size: 1px;
-      inline-size: 100px;
       background-color: vars.$bg-green;
       transform: translateY(200%);
     }
@@ -131,6 +132,13 @@
 
     &:nth-of-type(1) {
       gap: 4px;
+    }
+  }
+
+  @media screen and (min-width: vars.$xs + 1) {
+    &__links,
+    &__form {
+      inline-size: 320px;
     }
   }
 }

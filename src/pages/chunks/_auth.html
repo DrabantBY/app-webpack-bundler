@@ -12,6 +12,7 @@
       <span class="auth-section__title">
         enter your email and password to login.
       </span>
+
       <label>
         <input
           class="auth-section__input"
@@ -35,7 +36,6 @@
           minlength="8"
           autocomplete="current-password"
           aria-label="login password" />
-
         <button
           class="auth-section__control"
           type="button"
@@ -49,6 +49,8 @@
       <a class="auth-section__forgot" href="#" target="_blank">
         forgot password?
       </a>
+
+      <span class="auth-section__error" aria-live="polite" hidden></span>
 
       <button class="auth-section__submit button button-text" type="submit">
         login

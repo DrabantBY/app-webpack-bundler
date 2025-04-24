@@ -23,10 +23,6 @@ body {
   inline-size: 100%;
 }
 
-body {
-  scrollbar-gutter: stable;
-}
-
 h1,
 h2,
 h3,
@@ -55,17 +51,6 @@ hr {
   border: none;
 }
 
-button {
-  font-family: inherit;
-  font-size: inherit;
-  text-transform: inherit;
-  color: currentColor;
-  outline: none;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
 input {
   font-family: inherit;
   border: none;
@@ -75,6 +60,13 @@ input {
   &::placeholder {
     color: vars.$gray;
   }
+}
+
+textarea {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  resize: none;
 }
 
 select {
@@ -88,4 +80,14 @@ select {
 
 fieldset {
   border: none;
+}
+
+dialog {
+  border: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }

@@ -24,10 +24,7 @@
 
 body {
   font-family: 'CeraProRegular', sans-serif;
-
-  &.disabled {
-    overflow: hidden;
-  }
+  scrollbar-gutter: stable;
 }
 
 a.button-text {
@@ -37,6 +34,30 @@ a.button-text {
 
   &:hover {
     background-color: vars.$hover-green;
+  }
+}
+
+dialog[class$='__modal'] {
+  inline-size: 100%;
+  max-inline-size: 100%;
+  block-size: 100vh;
+  max-block-size: 100vh;
+  padding-inline: 16px;
+  padding-block: 16px;
+  background-color: vars.$white;
+
+  &::backdrop {
+    backdrop-filter: blur(2px);
+  }
+
+  @media screen and (min-width: vars.$xs + 1) {
+    inline-size: 50%;
+    transform: translateX(100%);
+    box-shadow: 0 0 8px 0 vars.$black;
+
+    @media screen and (min-width: vars.$sm + 1) {
+      display: none;
+    }
   }
 }
 

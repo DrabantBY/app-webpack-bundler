@@ -1,0 +1,15 @@
+@use '../../tools/variables' as vars;
+@use '../../tools/mixins' as mixins;
+.goods-section {
+  &__modal-content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+  }
+
+  @media screen and (min-width: vars.$sm + 1) {
+    &__filter-open {
+      display: none;
+    }
+  }
+}

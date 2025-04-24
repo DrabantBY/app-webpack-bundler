@@ -3,6 +3,7 @@
 
 .goods-section {
   &__list {
+    grid-column: 1/-1;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;

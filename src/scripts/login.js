@@ -12,35 +12,34 @@ export class AuthForm {
   }
 
   #init = () => {
-    const buttons = document.body.querySelectorAll('button[type="button"]');
-
-    for (const button of buttons)
-      button.addEventListener('click', this.#onClick);
-
-    this.#disableSubmit();
+    for (const element of this.#form.elements)
+      if (element.type === 'button')
+        element.addEventListener('click', this.#onClick);
 
     this.#form.addEventListener('submit', this.#onSubmit);
     this.#form.addEventListener('input', this.#onInput);
   };
 
-  async #onSubmit(event) {
+  #onSubmit = async (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
 
+    for (const [key] of formData)
+      if (key.endsWith('Error')) formData.delete(key);
+
+    formData.delete('submitError'); // in loop above no delete !!!
+
     try {
+      this.#showError('submit');
       await AuthApi.login(formData);
       window.location.pathname = '/';
     } catch ({ message }) {
-      const errorElement = event.target.querySelector(
-        'button[type="submit"]'
-      ).previousElementSibling;
-      errorElement.textContent = message;
-      errorElement.hidden = false;
+      this.#showError('submit', message);
     }
-  }
+  };
 
-  #onClick({ currentTarget }) {
+  #onClick = ({ currentTarget }) => {
     const input = currentTarget.previousElementSibling;
 
     if (input.type === 'password') {
@@ -53,25 +52,28 @@ export class AuthForm {
       input.type = 'password';
       currentTarget.innerHTML = hide;
     }
-  }
+  };
 
   #onInput = debounce(({ target }) => {
     if (target.name === 'confirm') {
-      const isMatchValue = target.value === this.#form.elements.password.value;
-      const message = isMatchValue ? '' : 'no match with the password above';
+      const isValid = target.value === this.#form.elements.password.value;
+      const message = isValid ? '' : 'no match with the password above';
       target.setCustomValidity(message);
     }
 
-    const errorElement = target.parentElement.nextElementSibling;
-    errorElement.hidden = target.validity.valid;
-    errorElement.textContent = target.validationMessage;
+    this.#showError(
+      target.name,
+      target.validationMessage,
+      target.validity.valid
+    );
 
-    this.#disableSubmit();
+    this.#form.elements.submit.disabled = !this.#form.checkValidity();
   });
 
-  #disableSubmit = () => {
-    this.#form.querySelector('button[type="submit"]').disabled =
-      !this.#form.checkValidity();
+  #showError = (name, value = '', hidden = !value) => {
+    const errorElement = this.#form.elements[`${name}Error`];
+    errorElement.hidden = hidden;
+    errorElement.value = value;
   };
 }
 

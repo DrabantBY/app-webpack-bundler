@@ -21,6 +21,19 @@ export default {
               { label: 'blog', href: 'blog.html' },
               { label: 'about', href: 'about.html' },
             ],
+          }, // pass variables into template
+        },
+        {
+          import: 'src/pages/shop.html', // template file
+          filename: 'shop.html', // => dist/about.html
+          data: {
+            title: 'shop',
+            links: [
+              { label: 'home', href: '/' },
+              { label: 'shop', href: 'shop.html', active: true },
+              { label: 'blog', href: 'blog.html' },
+              { label: 'about', href: 'about.html' },
+            ],
             categories: [
               { label: 'house', value: 33 },
               { label: 'potter', value: 12 },
@@ -51,19 +64,6 @@ export default {
               { name: 'chinese evergreen', price: 39, discount: null },
             ],
             options: ['popular', 'price', 'name', 'sale'],
-          }, // pass variables into template
-        },
-        {
-          import: 'src/pages/shop.html', // template file
-          filename: 'shop.html', // => dist/about.html
-          data: {
-            title: 'shop',
-            links: [
-              { label: 'home', href: '/' },
-              { label: 'shop', href: 'shop.html', active: true },
-              { label: 'blog', href: 'blog.html' },
-              { label: 'about', href: 'about.html' },
-            ],
           }, // pass variables into template
         },
 

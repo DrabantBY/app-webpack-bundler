@@ -13,20 +13,23 @@
         enter your email and password to login.
       </span>
 
-      <label>
-        <input
-          class="auth-section__input"
-          type="email"
-          name="email"
-          placeholder="email"
-          autocomplete="email"
-          required
-          pattern=".+@.+\..+" />
-      </label>
+      <input
+        class="auth-section__input"
+        type="email"
+        name="email"
+        placeholder="email"
+        autocomplete="email"
+        aria-label="email"
+        required
+        pattern=".+@.+\..+" />
 
-      <span class="auth-section__error" aria-live="polite" hidden></span>
+      <textarea
+        class="auth-section__error"
+        name="emailError"
+        aria-label="email error"
+        hidden></textarea>
 
-      <label class="auth-section__label">
+      <div class="auth-section__label">
         <input
           class="auth-section__input"
           type="password"
@@ -35,24 +38,33 @@
           required
           minlength="8"
           autocomplete="current-password"
-          aria-label="login password" />
-        <button
-          class="auth-section__control"
-          type="button"
-          aria-label="show password">
+          aria-label="password" />
+        <button class="auth-section__control" type="button">
           {% include "src/assets/svg/hide.svg" %}
         </button>
-      </label>
+      </div>
 
-      <span class="auth-section__error" aria-live="polite" hidden></span>
+      <textarea
+        class="auth-section__error"
+        name="passwordError"
+        aria-label="password error"
+        hidden></textarea>
 
       <a class="auth-section__forgot" href="#" target="_blank">
         forgot password?
       </a>
 
-      <span class="auth-section__error" aria-live="polite" hidden></span>
+      <textarea
+        class="auth-section__error"
+        name="submitError"
+        aria-label="submit error"
+        hidden></textarea>
 
-      <button class="auth-section__submit button button-text" type="submit">
+      <button
+        class="auth-section__submit button button-text"
+        type="submit"
+        name="submit"
+        disabled>
         login
       </button>
     </form>
@@ -62,21 +74,23 @@
         enter your email and password to register.
       </span>
 
-      <label>
-        <input
-          class="auth-section__input"
-          type="email"
-          aria-label="email"
-          name="email"
-          placeholder="email"
-          autocomplete="email"
-          required
-          pattern=".+@.+\..+" />
-      </label>
+      <input
+        class="auth-section__input"
+        type="email"
+        name="email"
+        placeholder="email"
+        autocomplete="email"
+        aria-label="email"
+        required
+        pattern=".+@.+\..+" />
 
-      <span class="auth-section__error" aria-live="polite" hidden></span>
+      <textarea
+        class="auth-section__error"
+        name="emailError"
+        aria-label="email error"
+        hidden></textarea>
 
-      <label class="auth-section__label">
+      <div class="auth-section__label">
         <input
           class="auth-section__input"
           type="password"
@@ -84,32 +98,52 @@
           placeholder="password"
           required
           minlength="8"
-          autocomplete="new-password" />
+          autocomplete="new-password"
+          aria-label="password" />
 
         <button class="auth-section__control" type="button">
           {% include "src/assets/svg/hide.svg" %}
         </button>
-      </label>
+      </div>
 
-      <span class="auth-section__error" aria-live="polite" hidden></span>
+      <textarea
+        class="auth-section__error"
+        name="passwordError"
+        aria-label="password error"
+        hidden></textarea>
 
-      <label class="auth-section__label">
+      <div class="auth-section__label">
         <input
           class="auth-section__input"
           type="password"
           name="confirm"
           placeholder="confirm password"
           required
-          autocomplete="new-password" />
+          autocomplete="new-password"
+          aria-label="confirm password" />
 
         <button class="auth-section__control" type="button">
           {% include "src/assets/svg/hide.svg" %}
         </button>
-      </label>
+      </div>
 
-      <span class="auth-section__error" aria-live="polite" hidden></span>
+      <textarea
+        class="auth-section__error"
+        name="confirmError"
+        aria-label="confirm error"
+        hidden></textarea>
 
-      <button class="auth-section__submit button button-text" type="submit">
+      <textarea
+        class="auth-section__error"
+        name="submitError"
+        aria-label="submit error"
+        hidden></textarea>
+
+      <button
+        class="auth-section__submit button button-text"
+        type="submit"
+        name="submit"
+        disabled>
         register
       </button>
     </form>

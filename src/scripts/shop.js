@@ -1,10 +1,15 @@
-import { togglePopup } from '@common';
-import { SearchForm } from '@filters';
+import { initPagination, initModal } from '@common';
+import { FilterForm, SearchForm, SelectForm } from '@filters';
 
 new SearchForm('search');
 
-togglePopup(
-  'nav[class*="menu-nav"]',
-  'button[class*="menu-open"]',
-  'button[class*="menu-close"]'
-);
+new FilterForm('filter');
+
+new FilterForm('filter-modal');
+
+new SelectForm('select');
+
+initPagination('[class$="__pagination"]');
+
+initModal('navMenu', 'navMenuOpen', 'navMenuHide');
+initModal('goodsFilter', 'goodsFilterOpen', 'goodsFilterHide');

@@ -1,2 +1,2 @@
-export * from './togglePopup.js';
+export * from './initModal.js';
 export * from './initPagination.js';

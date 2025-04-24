@@ -1,4 +1,5 @@
 @forward 'filter';
+@forward 'filter-modal';
 @forward 'select';
 @forward 'list';
 @forward 'pagination';
@@ -12,56 +13,35 @@
   }
 
   &__aside {
-    position: fixed;
-    inset-block-start: 0;
-    inset-inline-end: 0;
-    inline-size: 100%;
-    z-index: 2;
-    block-size: 100%;
+    display: none;
+    flex-basis: 300px;
+    align-self: flex-start;
     padding-block: 16px;
     padding-inline: 16px;
-    transform: translateX(100%);
-    background-color: vars.$white;
-    transition: transform 0.2s linear;
-    overflow-y: scroll;
-    text-transform: capitalize;
-
-    &.display {
-      transform: none;
-    }
+    background-color: vars.$bg-white;
   }
 
   &__plants {
-    @include mixins.flex(null, null, 24px, column);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    //@include mixins.flex(null, null, 24px, column);
     font-size: 14px;
   }
 
-  @media screen and (min-width: vars.$xs + 1) {
+  @media screen and (min-width: vars.$sm + 1) {
     &__aside {
-      inline-size: 50%;
-      box-shadow: 0 0 8px 0 vars.$black;
+      display: block;
     }
 
-    @media screen and (min-width: vars.$sm + 1) {
-      &__aside {
-        position: initial;
-        flex-basis: 300px;
-        background-color: vars.$bg-white;
-        box-shadow: none;
-        transition: none;
-        transform: none;
-        overflow-y: initial;
+    @media screen and (min-width: vars.$md + 1) {
+      &__container {
+        //gap: 50px;
       }
 
-      @media screen and (min-width: vars.$md + 1) {
+      @media screen and (min-width: vars.$lg + 1) {
         &__container {
-          //gap: 50px;
-        }
-
-        @media screen and (min-width: vars.$lg + 1) {
-          &__container {
-            gap: 50px;
-          }
+          gap: 50px;
         }
       }
     }

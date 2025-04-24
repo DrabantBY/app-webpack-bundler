@@ -1,5 +1,5 @@
 export class AuthApi {
-  static #baseUrl = 'https://sandbox.salesolutions.by/login_api.php';
+  static #baseUrl = 'https://sandbox.salesolutions.by/api/login';
 
   static login = async (formData) => {
     const response = await fetch(this.#baseUrl, {
@@ -8,7 +8,9 @@ export class AuthApi {
     });
 
     if (!response.ok) {
-      throw new Error(response.statusText || 'Login failed');
+      const { message } = await response.json();
+      throw new Error(message);
+      // throw new Error(response.statusText || 'Login failed');
     }
 
     return await response.json();

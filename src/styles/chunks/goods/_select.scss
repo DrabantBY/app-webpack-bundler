@@ -3,13 +3,13 @@
 
 .goods-section {
   &__select {
-    @include mixins.flex(center, space-between, 32px);
+    @include mixins.flex(center, space-between, 12px);
     text-transform: capitalize;
     flex-wrap: wrap;
   }
 
   &__tabs {
-    @include mixins.flex(null, null, 32px);
+    @include mixins.flex(null, null, 24px);
   }
 
   &__tab {
@@ -49,6 +49,18 @@
 
       option {
         color: vars.$black;
+      }
+    }
+  }
+
+  @media screen and (min-width: vars.$sm + 1) {
+    &__tabs {
+      gap: 32px;
+    }
+
+    @media screen and (min-width: vars.$md + 1) {
+      &__select {
+        gap: 32px;
       }
     }
   }

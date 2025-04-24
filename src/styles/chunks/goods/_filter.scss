@@ -4,11 +4,8 @@
 .goods-section {
   &__filter {
     font-size: 14px;
-  }
-
-  &__close {
-    margin-inline-start: auto;
-    margin-block-end: 16px;
+    text-transform: capitalize;
+    grid-column: 1/-1;
   }
 
   &__field {

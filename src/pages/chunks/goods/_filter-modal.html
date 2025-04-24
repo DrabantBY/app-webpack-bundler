@@ -1,0 +1,83 @@
+<button
+  id="goodsFilterOpen"
+  class="goods-section__filter-open button button-icon"
+  type="button">
+  {% include 'src/assets/svg/filter.svg' %}
+</button>
+
+<dialog id="goodsFilter" class="goods-section__modal">
+  <div class="goods-section__modal-content">
+    <a class="goods-section__logo" href="/" target="_blank">
+      {% include "src/assets/svg/logo/name.svg" %}
+    </a>
+    <button
+      id="goodsFilterHide"
+      class="goods-section__hide button button-link"
+      type="button">
+      {% include 'src/assets/svg/close.svg' %}
+    </button>
+    <form class="goods-section__filter" name="filter-modal">
+      <fieldset class="goods-section__field" name="category">
+        <legend class="goods-section__legend">categories</legend>
+
+        {% for category in categories %}
+        <label class="goods-section__label">
+          <input
+            class="goods-section__checkbox"
+            type="checkbox"
+            value="{{category.label}}" />
+          <span class="goods-section__name"> {{ category.label }} </span>
+          <span class="goods-section__amount"> ({{category.value}}) </span>
+        </label>
+        {% endfor %}
+      </fieldset>
+
+      <fieldset class="goods-section__field" name="size">
+        <legend class="goods-section__legend">size</legend>
+
+        {% for size in sizes %}
+        <label class="goods-section__label">
+          <input
+            class="goods-section__checkbox"
+            type="checkbox"
+            value="{{size.label}}" />
+          <span class="goods-section__name"> {{ size.label }} </span>
+          <span class="goods-section__amount"> ({{size.value}}) </span>
+        </label>
+        {% endfor %}
+      </fieldset>
+
+      <fieldset class="goods-section__field" name="price">
+        <legend class="goods-section__legend">price</legend>
+        <div class="goods-section__slider">
+          <input
+            class="goods-section__range"
+            aria-label="first price"
+            name="first-price"
+            type="range"
+            min="0"
+            max="1500"
+            step="10" />
+
+          <input
+            class="goods-section__range"
+            aria-label="last price"
+            name="last-price"
+            type="range"
+            min="0"
+            max="1500"
+            step="10" />
+
+          <output class="goods-section__output" role="status"></output>
+        </div>
+      </fieldset>
+
+      <button class="goods-section__submit button button-text" type="submit">
+        filter
+      </button>
+      <button class="goods-section__reset button button-text" type="reset">
+        reset
+      </button>
+    </form>
+  </div>
+</dialog>

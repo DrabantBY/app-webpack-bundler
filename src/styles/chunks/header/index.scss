@@ -1,6 +1,6 @@
 @forward 'nav';
 @forward 'search';
-@forward 'burger';
+@forward 'nav-modal';
 
 @use '../../tools/variables' as vars;
 @use '../../tools/mixins' as mixins;
@@ -76,10 +76,6 @@
       span {
         display: inline;
       }
-    }
-
-    &__filter-open {
-      display: none;
     }
 
     @media screen and (min-width: vars.$lg + 1) {

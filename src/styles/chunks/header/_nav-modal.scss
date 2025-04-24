@@ -1,0 +1,47 @@
+@use '../../tools/variables' as vars;
+@use '../../tools/mixins' as mixins;
+
+.header {
+  &__menu-open {
+    display: flex;
+  }
+
+  &__menu-nav {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+  }
+
+  &__menu-list {
+    grid-column: 1/-1;
+  }
+
+  &__menu-item {
+    padding-block: 6px;
+    border-bottom: 1px solid vars.$bg-green;
+  }
+
+  &__menu-link {
+    @include mixins.flex(center, space-between);
+    padding-inline: 6px;
+    padding-block: 4px;
+    border-radius: 4px;
+    text-transform: capitalize;
+
+    &:not(&--active):hover {
+      color: vars.$hover-gray;
+      background-color: vars.$bg-gray;
+    }
+
+    &--active {
+      color: vars.$white;
+      background-color: vars.$green;
+    }
+  }
+
+  @media screen and (min-width: vars.$sm + 1) {
+    &__menu-open {
+      display: none;
+    }
+  }
+}

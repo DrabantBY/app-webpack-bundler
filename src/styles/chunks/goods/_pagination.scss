@@ -23,14 +23,21 @@
   &__page.active {
     color: vars.$white;
     background-color: vars.$green;
-    border: none;
+
+    &:hover {
+      color: vars.$white;
+    }
   }
 
   &__page.active + &__next,
   &__prev:has(+ &__page.active) {
-    color: vars.$white;
-    border-color: vars.$hover-gray;
-    background-color: vars.$hover-gray;
+    color: vars.$hover-gray;
     pointer-events: none;
+  }
+
+  @media screen and (min-width: vars.$sm + 1) {
+    &__pagination {
+      justify-self: end;
+    }
   }
 }

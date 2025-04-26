@@ -25,7 +25,6 @@
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 16px;
-    //@include mixins.flex(null, null, 24px, column);
     font-size: 14px;
   }
 
@@ -34,15 +33,9 @@
       display: block;
     }
 
-    @media screen and (min-width: vars.$md + 1) {
+    @media screen and (min-width: vars.$lg + 1) {
       &__container {
-        //gap: 50px;
-      }
-
-      @media screen and (min-width: vars.$lg + 1) {
-        &__container {
-          gap: 50px;
-        }
+        gap: 50px;
       }
     }
   }

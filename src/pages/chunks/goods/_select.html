@@ -8,17 +8,20 @@
     {% endfor %}
   </div>
 
-  <div class="goods-section__sort">
-    <label class="goods-section__sort-label" for="select-sort">
-      sort by:
-    </label>
-    <div class="goods-section__sort-options">
-      <select id="select-sort" name="sort">
-        {% for option in options %}
-        <option value="asc{{option}}">&#8657; {{option}}</option>
-        <option value="desc{{option}}">&#8659; {{option}}</option>
-        {% endfor %}
-      </select>
-    </div>
-  </div>
+  <label class="goods-section__sort">
+    sort by:
+    <select name="sort">
+      <button type="button">
+        <selectedcontent> </selectedcontent>
+      </button>
+      {% for option in options %}
+      <option value="asc{{option}}">
+        {{option}} {% include 'src/assets/svg/arrow-down.svg' %}
+      </option>
+      <option value="desc{{option}}">
+        {{option}} {% include 'src/assets/svg/arrow-up.svg' %}
+      </option>
+      {% endfor %}
+    </select>
+  </label>
 </form>

@@ -6,14 +6,15 @@
     @include mixins.flex(center, space-between, 12px);
     text-transform: capitalize;
     flex-wrap: wrap;
+    font-size: 16px;
   }
 
   &__tabs {
     @include mixins.flex(null, null, 24px);
+    font-weight: 700;
   }
 
   &__tab {
-    font-size: 16px;
     padding-block: 4px;
     cursor: pointer;
 
@@ -22,11 +23,10 @@
     }
 
     &:hover {
-      font-weight: 700;
+      color: vars.$hover-gray;
     }
 
     &:has(input[type='radio']:checked) {
-      font-weight: 700;
       color: vars.$green;
       border-bottom: 2px solid currentColor;
     }
@@ -35,25 +35,54 @@
   &__sort {
     @include mixins.flex(center);
 
-    &-options {
-      position: relative;
-      cursor: pointer;
+    select::picker(select) {
+      margin-block-start: 8px;
+      padding-block: 4px;
+      background-color: vars.$bg-white;
+      box-shadow: 0 0 10px 0 vars.$bg-gray;
+      border-radius: 6px;
+    }
 
-      select {
-        color: vars.$green;
-        padding-inline-start: 8px;
-        padding-inline-end: 12px;
-        text-transform: uppercase;
-        font-weight: 700;
+    selectedcontent,
+    option {
+      padding-block: 4px;
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    selectedcontent {
+      @include mixins.flex(center, null, 6px);
+      color: vars.$green;
+      font-weight: 700;
+      padding-inline-start: 16px;
+    }
+
+    option {
+      @include mixins.flex(center, space-between);
+      padding-inline-start: 12px;
+
+      border-left: 4px solid vars.$bg-white;
+
+      &:not(:checked):hover {
+        color: vars.$hover-gray;
+        background-color: transparent;
       }
 
-      option {
-        color: vars.$black;
+      &:checked {
+        color: vars.$green;
+        background-color: vars.$white;
+        border-color: currentColor;
       }
     }
   }
 
   @media screen and (min-width: vars.$sm + 1) {
+    &__select {
+      grid-column: 1/-1;
+    }
+
     &__tabs {
       gap: 32px;
     }

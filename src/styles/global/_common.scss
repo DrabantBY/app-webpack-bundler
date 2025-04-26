@@ -25,17 +25,21 @@
 body {
   font-family: 'CeraProRegular', sans-serif;
   scrollbar-gutter: stable;
-}
 
-a.button-text {
-  color: vars.$white;
-  background-color: vars.$green;
-  border: none;
-
-  &:hover {
-    background-color: vars.$hover-green;
+  &:has(dialog[open]) {
+    overflow-y: hidden;
   }
 }
+
+//a.button-text {
+//  color: vars.$white;
+//  background-color: vars.$green;
+//  border: none;
+//
+//  &:hover {
+//    background-color: vars.$hover-green;
+//  }
+//}
 
 dialog[class$='__modal'] {
   inline-size: 100%;
@@ -167,59 +171,55 @@ input[type='range'] {
   }
 }
 
-.button {
+[class*='button'] {
   @include mixins.flex(center, center);
   font-family: 'CeraProBold', sans-serif;
   block-size: 36px;
   min-inline-size: 36px;
   border-radius: 6px;
+  border-color: currentColor;
 
   &:disabled {
     color: vars.$hover-gray;
-    border-color: currentColor;
-    background-color: transparent;
     pointer-events: none;
   }
+}
 
-  &[type='submit'] {
-    color: vars.$white;
-    background-color: vars.$green;
+.button-text,
+.button-submit {
+  padding-inline: 12px;
+  border-width: 1px;
+  border-style: solid;
+}
 
-    &:hover:not(:disabled) {
-      background-color: vars.$hover-green;
-    }
+.button-text {
+  color: vars.$green;
 
-    &:disabled {
-      color: vars.$hover-gray;
-      border-color: currentColor;
-      background-color: transparent;
-      pointer-events: none;
-    }
+  &:hover:not(:disabled) {
+    color: vars.$hover-green;
+  }
+}
+
+.button-submit {
+  color: vars.$white;
+  background-color: vars.$green;
+  border-color: vars.$green;
+
+  &:hover:not(:disabled) {
+    background-color: vars.$hover-green;
   }
 
-  &-text,
-  &-icon {
-    color: vars.$green;
-    border: 1px solid vars.$green;
-
-    &:hover:not(:disabled) {
-      color: vars.$white;
-      background-color: vars.$green;
-      border-color: vars.$green;
-    }
+  &:disabled {
+    background-color: transparent;
+    border-color: currentColor;
   }
+}
 
-  &-link {
-    color: vars.$black;
-    background-color: vars.$bg-gray;
+.button-icon {
+  color: vars.$black;
+  background-color: vars.$bg-gray;
 
-    &:hover:not(:disabled) {
-      color: vars.$hover-gray;
-    }
-  }
-
-  &-text {
-    padding-inline: 12px;
-    gap: 4px;
+  &:hover:not(:disabled) {
+    color: vars.$hover-gray;
   }
 }

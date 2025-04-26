@@ -8,25 +8,14 @@
       {% include "src/pages/chunks/header/_nav.html" %} {% include
       "src/pages/chunks/header/_search.html" %}
       <a
-        class="header__cart button button-link"
+        class="header__cart button-icon"
         href="#"
         target="_blank"
         data-count="99">
         {% include 'src/assets/svg/cart.svg' %}
       </a>
-      <a
-        class="header__login button button-text"
-        href="login.html"
-        target="_blank">
-        {% include 'src/assets/svg/login.svg' %}
-        <span>login</span>
-      </a>
-      <a
-        class="header__profile button button-text"
-        href="profile.html"
-        target="_blank">
-        {% include 'src/assets/svg/profile.svg' %}
-        <span>profile</span>
+      <a class="header__login button-submit" href="login.html" target="_blank">
+        login
       </a>
       {% include "src/pages/chunks/header/_nav-modal.html" %}
     </div>

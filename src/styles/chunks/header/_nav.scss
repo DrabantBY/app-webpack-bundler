@@ -8,6 +8,7 @@
 
   &__list {
     @include mixins.flex(center, null, 50px);
+    font-weight: 700;
     text-transform: capitalize;
   }
 
@@ -15,12 +16,11 @@
     display: block;
     position: relative;
 
-    &:hover {
-      font-weight: 700;
+    &:not(&--active):hover {
+      color: vars.$hover-gray;
     }
 
     &--active {
-      font-weight: 700;
       color: vars.$green;
 
       &::after {

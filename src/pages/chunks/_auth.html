@@ -39,7 +39,7 @@
           minlength="8"
           autocomplete="current-password"
           aria-label="password" />
-        <button class="auth-section__control" type="button">
+        <button class="auth-section__control button-icon" type="button">
           {% include "src/assets/svg/hide.svg" %}
         </button>
       </div>
@@ -61,7 +61,7 @@
         hidden></textarea>
 
       <button
-        class="auth-section__submit button button-text"
+        class="auth-section__submit button-submit"
         type="submit"
         name="submit"
         disabled>
@@ -101,7 +101,7 @@
           autocomplete="new-password"
           aria-label="password" />
 
-        <button class="auth-section__control" type="button">
+        <button class="auth-section__control button-icon" type="button">
           {% include "src/assets/svg/hide.svg" %}
         </button>
       </div>
@@ -122,7 +122,7 @@
           autocomplete="new-password"
           aria-label="confirm password" />
 
-        <button class="auth-section__control" type="button">
+        <button class="auth-section__control button-icon" type="button">
           {% include "src/assets/svg/hide.svg" %}
         </button>
       </div>
@@ -140,7 +140,7 @@
         hidden></textarea>
 
       <button
-        class="auth-section__submit button button-text"
+        class="auth-section__submit button-submit"
         type="submit"
         name="submit"
         disabled>
@@ -154,11 +154,11 @@
         or continue with
         <hr />
       </div>
-      <a class="auth-section__link button button-icon" href="#">
+      <a class="auth-section__link button-text" href="#">
         continue with {% include "src/assets/svg/google.svg" %}
       </a>
 
-      <a class="auth-section__link button button-icon" href="#">
+      <a class="auth-section__link button-text" href="#">
         continue with {% include "src/assets/svg/facebook.svg" %}
       </a>
     </div>

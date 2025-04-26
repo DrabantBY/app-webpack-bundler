@@ -6,8 +6,7 @@
   flex-grow: 1;
 
   &__container {
-    @include mixins.flex(center, center, 36px);
-    flex-direction: column;
+    @include mixins.flex(center, center, 36px, column);
     flex-grow: 1;
   }
 
@@ -57,12 +56,10 @@
 
   &__control {
     @include mixins.flex(center, center);
-    color: vars.$gray;
     position: absolute;
     inset-block-start: 50%;
-    inset-inline-end: 10px;
+    inset-inline-end: 2px;
     transform: translateY(-50%);
-    cursor: pointer;
   }
 
   &__input {
@@ -71,7 +68,7 @@
     padding-inline-start: 14px;
     padding-inline-end: 36px;
     border: 1px solid vars.$bg-gray;
-    border-radius: 6px;
+    border-radius: 7px;
 
     &:user-invalid {
       border-color: vars.$error;

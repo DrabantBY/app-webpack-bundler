@@ -1,7 +1,4 @@
-<button
-  id="navMenuOpen"
-  class="header__menu-open button button-icon"
-  type="button">
+<button id="navMenuOpen" class="header__menu-open button-icon" type="button">
   {% include 'src/assets/svg/menu.svg' %}
 </button>
 
@@ -13,7 +10,7 @@
 
     <button
       id="navMenuHide"
-      class="header__menu-hide button button-link"
+      class="header__menu-hide button-icon"
       type="button">
       {% include 'src/assets/svg/close.svg' %}
     </button>
@@ -26,11 +23,11 @@
           class="header__menu-link header__menu-link--active"
           href="{{link.href}}"
           target="_blank">
-          {{link.label}} {% include 'src/assets/svg/short-arrow-right.svg' %}
+          {{link.label}} {% include 'src/assets/svg/send.svg' %}
         </a>
         {% else %}
         <a class="header__menu-link" href="{{link.href}}" target="_blank">
-          {{link.label}} {% include 'src/assets/svg/short-arrow-right.svg' %}
+          {{link.label}} {% include 'src/assets/svg/send.svg' %}
         </a>
         {% endif %}
       </li>

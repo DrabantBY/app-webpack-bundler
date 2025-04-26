@@ -1,17 +1,14 @@
-function onClick({ currentTarget, target }) {
-  if (target === currentTarget) return;
-
+function onClick({ currentTarget }) {
   const searchParams = new URLSearchParams(window.location.search);
 
   const currentPage = searchParams.get('page') ?? '1';
-  const value = target.dataset.page ?? target.parentElement.dataset.page;
 
-  if (currentPage === value) return;
+  if (currentPage === currentTarget.value) return;
 
   const nextValue =
-    value.startsWith('+') || value.startsWith('-')
-      ? Number(currentPage) + Number(value)
-      : value;
+    currentTarget.value.startsWith('+') || currentTarget.value.startsWith('-')
+      ? Number(currentPage) + Number(currentTarget.value)
+      : currentTarget.value;
 
   searchParams.set('page', nextValue);
   window.location.hash = 'goods';
@@ -19,18 +16,17 @@ function onClick({ currentTarget, target }) {
 }
 
 export function initPagination(selector) {
-  const pagination = document.body.querySelector(selector);
+  const buttons = document.body.querySelector(selector).children;
 
   const searchParams = new URLSearchParams(window.location.search);
 
   const currentPage = searchParams.get('page') ?? '1';
 
-  for (const button of pagination.children) {
-    if (button.dataset.page === currentPage) {
+  for (const button of buttons) {
+    if (button.value === currentPage) {
       button.classList.add('active');
-      break;
     }
-  }
 
-  pagination.addEventListener('click', onClick);
+    button.addEventListener('click', onClick);
+  }
 }

@@ -57,13 +57,13 @@
     }
   }
 
-  &__login {
-    padding-inline: 0;
-    span {
-      display: none;
-    }
-  }
-
+  //&__login {
+  //  padding-inline: 0;
+  //  span {
+  //    display: none;
+  //  }
+  //}
+  //
   &__profile {
     display: none;
   }
@@ -73,14 +73,14 @@
       padding-block: 16px;
     }
 
-    &__login {
-      inline-size: auto;
-      padding-inline: 12px;
-
-      span {
-        display: inline;
-      }
-    }
+    //&__login {
+    //  inline-size: auto;
+    //  padding-inline: 12px;
+    //
+    //  span {
+    //    display: inline;
+    //  }
+    //}
 
     @media screen and (min-width: vars.$lg + 1) {
       &__content {

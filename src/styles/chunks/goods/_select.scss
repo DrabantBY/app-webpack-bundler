@@ -33,14 +33,24 @@
   }
 
   &__sort {
-    @include mixins.flex(center);
+    &:hover button {
+      color: vars.$hover-gray;
+    }
 
-    select::picker(select) {
+    &::picker(select) {
+      inline-size: 105px;
       margin-block-start: 8px;
-      padding-block: 4px;
+      padding-block: 6px;
       background-color: vars.$bg-white;
       box-shadow: 0 0 10px 0 vars.$bg-gray;
       border-radius: 6px;
+    }
+
+    selectedcontent {
+      display: none;
+      font-weight: 700;
+      padding-inline-start: 16px;
+      padding-inline-end: 8px;
     }
 
     selectedcontent,
@@ -52,17 +62,10 @@
       }
     }
 
-    selectedcontent {
-      @include mixins.flex(center, null, 6px);
-      color: vars.$green;
-      font-weight: 700;
-      padding-inline-start: 16px;
-    }
-
     option {
       @include mixins.flex(center, space-between);
       padding-inline-start: 12px;
-
+      padding-inline-end: 6px;
       border-left: 4px solid vars.$bg-white;
 
       &:not(:checked):hover {
@@ -83,13 +86,23 @@
       grid-column: 1/-1;
     }
 
-    &__tabs {
-      gap: 32px;
-    }
-
     @media screen and (min-width: vars.$md + 1) {
       &__select {
         gap: 32px;
+      }
+
+      &__tabs {
+        gap: 32px;
+      }
+
+      &__sort {
+        svg:has(+ selectedcontent) {
+          display: none;
+        }
+
+        selectedcontent {
+          @include mixins.flex(center, null, 6px);
+        }
       }
     }
   }

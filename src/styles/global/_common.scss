@@ -2,21 +2,16 @@
 @use '../tools/mixins' as mixins;
 
 :root {
-  //shell css variables
   --shell-px: 8px;
-  //--header-h: 50px;
 
   @media screen and (min-width: vars.$xs + 1) {
     --shell-px: 16px;
-    //--header-h: 70px;
 
     @media screen and (min-width: vars.$sm + 1) {
       --shell-px: 24px;
-      //--header-h: 70px;
 
       @media screen and (min-width: vars.$lg + 1) {
         --shell-px: 40px;
-        //--header-h: 70px;
       }
     }
   }
@@ -30,16 +25,6 @@ body {
     overflow-y: hidden;
   }
 }
-
-//a.button-text {
-//  color: vars.$white;
-//  background-color: vars.$green;
-//  border: none;
-//
-//  &:hover {
-//    background-color: vars.$hover-green;
-//  }
-//}
 
 dialog[class$='__modal'] {
   inline-size: 100%;

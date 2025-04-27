@@ -5,6 +5,12 @@
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 8px;
+
+    hr {
+      block-size: 1px;
+      background-color: vars.$bg-green;
+      grid-column: 1 / -1;
+    }
   }
 
   @media screen and (min-width: vars.$sm + 1) {

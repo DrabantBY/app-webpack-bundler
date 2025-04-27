@@ -22,15 +22,21 @@
   }
 
   &__plants {
+    flex-grow: 1;
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 16px;
+    column-gap: 8px;
+    row-gap: 12px;
     font-size: 14px;
   }
 
   @media screen and (min-width: vars.$sm + 1) {
     &__aside {
       display: block;
+    }
+
+    &__plants {
+      gap: 16px;
     }
 
     @media screen and (min-width: vars.$lg + 1) {

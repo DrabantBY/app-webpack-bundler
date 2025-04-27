@@ -8,20 +8,18 @@
     {% endfor %}
   </div>
 
-  <label class="goods-section__sort">
-    sort by:
-    <select name="sort">
-      <button type="button">
-        <selectedcontent> </selectedcontent>
-      </button>
-      {% for option in options %}
-      <option value="asc{{option}}">
-        {{option}} {% include 'src/assets/svg/arrow-down.svg' %}
-      </option>
-      <option value="desc{{option}}">
-        {{option}} {% include 'src/assets/svg/arrow-up.svg' %}
-      </option>
-      {% endfor %}
-    </select>
-  </label>
+  <select class="goods-section__sort" name="sort" aria-label="goods sort">
+    <button type="button" class="button-icon">
+      {% include "src/assets/svg/sort.svg" %}
+      <selectedcontent> </selectedcontent>
+    </button>
+    {% for option in options %}
+    <option value="asc{{option}}">
+      {{option}} {% include 'src/assets/svg/arrow-down.svg' %}
+    </option>
+    <option value="desc{{option}}">
+      {{option}} {% include 'src/assets/svg/arrow-up.svg' %}
+    </option>
+    {% endfor %}
+  </select>
 </form>

@@ -1,5 +1,5 @@
 import { initPagination, initModal } from '@common';
-import { FilterForm, SearchForm, SelectForm } from '@filters';
+import { FilterForm, SearchForm, SelectForm } from '@forms';
 
 new SearchForm('search');
 

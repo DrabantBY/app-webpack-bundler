@@ -2,18 +2,30 @@
 @use '../tools/mixins' as mixins;
 
 .auth-section {
-  @include mixins.flex(center);
   flex-grow: 1;
+  align-content: center;
 
-  &__container {
-    @include mixins.flex(center, center, 36px, column);
-    flex-grow: 1;
+  &__body {
+    inline-size: fit-content;
+    margin-inline: auto;
+    padding-inline: 12px;
+    padding-block: 12px;
+    box-shadow: 0 0 10px 0 vars.$black;
+    border-radius: 6px;
+
+    & > * + * {
+      margin-block-start: 24px;
+    }
   }
 
   &__tabs {
-    @include mixins.flex(center, null, 10px);
+    inline-size: 100%;
+    text-align: center;
+    align-content: center;
     font-family: 'CeraProMedium', sans-serif;
     text-transform: capitalize;
+    padding-block-end: 12px;
+    border-bottom: 2px solid vars.$bg-green;
 
     &:has(#login:checked) ~ form[name='login'],
     &:has(#register:checked) ~ form[name='register'] {
@@ -26,13 +38,19 @@
   }
 
   &__divider {
+    display: inline-block;
+    margin-inline: 8px;
     inline-size: 2px;
-    block-size: 16px;
-    background-color: vars.$bg-gray;
+    block-size: 1cap;
+    background-color: vars.$bg-green;
   }
 
   &__tab {
     cursor: pointer;
+
+    &:hover {
+      font-weight: 700;
+    }
 
     &:has(+ input[type='radio']:checked) {
       color: vars.$green;
@@ -93,10 +111,16 @@
   }
 
   &__forgot {
+    block-size: 40px;
     font-size: 14px;
     color: vars.$green;
     align-self: flex-end;
     text-transform: capitalize;
+    align-content: center;
+
+    &:hover {
+      font-weight: 700;
+    }
   }
 
   &__submit {
@@ -105,11 +129,9 @@
 
   &__links {
     inline-size: 100%;
-    @include mixins.flex(center, null, 14px, column);
   }
 
   &__header {
-    inline-size: 100%;
     font-size: 14px;
     @include mixins.flex(center, null, 10px);
     margin-block-end: 22px;
@@ -123,9 +145,8 @@
   }
 
   &__link {
-    block-size: 40px;
-    inline-size: 100%;
     font-family: 'CeraProMedium', sans-serif;
+    margin-block-start: 14px;
 
     &:nth-of-type(1) {
       gap: 4px;

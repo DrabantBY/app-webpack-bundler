@@ -54,7 +54,7 @@ dialog[class$='__modal'] {
 
   @media screen and (min-width: vars.$xs + 1) {
     inline-size: 50%;
-    box-shadow: 0 0 8px 0 vars.$black;
+    box-shadow: 0 0 10px 0 vars.$black;
     transform: translateX(200%);
 
     &[open] {
@@ -113,20 +113,6 @@ input[type='range'] {
   min-block-size: 100vh;
   display: flex;
   @include mixins.flex(null, null, null, column);
-}
-
-#overlay {
-  position: fixed;
-  block-size: 100%;
-  inline-size: 100%;
-  z-index: 2;
-  backdrop-filter: blur(2px);
-
-  @media screen and (min-width: vars.$sm + 1) {
-    &:not([hidden]) {
-      display: none;
-    }
-  }
 }
 
 #header,

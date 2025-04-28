@@ -1,166 +1,168 @@
 <div id="auth" class="auth-section">
   <div class="auth-section__container">
-    <div class="auth-section__tabs">
-      <label for="login" class="auth-section__tab"> login </label>
-      <input id="login" type="radio" name="auth" checked />
-      <span class="auth-section__divider"></span>
-      <label for="register" class="auth-section__tab"> register </label>
-      <input id="register" type="radio" name="auth" />
-    </div>
+    <div class="auth-section__body">
+      <div class="auth-section__tabs">
+        <label for="login" class="auth-section__tab"> login </label>
+        <input id="login" type="radio" name="auth" checked />
+        <span class="auth-section__divider"></span>
+        <label for="register" class="auth-section__tab"> register </label>
+        <input id="register" type="radio" name="auth" />
+      </div>
 
-    <form class="auth-section__form" name="login" novalidate>
-      <span class="auth-section__title">
-        enter your email and password to login.
-      </span>
+      <form class="auth-section__form" name="login" novalidate>
+        <span class="auth-section__title">
+          enter your email and password to login.
+        </span>
 
-      <input
-        class="auth-section__input"
-        type="email"
-        name="email"
-        placeholder="email"
-        autocomplete="email"
-        aria-label="email"
-        required
-        pattern=".+@.+\..+" />
-
-      <textarea
-        class="auth-section__error"
-        name="emailError"
-        aria-label="email error"
-        hidden></textarea>
-
-      <div class="auth-section__label">
         <input
           class="auth-section__input"
-          type="password"
-          name="password"
-          placeholder="password"
+          type="email"
+          name="email"
+          placeholder="email"
+          autocomplete="email"
+          aria-label="email"
           required
-          minlength="8"
-          autocomplete="current-password"
-          aria-label="password" />
-        <button class="auth-section__control button-icon" type="button">
-          {% include "src/assets/svg/hide.svg" %}
+          pattern=".+@.+\..+" />
+
+        <textarea
+          class="auth-section__error"
+          name="emailError"
+          aria-label="email error"
+          hidden></textarea>
+
+        <div class="auth-section__label">
+          <input
+            class="auth-section__input"
+            type="password"
+            name="password"
+            placeholder="password"
+            required
+            minlength="8"
+            autocomplete="current-password"
+            aria-label="password" />
+          <button class="auth-section__control button-icon" type="button">
+            {% include "src/assets/svg/hide.svg" %}
+          </button>
+        </div>
+
+        <textarea
+          class="auth-section__error"
+          name="passwordError"
+          aria-label="password error"
+          hidden></textarea>
+
+        <a class="auth-section__forgot" href="#" target="_blank">
+          forgot password?
+        </a>
+
+        <textarea
+          class="auth-section__error"
+          name="submitError"
+          aria-label="submit error"
+          hidden></textarea>
+
+        <button
+          class="auth-section__submit button-submit"
+          type="submit"
+          name="submit"
+          disabled>
+          login
         </button>
-      </div>
+      </form>
 
-      <textarea
-        class="auth-section__error"
-        name="passwordError"
-        aria-label="password error"
-        hidden></textarea>
+      <form class="auth-section__form" name="register" novalidate>
+        <span class="auth-section__title">
+          enter your email and password to register.
+        </span>
 
-      <a class="auth-section__forgot" href="#" target="_blank">
-        forgot password?
-      </a>
-
-      <textarea
-        class="auth-section__error"
-        name="submitError"
-        aria-label="submit error"
-        hidden></textarea>
-
-      <button
-        class="auth-section__submit button-submit"
-        type="submit"
-        name="submit"
-        disabled>
-        login
-      </button>
-    </form>
-
-    <form class="auth-section__form" name="register" novalidate>
-      <span class="auth-section__title">
-        enter your email and password to register.
-      </span>
-
-      <input
-        class="auth-section__input"
-        type="email"
-        name="email"
-        placeholder="email"
-        autocomplete="email"
-        aria-label="email"
-        required
-        pattern=".+@.+\..+" />
-
-      <textarea
-        class="auth-section__error"
-        name="emailError"
-        aria-label="email error"
-        hidden></textarea>
-
-      <div class="auth-section__label">
         <input
           class="auth-section__input"
-          type="password"
-          name="password"
-          placeholder="password"
+          type="email"
+          name="email"
+          placeholder="email"
+          autocomplete="email"
+          aria-label="email"
           required
-          minlength="8"
-          autocomplete="new-password"
-          aria-label="password" />
+          pattern=".+@.+\..+" />
 
-        <button class="auth-section__control button-icon" type="button">
-          {% include "src/assets/svg/hide.svg" %}
+        <textarea
+          class="auth-section__error"
+          name="emailError"
+          aria-label="email error"
+          hidden></textarea>
+
+        <div class="auth-section__label">
+          <input
+            class="auth-section__input"
+            type="password"
+            name="password"
+            placeholder="password"
+            required
+            minlength="8"
+            autocomplete="new-password"
+            aria-label="password" />
+
+          <button class="auth-section__control button-icon" type="button">
+            {% include "src/assets/svg/hide.svg" %}
+          </button>
+        </div>
+
+        <textarea
+          class="auth-section__error"
+          name="passwordError"
+          aria-label="password error"
+          hidden></textarea>
+
+        <div class="auth-section__label">
+          <input
+            class="auth-section__input"
+            type="password"
+            name="confirm"
+            placeholder="confirm password"
+            required
+            autocomplete="new-password"
+            aria-label="confirm password" />
+
+          <button class="auth-section__control button-icon" type="button">
+            {% include "src/assets/svg/hide.svg" %}
+          </button>
+        </div>
+
+        <textarea
+          class="auth-section__error"
+          name="confirmError"
+          aria-label="confirm error"
+          hidden></textarea>
+
+        <textarea
+          class="auth-section__error"
+          name="submitError"
+          aria-label="submit error"
+          hidden></textarea>
+
+        <button
+          class="auth-section__submit button-submit"
+          type="submit"
+          name="submit"
+          disabled>
+          register
         </button>
+      </form>
+
+      <div class="auth-section__links">
+        <div class="auth-section__header">
+          <hr />
+          or continue with
+          <hr />
+        </div>
+        <a class="auth-section__link button-text" href="#">
+          continue with {% include "src/assets/svg/google.svg" %}
+        </a>
+
+        <a class="auth-section__link button-text" href="#">
+          continue with {% include "src/assets/svg/facebook.svg" %}
+        </a>
       </div>
-
-      <textarea
-        class="auth-section__error"
-        name="passwordError"
-        aria-label="password error"
-        hidden></textarea>
-
-      <div class="auth-section__label">
-        <input
-          class="auth-section__input"
-          type="password"
-          name="confirm"
-          placeholder="confirm password"
-          required
-          autocomplete="new-password"
-          aria-label="confirm password" />
-
-        <button class="auth-section__control button-icon" type="button">
-          {% include "src/assets/svg/hide.svg" %}
-        </button>
-      </div>
-
-      <textarea
-        class="auth-section__error"
-        name="confirmError"
-        aria-label="confirm error"
-        hidden></textarea>
-
-      <textarea
-        class="auth-section__error"
-        name="submitError"
-        aria-label="submit error"
-        hidden></textarea>
-
-      <button
-        class="auth-section__submit button-submit"
-        type="submit"
-        name="submit"
-        disabled>
-        register
-      </button>
-    </form>
-
-    <div class="auth-section__links">
-      <div class="auth-section__header">
-        <hr />
-        or continue with
-        <hr />
-      </div>
-      <a class="auth-section__link button-text" href="#">
-        continue with {% include "src/assets/svg/google.svg" %}
-      </a>
-
-      <a class="auth-section__link button-text" href="#">
-        continue with {% include "src/assets/svg/facebook.svg" %}
-      </a>
     </div>
   </div>
 </div>

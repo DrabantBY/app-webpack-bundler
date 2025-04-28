@@ -49,8 +49,8 @@ export default {
               { label: 'large', value: 23 },
             ],
             tabs: [
-              { name: 'all plants', value: 'all' },
-              { name: 'new arrivals', value: 'new' },
+              { name: 'all', value: 'all' },
+              { name: 'new', value: 'new' },
               { name: 'sale', value: 'sale' },
             ],
             plants: [
@@ -160,7 +160,7 @@ export default {
       '@tools': join(import.meta.dirname, 'src/scripts/common/tools'),
       '@const': join(import.meta.dirname, 'src/scripts/common/const'),
       '@handlers': join(import.meta.dirname, 'src/scripts/common/handlers'),
-      '@filters': join(import.meta.dirname, 'src/scripts/filters'),
+      '@forms': join(import.meta.dirname, 'src/scripts/forms'),
       '@api': join(import.meta.dirname, 'src/scripts/api'),
       '@states': join(import.meta.dirname, 'src/scripts/states'),
     },

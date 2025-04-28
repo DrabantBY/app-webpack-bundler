@@ -57,15 +57,14 @@
     }
   }
 
-  //&__login {
-  //  padding-inline: 0;
-  //  span {
-  //    display: none;
-  //  }
-  //}
-  //
+  &__login,
   &__profile {
-    display: none;
+    padding-inline: 0;
+    font-size: 0;
+  }
+
+  &__profile {
+    border-radius: 50%;
   }
 
   @media screen and (min-width: vars.$sm + 1) {
@@ -73,14 +72,17 @@
       padding-block: 16px;
     }
 
-    //&__login {
-    //  inline-size: auto;
-    //  padding-inline: 12px;
-    //
-    //  span {
-    //    display: inline;
-    //  }
-    //}
+    &__login,
+    &__profile {
+      inline-size: auto;
+      padding-inline: 12px;
+      font-size: initial;
+      gap: 4px;
+    }
+
+    &__profile {
+      border-radius: 6px;
+    }
 
     @media screen and (min-width: vars.$lg + 1) {
       &__content {

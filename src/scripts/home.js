@@ -1,6 +1,6 @@
 import { register } from 'swiper/element/bundle';
 import { initModal } from '@common';
-import { SearchForm } from '@filters';
+import { SearchForm } from '@forms';
 
 register();
 

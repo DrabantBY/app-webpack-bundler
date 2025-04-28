@@ -1,4 +1,4 @@
-import { PriceRange } from '@filters/PriceRange.js';
+import { PriceRange } from '@scripts/forms/PriceRange.js';
 
 export class FilterForm {
   #form;

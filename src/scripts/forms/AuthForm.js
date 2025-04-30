@@ -25,10 +25,8 @@ export class AuthForm {
 
     const formData = new FormData(event.target);
 
-    for (const [key] of formData)
-      if (key.endsWith('Error')) formData.delete(key);
-
-    formData.delete('submitError'); // in loop above no delete !!!
+    for (const { name } of event.target.elements)
+      if (name.endsWith('Error')) formData.delete(name);
 
     try {
       this.#showError('submit');

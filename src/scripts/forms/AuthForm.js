@@ -20,12 +20,12 @@ export class AuthForm {
     this.#form.addEventListener('input', this.#onInput);
   };
 
-  #onSubmit = async (event) => {
-    event.preventDefault();
+  #onSubmit = async (e) => {
+    e.preventDefault();
 
-    const formData = new FormData(event.target);
+    const formData = new FormData(e.target);
 
-    for (const { name } of event.target.elements)
+    for (const { name } of e.target.elements)
       if (name.endsWith('Error')) formData.delete(name);
 
     try {

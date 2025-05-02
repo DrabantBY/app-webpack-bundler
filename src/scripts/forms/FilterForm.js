@@ -19,12 +19,10 @@ export class FilterForm {
     const params = new URLSearchParams(window.location.search);
 
     for (const { elements, name } of this.#fields) {
-      if (params.has(name)) {
-        for (const element of elements) {
+      if (params.has(name))
+        for (const element of elements)
           if (element.type === 'checkbox')
             element.checked = params.get(name).includes(element.value);
-        }
-      }
     }
 
     this.#disableActions();
@@ -40,18 +38,17 @@ export class FilterForm {
         this.#getCheckedBoxes().length === 0 && this.#price.checkValues();
   };
 
-  #onSubmit = (event) => {
-    event.preventDefault();
+  #onSubmit = (e) => {
+    e.preventDefault();
 
     const params = new URLSearchParams(window.location.search);
 
     for (const { elements, name } of this.#fields) {
       const values = [];
 
-      for (const { type, checked, value } of elements) {
+      for (const { type, checked, value } of elements)
         if ((type === 'checkbox' && checked) || type === 'range')
           values.push(value);
-      }
 
       if (values.length > 0) {
         values.sort((a, b) => a - b);
@@ -63,8 +60,8 @@ export class FilterForm {
     window.location.search = params;
   };
 
-  #onReset = async (event) => {
-    event.preventDefault();
+  #onReset = async (e) => {
+    e.preventDefault();
 
     this.#price.reset();
 
@@ -78,9 +75,8 @@ export class FilterForm {
     const params = new URLSearchParams(window.location.search);
 
     if (params.size !== 0) {
-      for (const { name } of this.#fields) {
+      for (const { name } of this.#fields)
         if (params.has(name)) params.delete(name);
-      }
 
       window.location.search = params;
     }

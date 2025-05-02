@@ -1,6 +1,41 @@
 import { resolve, join } from 'node:path';
 import HtmlBundlerPlugin from 'html-bundler-webpack-plugin';
 
+function activateClass(activeHref) {
+  return activeHref === this.href ? ' active' : '';
+}
+
+const setLinks = (activeHref = '') => [
+  {
+    label: 'home',
+    href: '/',
+    get active() {
+      return activateClass.call(this, activeHref);
+    },
+  },
+  {
+    label: 'shop',
+    href: 'shop.html',
+    get active() {
+      return activateClass.call(this, activeHref);
+    },
+  },
+  {
+    label: 'blog',
+    href: 'blog.html',
+    get active() {
+      return activateClass.call(this, activeHref);
+    },
+  },
+  {
+    label: 'about',
+    href: 'about.html',
+    get active() {
+      return activateClass.call(this, activeHref);
+    },
+  },
+];
+
 export default {
   output: {
     path: resolve(import.meta.dirname, 'dist'),
@@ -15,25 +50,15 @@ export default {
           filename: 'index.html', // => dist/index.html
           data: {
             title: 'home',
-            links: [
-              { label: 'home', href: '/', active: true },
-              { label: 'shop', href: 'shop.html' },
-              { label: 'blog', href: 'blog.html' },
-              { label: 'about', href: 'about.html' },
-            ],
+            links: setLinks('/'),
           }, // pass variables into template
         },
         {
           import: 'src/pages/shop.html', // template file
-          filename: 'shop.html', // => dist/about.html
+          filename: 'shop.html', // => dist/shop.html
           data: {
             title: 'shop',
-            links: [
-              { label: 'home', href: '/' },
-              { label: 'shop', href: 'shop.html', active: true },
-              { label: 'blog', href: 'blog.html' },
-              { label: 'about', href: 'about.html' },
-            ],
+            links: setLinks('shop.html'),
             categories: [
               { label: 'house', value: 33 },
               { label: 'potter', value: 12 },
@@ -69,9 +94,19 @@ export default {
 
         {
           import: 'src/pages/login.html', // template file
-          filename: 'login.html', // => dist/about.html
+          filename: 'login.html', // => dist/login.html
           data: {
             title: 'login',
+          }, // pass variables into template
+        },
+
+        {
+          import: 'src/pages/card.html', // template file
+          filename: 'card.html', // => dist/card.html
+          data: {
+            title: 'card',
+            links: setLinks(),
+            images: Array.from({ length: 8 }),
           }, // pass variables into template
         },
       ],

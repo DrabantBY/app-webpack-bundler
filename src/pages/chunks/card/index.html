@@ -1,0 +1,45 @@
+<div id="card" class="card-section">
+  <div class="card-section__container">
+    <div class="card-section__gallery">
+      <swiper-container
+        class="card-section__slider-thumbs"
+        slides-per-view="4"
+        direction="vertical"
+        grab-cursor>
+        {% for image in images %}
+        <swiper-slide class="card-section__slide" lazy>
+          <figure class="card-section__figure">
+            <img
+              class="card-section__image"
+              src="@img/goods/plant-{{loop.index}}.png"
+              alt="plant picture"
+              loading="lazy" />
+          </figure>
+        </swiper-slide>
+        {% endfor %}
+      </swiper-container>
+
+      <swiper-container
+        id="zoomSlider"
+        class="card-section__slider-zoom"
+        slides-per-view="1"
+        direction="vertical"
+        allow-touch-move="false"
+        thumbs-swiper=".card-section__slider-thumbs">
+        {% for image in images %}
+        <swiper-slide class="card-section__slide" lazy>
+          <figure class="card-section__figure">
+            <img
+              class="card-section__image"
+              src="@img/goods/plant-{{loop.index}}.png"
+              alt="plant picture"
+              loading="lazy" />
+          </figure>
+        </swiper-slide>
+
+        {% endfor %}
+      </swiper-container>
+    </div>
+    <div>asdfasdfasdfasdf</div>
+  </div>
+</div>

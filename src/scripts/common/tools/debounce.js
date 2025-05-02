@@ -1,7 +1,7 @@
 import { DEBOUNCE_TIME } from '@const';
 
 export const debounce = (fn, ms = DEBOUNCE_TIME) => {
-  let timer;
+  var timer;
 
   return function (...args) {
     const callback = () => {

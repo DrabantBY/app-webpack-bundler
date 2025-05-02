@@ -34,12 +34,12 @@
       height: 16px;
     }
 
-    &:not(&--active):hover {
+    &:hover {
       color: vars.$hover-gray;
       background-color: vars.$bg-gray;
     }
 
-    &--active {
+    &.active {
       color: vars.$white;
       background-color: vars.$green;
     }

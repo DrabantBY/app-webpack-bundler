@@ -16,11 +16,11 @@
     display: block;
     position: relative;
 
-    &:not(&--active):hover {
+    &:hover {
       color: vars.$hover-gray;
     }
 
-    &--active {
+    &.active {
       color: vars.$green;
 
       &::after {
@@ -49,7 +49,7 @@
         grid-column: 2 / 3;
       }
 
-      &__link--active::after {
+      &__link.active::after {
         inset-block-end: -32px;
       }
     }

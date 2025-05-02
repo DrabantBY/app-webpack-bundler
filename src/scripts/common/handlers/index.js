@@ -1,2 +1,3 @@
 export * from './initModal.js';
-export * from './initPagination.js';
+export * from './Pagination.js';
+export * from './ZoomCard.js';

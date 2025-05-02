@@ -1,0 +1,70 @@
+@forward 'global';
+@forward 'chunks/header';
+@forward 'chunks/footer';
+
+@use './tools/variables' as vars;
+
+.card-section {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 52px;
+  }
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 16px;
+  }
+
+  &__slider-thumbs,
+  &__slider-zoom {
+    block-size: 480px !important;
+  }
+
+  &__slider-zoom &__figure {
+    cursor: zoom-in;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 200%;
+
+    &:hover img {
+      visibility: hidden;
+    }
+  }
+
+  &__slide {
+    align-content: center;
+  }
+
+  &__figure {
+    inline-size: 90%;
+    block-size: 90%;
+    margin-inline: auto;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &__slider-zoom &__figure {
+    box-shadow: 0 0 10px 0 vars.$bg-green;
+  }
+
+  &__slider-thumbs {
+    figure:hover {
+      box-shadow: 0 0 10px 0 vars.$bg-gray;
+    }
+
+    .swiper-slide-thumb-active figure {
+      box-shadow: 0 0 5px 0 vars.$bg-green;
+    }
+  }
+
+  &__slider-zoom {
+    block-size: 480px !important;
+  }
+
+  &__image {
+    block-size: 100%;
+    object-fit: contain;
+  }
+}
